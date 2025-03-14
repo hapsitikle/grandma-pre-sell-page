@@ -84,6 +84,24 @@ window.onload = function() {
     const ctaButton = document.querySelector('.cta-button');
     ctaButton.addEventListener('mouseover', makeMoneySplash);
     
+    // Add click event to show loading message
+    ctaButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        this.innerHTML = "PLEASE WAIT... REDIRECTING YOU TO QUALIFICATION QUIZ";
+        this.style.background = "linear-gradient(45deg, #888, #666)";
+        this.style.pointerEvents = "none";
+        
+        // Create and add a loading spinner
+        const spinner = document.createElement('div');
+        spinner.className = 'loading-spinner';
+        this.appendChild(spinner);
+        
+        // Redirect after a short delay to show the loading state
+        setTimeout(() => {
+            window.location.href = this.href;
+        }, 2000);
+    });
+    
     // Prefetch the link when the user scrolls down near the button
     // This creates an invisible iframe that loads the target page in the background
     document.addEventListener('scroll', function() {
