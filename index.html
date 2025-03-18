@@ -852,24 +852,26 @@
       <!-- Image Display Section with Arrow -->
       <div style="background-color: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; display: inline-block; max-width: 384px; position: relative;">
         <div style="position: relative; display: flex; align-items: center;">
-          <img src="https://i.pinimg.com/736x/d0/ef/9d/d0ef9d29538317bc2130103789c9f179.jpg" alt="Martha's Success Story" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 100%; width: 60%;" />
-          
-          <!-- Animated Arrow -->
-          <div style="margin-left: 15px; animation: bounceDown 1.5s infinite;">
-            <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M35 5 L35 45 L20 30 L35 45 L50 30" stroke="#dc2626" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          
-          <style>
-            @keyframes bounceDown {
-              0%, 100% { transform: translateY(0); }
-              50% { transform: translateY(10px); }
-            }
-          </style>
-          
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, black, transparent); padding: 12px; color: white; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
-            <p style="font-weight: bold;">Martha's Transformation: From Struggling Retiree to $4,500/Month</p>
+          <div style="position: relative; width: 100%;">
+            <img src="https://i.pinimg.com/736x/d0/ef/9d/d0ef9d29538317bc2130103789c9f179.jpg" alt="Martha's Success Story" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 100%; width: 60%;" />
+            
+            <!-- Animated Arrow moved to right side -->
+            <div style="position: absolute; right: -80px; top: 50%; transform: translateY(-50%); animation: bounceDown 1.5s infinite;">
+              <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M35 5 L35 45 L20 30 L35 45 L50 30" stroke="#dc2626" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            
+            <style>
+              @keyframes bounceDown {
+                0%, 100% { transform: translateY(-50%); }
+                50% { transform: translateY(-40%); }
+              }
+            </style>
+            
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, black, transparent); padding: 12px; color: white; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
+              <p style="font-weight: bold;">Martha's Transformation: From Struggling Retiree to $4,500/Month</p>
+            </div>
           </div>
         </div>
       </div>
@@ -901,7 +903,7 @@
     <!-- Limited Time Warning -->
     <div class="urgency-notice">
       <i style="margin-right: 8px;">⏰</i>
-      URGENT: Due to high demand, we can only accept&nbsp;<span class="underline">200 positions for March</span>. Offer expires soon!
+      <span style="display: inline-block;">URGENT: Due to high demand, we can only accept <span class="underline">200 positions for March</span>. Offer expires soon!</span>
     </div>
     
     <!-- Benefit Icons Section -->
