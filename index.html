@@ -44,16 +44,6 @@
       50% { opacity: 0.8; }
     }
     
-    @keyframes arrowBlink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-    
-    @keyframes arrowFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
-    }
-    
     .header h1 {
       font-size: 2.5rem;
       margin-bottom: 20px;
@@ -757,6 +747,7 @@
       bottom: 0;
       background-color: rgba(0, 0, 0, 0.7);
       z-index: 1000;
+      display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -858,27 +849,197 @@
         Earning <span class="emphasis">Life-Changing Income</span> With Simple Typing Jobs - No Experience Required
       </p>
       
-      <!-- Image Section with 3D Arrow -->
-      <div style="background-color: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; display: inline-block; max-width: 640px; position: relative;">
-        <!-- Main image -->
-        <img src="https://i.pinimg.com/736x/d0/ef/9d/d0ef9d29538317bc2130103789c9f179.jpg" alt="Happy Woman Working From Home" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 100%;" />
-        
-        <!-- 3D Blinking Arrow -->
-        <div style="position: absolute; bottom: -30px; right: 20px; animation: arrowBlink 1.5s infinite, arrowFloat 2s ease-in-out infinite;">
-          <div style="width: 0; height: 0; 
-                      border-left: 20px solid transparent;
-                      border-right: 20px solid transparent;
-                      border-top: 30px solid #fcd34d;
-                      filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.3));">
+      <!-- Image Display Section (Formerly Video) -->
+      <div style="background-color: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; display: inline-block; max-width: 640px;">
+        <div style="position: relative;">
+          <img src="https://i.pinimg.com/736x/d0/ef/9d/d0ef9d29538317bc2130103789c9f179.jpg" alt="Martha's Success Story" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 100%;" />
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, black, transparent); padding: 12px; color: white; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
+            <p style="font-weight: bold;">Martha's Transformation: From Struggling Retiree to $4,500/Month</p>
           </div>
-        </div>
-        
-        <!-- Caption text -->
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, black, transparent); padding: 12px; color: white; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
-          <p style="font-weight: bold;">Martha's Success Story: From Struggling Retiree to $4,500/Month</p>
         </div>
       </div>
     </div>
+  </header>
+  
+  <!-- Social Proof Bar -->
+  <div class="social-proof-bar">
+    <div class="container">
+      <div class="social-proof-items">
+        <div class="social-proof-item">
+          <i>👥</i>
+          <span><span class="bold">900</span> people joined last month</span>
+        </div>
+        <div class="social-proof-item">
+          <i>🛡️</i>
+          <span>Verified Opportunity</span>
+        </div>
+        <div class="social-proof-item">
+          <i>🏆</i>
+          <span>Top Rated: <span class="bold">4.7/5</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Limited Time Warning -->
+    <div class="urgency-notice">
+      <i style="margin-right: 8px;">⏰</i>
+      URGENT: Due to high demand, we can only accept&nbsp;<span class="underline">200 positions for March</span>. Offer expires soon!
+    </div>
+    
+    <!-- Benefit Icons Section -->
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="icon" style="color: #3b82f6;">⏰</div>
+        <h3>Work 2 Hours Daily</h3>
+        <p>Flexible schedule</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon" style="color: #10b981;">💰</div>
+        <h3>Earn $4,500/Month</h3>
+        <p>Paid weekly</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon" style="color: #8b5cf6;">✅</div>
+        <h3>No Experience Needed</h3>
+        <p>Full training provided</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon" style="color: #0d9488;">🛡️</div>
+        <h3>Legitimate Opportunity</h3>
+        <p>100% satisfaction guarantee</p>
+      </div>
+    </div>
+    
+    <!-- Martha's Story Section - Now a single section -->
+    <div class="story-section">
+      <h2>How Martha Turned Simple Typing Into A $4,500/Month Income Stream...</h2>
+      <div class="testimonial">
+        <p class="testimonial-quote">
+          "I was struggling to make ends meet after retirement. My pension barely covered my bills. 
+          Then I discovered these typing jobs that I could do from my living room. Now I'm making 
+          $4,500 a month working just a couple hours each day. It's changed my life completely!"
+        </p>
+        <div class="testimonial-author">
+          <img src="/api/placeholder/80/80" alt="Martha" class="author-image" />
+          <div class="author-info">
+            <p class="name">Martha J.</p>
+            <p class="role">Retired Teacher, Age 67</p>
+            <div class="star-rating">★★★★★</div>
+            <div class="verified-badge">
+              ✓ Verified Member
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Benefits List -->
+      <div class="benefits-list">
+        <h3>What You'll Get:</h3>
+        <ul>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Immediate access to our database of high-paying typing jobs</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Step-by-step training program to increase your typing speed</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Weekly payments directly to your bank account or PayPal</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Personal coach to help you maximize your earnings</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Flexible schedule - work whenever you want, from anywhere</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>No boss, no commute, no strict deadlines</span></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Comparison and How It Works Section Side-by-Side -->
+    <div class="comparison-section">
+      <div>
+        <h3>Why Our Typing Job Beats Traditional Work</h3>
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Traditional Jobs</th>
+                <th>Our Typing Job</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Work 40+ hours per week</td>
+                <td>✓ Work just 2 hours daily</td>
+              </tr>
+              <tr>
+                <td>30+ minute commute each way</td>
+                <td>✓ Work from your couch</td>
+              </tr>
+              <tr>
+                <td>Fixed schedule, no flexibility</td>
+                <td>✓ Complete freedom to choose hours</td>
+              </tr>
+              <tr>
+                <td>Work until retirement age (65+)</td>
+                <td>✓ Work as long as you want</td>
+              </tr>
+              <tr>
+                <td>Limited income potential</td>
+                <td>✓ Unlimited earning potential</td>
+              </tr>
+              <tr>
+                <td>Boss breathing down your neck</td>
+                <td>✓ Be your own boss</td>
+              </tr>
+              <tr>
+                <td>Health risks from stress</td>
+                <td>✓ Low-stress, comfortable work</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div>
+        <h3>How Our Typing Jobs Work</h3>
+        <div class="how-it-works">
+          <ol class="steps-list">
+            <li>
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <p class="title">Sign up today to secure your spot</p>
+                <p class="description">Complete the form with your information to get started immediately</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <p class="title">Access our exclusive job database</p>
+                <p class="description">Browse hundreds of available typing jobs from verified companies</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <p class="title">Complete our speed-boosting training</p>
+                <p class="description">Follow our proven system to increase your typing speed and accuracy</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <p class="title">Select jobs that fit your schedule</p>
+                <p class="description">Work whenever you want, for as long as you want</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <p class="title">Get paid weekly, directly to your account</p>
+                <p class="description">Receive payments via PayPal, direct deposit, or check - your choice</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    
+
     
     <!-- Testimonials -->
     <section class="testimonials-section">
@@ -927,6 +1088,31 @@
         </div>
       </div>
     </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-item">
+        <p class="faq-question">Do I need special skills or experience?</p>
+        <p>Absolutely not! If you can type at a basic level and have a computer with internet access, you're fully qualified to start. Our proprietary training system will help boost your typing speed and show you exactly how to complete the tasks efficiently.</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">How soon can I start earning?</p>
+        <p>Most of our members start earning within 24-48 hours of joining. Your first payment could arrive as soon as next week! We have an immediate need for typists and our onboarding process is designed to get you working and earning quickly.</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">Is there a fee to join?</p>
+        <p>There's a small one-time registration fee of $37 that gives you lifetime access to our exclusive job database and training materials. This fee helps us maintain quality opportunities and provide ongoing support. Many members earn this back on their very first day!</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">How much can I really earn?</p>
+        <p>While earnings vary based on your typing speed and how many hours you commit, our average member earns $25-35 per hour. Our top performers make $50+ per hour, with monthly earnings of $4,000-$5,000 working part-time. The potential is truly unlimited as you gain experience.</p>
+      </div>
+    </section>
+    
 
     <!-- Guarantee Section -->
     <div class="guarantee-section">
@@ -1046,206 +1232,3 @@
   </script>
 </body>
 </html>
-    
-    <!-- FAQ Section -->
-    <section class="faq-section">
-      <h3>Frequently Asked Questions</h3>
-      <div class="faq-item">
-        <p class="faq-question">Do I need special skills or experience?</p>
-        <p>Absolutely not! If you can type at a basic level and have a computer with internet access, you're fully qualified to start. Our proprietary training system will help boost your typing speed and show you exactly how to complete the tasks efficiently.</p>
-      </div>
-      
-      <div class="faq-item">
-        <p class="faq-question">How soon can I start earning?</p>
-        <p>Most of our members start earning within 24-48 hours of joining. Your first payment could arrive as soon as next week! We have an immediate need for typists and our onboarding process is designed to get you working and earning quickly.</p>
-      </div>
-      
-      <div class="faq-item">
-        <p class="faq-question">Is there a fee to join?</p>
-        <p>There's a small one-time registration fee of $37 that gives you lifetime access to our exclusive job database and training materials. This fee helps us maintain quality opportunities and provide ongoing support. Many members earn this back on their very first day!</p>
-      </div>
-      
-      <div class="faq-item">
-        <p class="faq-question">How much can I really earn?</p>
-        <p>While earnings vary based on your typing speed and how many hours you commit, our average member earns $25-35 per hour. Our top performers make $50+ per hour, with monthly earnings of $4,000-$5,000 working part-time. The potential is truly unlimited as you gain experience.</p>
-      </div>
-    </section>
-  </header>
-  
-  <!-- Social Proof Bar -->
-  <div class="social-proof-bar">
-    <div class="container">
-      <div class="social-proof-items">
-        <div class="social-proof-item">
-          <i>👥</i>
-          <span><span class="bold">900</span> people joined last month</span>
-        </div>
-        <div class="social-proof-item">
-          <i>🛡️</i>
-          <span>Verified Opportunity</span>
-        </div>
-        <div class="social-proof-item">
-          <i>🏆</i>
-          <span>Top Rated: <span class="bold">4.7/5</span></span>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Main Content -->
-  <main class="container">
-    <!-- Limited Time Warning -->
-    <div class="urgency-notice">
-      <i style="margin-right: 8px;">⏰</i>
-      URGENT: Due to high demand, we can only accept&nbsp;<span class="underline">200 positions for March</span>. Offer expires soon!
-    </div>
-    
-    <!-- Benefit Icons Section -->
-    <div class="benefit-grid">
-      <div class="benefit-card">
-        <div class="icon" style="color: #3b82f6;">⏰</div>
-        <h3>Work 2 Hours Daily</h3>
-        <p>Flexible schedule</p>
-      </div>
-      <div class="benefit-card">
-        <div class="icon" style="color: #10b981;">💰</div>
-        <h3>Earn $4,500/Month</h3>
-        <p>Paid weekly</p>
-      </div>
-      <div class="benefit-card">
-        <div class="icon" style="color: #8b5cf6;">✅</div>
-        <h3>No Experience Needed</h3>
-        <p>Full training provided</p>
-      </div>
-      <div class="benefit-card">
-        <div class="icon" style="color: #0d9488;">🛡️</div>
-        <h3>Legitimate Opportunity</h3>
-        <p>100% satisfaction guarantee</p>
-      </div>
-    </div>
-    
-    <!-- Martha's Story Section - Now a single section -->
-    <div class="story-section">
-      <h2>How Martha Turned Simple Typing Into A $4,500/Month Income Stream...</h2>
-      <div class="testimonial">
-        <p class="testimonial-quote">
-          "I was struggling to make ends meet after retirement. My pension barely covered my bills. 
-          Then I discovered these typing jobs that I could do from my living room. Now I'm making 
-          $4,500 a month working just a couple hours each day. It's changed my life completely!"
-        </p>
-        <div class="testimonial-author">
-          <img src="/api/placeholder/80/80" alt="Martha" class="author-image" />
-          <div class="author-info">
-            <p class="name">Martha J.</p>
-            <p class="role">Retired Teacher, Age 67</p>
-            <div class="star-rating">★★★★★</div>
-            <div class="verified-badge">
-              ✓ Verified Member
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Benefits List -->
-      <div class="benefits-list">
-        <h3>What You'll Get:</h3>
-        <ul>
-          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Step-by-step training program to increase your typing speed</span></li>
-          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Weekly payments directly to your bank account or PayPal</span></li>
-          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Personal coach to help you maximize your earnings</span></li>
-          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Flexible schedule - work whenever you want, from anywhere</span></li>
-          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>No boss, no commute, no strict deadlines</span></li>
-        </ul>
-      </div>
-    </div>
-    
-    <!-- Comparison and How It Works Section Side-by-Side -->
-    <div class="comparison-section">
-      <div>
-        <h3>Why Our Typing Job Beats Traditional Work</h3>
-        <div class="comparison-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Traditional Jobs</th>
-                <th>Our Typing Job</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Work 40+ hours per week</td>
-                <td>✓ Work just 2 hours daily</td>
-              </tr>
-              <tr>
-                <td>30+ minute commute each way</td>
-                <td>✓ Work from your couch</td>
-              </tr>
-              <tr>
-                <td>Fixed schedule, no flexibility</td>
-                <td>✓ Complete freedom to choose hours</td>
-              </tr>
-              <tr>
-                <td>Work until retirement age (65+)</td>
-                <td>✓ Work as long as you want</td>
-              </tr>
-              <tr>
-                <td>Limited income potential</td>
-                <td>✓ Unlimited earning potential</td>
-              </tr>
-              <tr>
-                <td>Boss breathing down your neck</td>
-                <td>✓ Be your own boss</td>
-              </tr>
-              <tr>
-                <td>Health risks from stress</td>
-                <td>✓ Low-stress, comfortable work</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      
-      <div>
-        <h3>How Our Typing Jobs Work</h3>
-        <div class="how-it-works">
-          <ol class="steps-list">
-            <li>
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <p class="title">Sign up today to secure your spot</p>
-                <p class="description">Complete the form with your information to get started immediately</p>
-              </div>
-            </li>
-            <li>
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <p class="title">Access our exclusive job database</p>
-                <p class="description">Browse hundreds of available typing jobs from verified companies</p>
-              </div>
-            </li>
-            <li>
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <p class="title">Complete our speed-boosting training</p>
-                <p class="description">Follow our proven system to increase your typing speed and accuracy</p>
-              </div>
-            </li>
-            <li>
-              <div class="step-number">4</div>
-              <div class="step-content">
-                <p class="title">Select jobs that fit your schedule</p>
-                <p class="description">Work whenever you want, for as long as you want</p>
-              </div>
-            </li>
-            <li>
-              <div class="step-number">5</div>
-              <div class="step-content">
-                <p class="title">Get paid weekly, directly to your account</p>
-                <p class="description">Receive payments via PayPal, direct deposit, or check - your choice</p>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </div>right: 10px;">✓</i> <span>Immediate access to our database of high-paying typing jobs</span></li>
-          <li><i style="color: #10b981; margin-
