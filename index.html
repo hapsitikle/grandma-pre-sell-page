@@ -157,18 +157,20 @@
     /* Main content grid */
     .content-grid {
       display: grid;
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: 1fr;
       gap: 30px;
       margin: 30px 0;
     }
     
-    @media (max-width: 768px) {
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
+    /* Story section */
+    .story-section {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     
-    /* Story section */
     .story-section h2 {
       color: #1e40af;
       border-bottom: 2px solid #bfdbfe;
@@ -178,12 +180,7 @@
     }
     
     .testimonial {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
       margin-bottom: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-left: 4px solid #3b82f6;
     }
     
     .testimonial-quote {
@@ -232,12 +229,7 @@
     
     /* Benefits list */
     .benefits-list {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-left: 4px solid #10b981;
+      margin-top: 20px;
     }
     
     .benefits-list h3 {
@@ -264,150 +256,18 @@
       margin-top: 3px;
     }
     
-    /* Signup form */
-    .signup-form-container {
-      background-color: white;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border: 1px solid #e5e7eb;
-    }
-    
-    .spots-left {
-      text-align: center;
-      margin-bottom: 15px;
-    }
-    
-    .spots-left span {
-      display: inline-block;
-      background-color: #dc2626;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 5px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      animation: pulse 2s infinite;
-    }
-    
-    .signup-form-container h3 {
-      text-align: center;
-      color: #1e40af;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-    }
-    
-    .signup-form-container .highlight {
-      color: #059669;
-    }
-    
-    .signup-form {
-      background: linear-gradient(to bottom right, #eff6ff, #f5f3ff);
-      padding: 20px;
-      border-radius: 5px;
-      border: 1px solid #dbeafe;
-    }
-    
-    .form-group {
-      margin-bottom: 15px;
-    }
-    
-    .form-group label {
-      display: block;
-      font-size: 0.875rem;
-      margin-bottom: 5px;
-      color: #4b5563;
-    }
-    
-    .form-group input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #d1d5db;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-    
-    .cta-button {
-      width: 100%;
-      background-color: #dc2626;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 5px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.2s;
-      margin: 15px 0 10px;
-    }
-    
-    .cta-button:hover {
-      background-color: #b91c1c;
-    }
-    
-    .form-disclaimer {
-      font-size: 0.75rem;
-      text-align: center;
-      color: #6b7280;
-      margin-top: 10px;
-    }
-    
-    .security-badges {
-      display: flex;
-      justify-content: center;
-      margin-top: 15px;
-      gap: 10px;
-    }
-    
-    .security-badge {
-      height: 25px;
-      background-color: #e5e7eb;
-    }
-    
-    .security-message {
-      text-align: center;
-      color: #059669;
-      font-size: 0.875rem;
-      margin-top: 8px;
-    }
-    
-    .recent-signups {
-      background-color: #f3f4f6;
-      border-radius: 5px;
-      padding: 10px;
-      text-align: center;
-      font-size: 0.875rem;
-      color: #4b5563;
-      margin-top: 15px;
-    }
-    
-    .recent-signups .bold {
-      color: #1e40af;
-      font-weight: bold;
-    }
-    
-    /* Comparison table */
+    /* Comparison section */
     .comparison-section {
-      margin: 40px 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 30px;
+      margin: 30px 0;
     }
     
     @media (max-width: 768px) {
       .comparison-section {
         grid-template-columns: 1fr;
       }
-    }
-    
-    .comparison-section h3 {
-      color: #1e40af;
-      border-bottom: 2px solid #bfdbfe;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      font-size: 1.5rem;
     }
     
     .comparison-table {
@@ -753,6 +613,130 @@
       color: white;
     }
     
+    /* Sign-up form */
+    .signup-form-container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+    
+    .spots-left {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .spots-left span {
+      display: inline-block;
+      background-color: #dc2626;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      animation: pulse 2s infinite;
+    }
+    
+    .signup-form-container h3 {
+      text-align: center;
+      color: #1e40af;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .signup-form-container .highlight {
+      color: #059669;
+    }
+    
+    .signup-form {
+      background: linear-gradient(to bottom right, #eff6ff, #f5f3ff);
+      padding: 20px;
+      border-radius: 5px;
+      border: 1px solid #dbeafe;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      margin-bottom: 5px;
+      color: #4b5563;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    
+    .cta-button {
+      width: 100%;
+      background-color: #dc2626;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+      margin: 15px 0 10px;
+    }
+    
+    .cta-button:hover {
+      background-color: #b91c1c;
+    }
+    
+    .form-disclaimer {
+      font-size: 0.75rem;
+      text-align: center;
+      color: #6b7280;
+      margin-top: 10px;
+    }
+    
+    .security-badges {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 10px;
+    }
+    
+    .security-badge {
+      height: 25px;
+      background-color: #e5e7eb;
+    }
+    
+    .security-message {
+      text-align: center;
+      color: #059669;
+      font-size: 0.875rem;
+      margin-top: 8px;
+    }
+    
+    .recent-signups {
+      background-color: #f3f4f6;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #4b5563;
+      margin-top: 15px;
+    }
+    
+    .recent-signups .bold {
+      color: #1e40af;
+      font-weight: bold;
+    }
+    
     /* Modal */
     .modal {
       display: none;
@@ -843,7 +827,7 @@
   <!-- Floating CTA Button -->
   <div style="position: fixed; bottom: 20px; right: 20px; z-index: 100;">
     <button 
-      onclick="document.getElementById('signup-form').scrollIntoView({behavior: 'smooth'})"
+      onclick="window.location.href='https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net'; return false;"
       style="background-color: #dc2626; color: white; font-weight: bold; padding: 12px 16px; border-radius: 6px; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); display: flex; align-items: center; animation: pulse 2s infinite;"
     >
       <span style="margin-right: 8px;">$</span>
@@ -868,7 +852,7 @@
       <!-- Video Thumbnail Section -->
       <div style="background-color: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; display: inline-block; max-width: 640px;">
         <div style="position: relative; cursor: pointer;">
-          <img src="https://placehold.co/640x360" alt="Watch How It Works" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 100%;" />
+          <img src="/api/placeholder/640/360" alt="Watch How It Works" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 100%;" />
           <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
             <div style="background-color: #dc2626; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
               ▶
@@ -934,46 +918,43 @@
       </div>
     </div>
     
-    <!-- Hero Section with Story -->
-    <div class="content-grid">
-      <div class="story-section">
-        <h2>How Martha Turned Simple Typing Into A $4,500/Month Income Stream...</h2>
-        <div class="testimonial">
-          <p class="testimonial-quote">
-            "I was struggling to make ends meet after retirement. My pension barely covered my bills. 
-            Then I discovered these typing jobs that I could do from my living room. Now I'm making 
-            $4,500 a month working just a couple hours each day. It's changed my life completely!"
-          </p>
-          <div class="testimonial-author">
-            <img src="https://placehold.co/80x80" alt="Martha" class="author-image" />
-            <div class="author-info">
-              <p class="name">Martha J.</p>
-              <p class="role">Retired Teacher, Age 67</p>
-              <div class="star-rating">★★★★★</div>
-              <div class="verified-badge">
-                ✓ Verified Member
-              </div>
+    <!-- Martha's Story Section - Now a single section -->
+    <div class="story-section">
+      <h2>How Martha Turned Simple Typing Into A $4,500/Month Income Stream...</h2>
+      <div class="testimonial">
+        <p class="testimonial-quote">
+          "I was struggling to make ends meet after retirement. My pension barely covered my bills. 
+          Then I discovered these typing jobs that I could do from my living room. Now I'm making 
+          $4,500 a month working just a couple hours each day. It's changed my life completely!"
+        </p>
+        <div class="testimonial-author">
+          <img src="/api/placeholder/80/80" alt="Martha" class="author-image" />
+          <div class="author-info">
+            <p class="name">Martha J.</p>
+            <p class="role">Retired Teacher, Age 67</p>
+            <div class="star-rating">★★★★★</div>
+            <div class="verified-badge">
+              ✓ Verified Member
             </div>
           </div>
         </div>
-        
-        <!-- Benefits List -->
-        <div class="benefits-list">
-          <h3>What You'll Get:</h3>
-          <ul>
-            <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Immediate access to our database of high-paying typing jobs</span></li>
-            <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Step-by-step training program to increase your typing speed</span></li>
-            <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Weekly payments directly to your bank account or PayPal</span></li>
-            <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Personal coach to help you maximize your earnings</span></li>
-            <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Flexible schedule - work whenever you want, from anywhere</span></li>
-            <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>No boss, no commute, no strict deadlines</span></li>
-          </ul>
-        </div>
       </div>
       
-      <!-- Sign-up Form -->
+      <!-- Benefits List -->
+      <div class="benefits-list">
+        <h3>What You'll Get:</h3>
+        <ul>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Immediate access to our database of high-paying typing jobs</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Step-by-step training program to increase your typing speed</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Weekly payments directly to your bank account or PayPal</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Personal coach to help you maximize your earnings</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Flexible schedule - work whenever you want, from anywhere</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>No boss, no commute, no strict deadlines</span></li>
+        </ul>
+      </div>
+    </div>
     
-    <!-- Why Choose Our Typing Job and How It Works Side by Side -->
+    <!-- Comparison and How It Works Section Side-by-Side -->
     <div class="comparison-section">
       <div>
         <h3>Why Our Typing Job Beats Traditional Work</h3>
@@ -1059,16 +1040,11 @@
               </div>
             </li>
           </ol>
-          
-          <button 
-            class="get-started-btn"
-            onclick="document.getElementById('signup-form').scrollIntoView({behavior: 'smooth'})"
-          >
-            Get Started Now
-          </button>
         </div>
       </div>
     </div>
+    
+
     
     <!-- Testimonials -->
     <section class="testimonials-section">
@@ -1076,10 +1052,10 @@
       <p class="intro">We've helped 1,000+ people achieve financial freedom. You could be next!</p>
       
       <div class="testimonials-grid">
-        <div class="testimonial">
+        <div class="testimonial" style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; background-color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
           <p class="testimonial-quote">"After the factory closed, I was desperate. These typing jobs saved me. Now I make $3,700/month working from home. I work when I want, where I want. Best decision I ever made!"</p>
           <div class="testimonial-author">
-            <img src="https://placehold.co/80x80" alt="James W." class="author-image" />
+            <img src="/api/placeholder/80/80" alt="James W." class="author-image" />
             <div class="author-info">
               <p class="name">James W., 52</p>
               <p class="role">Former Factory Worker</p>
@@ -1096,10 +1072,10 @@
           </div>
         </div>
         
-        <div class="testimonial">
+        <div class="testimonial" style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; background-color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
           <p class="testimonial-quote">"My retirement savings weren't enough. These typing jobs give me the extra income I need without physical strain. I can work on my schedule, even with my health issues."</p>
           <div class="testimonial-author">
-            <img src="https://placehold.co/80x80" alt="Robert K." class="author-image" />
+            <img src="/api/placeholder/80/80" alt="Robert K." class="author-image" />
             <div class="author-info">
               <p class="name">Robert K., 71</p>
               <p class="role">Retiree</p>
@@ -1142,16 +1118,34 @@
       </div>
     </section>
     
-    <!-- Trust Indicators -->
+
+    <!-- Guarantee Section -->
+    <div class="guarantee-section">
+      <div class="guarantee-badge">
+        <div class="guarantee-badge-inner">
+          <div>100% SATISFACTION RATING</div>
+        </div>
+      </div>
+      <div class="guarantee-content">
+        <h3>Our 5-Star Customer Satisfaction Rating</h3>
+        <p>
+          Over 97% of our members report being "extremely satisfied" with our typing job program. 
+          Our dedicated support team ensures you have everything you need to succeed from day one.
+          Join thousands of happy members who are building reliable income streams working from home.
+        </p>
+        <p class="emphasis">
+          You have absolutely nothing to lose and a potential $4,500/month income to gain!
+        </p>
+      </div>
+    </div>
     
     <!-- Final CTA -->
     <div class="final-cta">
-      <h2>Don't Miss This Opportunity!</h2>
+      <h2>Success starts with one decision. You are just one click away!</h2>
       <p>Spots are filling up fast - only <span class="highlight">200 positions</span> left for March</p>
-      <p>Your $4,500/month opportunity is just one click away...</p>
       <button 
         class="final-cta-btn"
-        onclick="window.location.href='https://96b4b7cirvpk6w97cr8k647d34.hop.clickbank.net/'; return false;"
+        onclick="window.location.href='https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net'; return false;"
       >
         YES! I WANT TO START EARNING $4,500/MONTH NOW
       </button>
@@ -1161,21 +1155,6 @@
           <i>🛡️</i>
           <p>100% Secure & Confidential</p>
         </div>
-      </div>
-    </div>
-    
-    <!-- Guarantee Section -->
-    <div class="guarantee-section">
-      <div class="guarantee-content">
-        <h3>Our Iron-Clad 100% Satisfaction Guarantee</h3>
-        <p>
-          We're so confident you'll love our typing job program that we offer a full 30-day money-back guarantee. 
-          If you're not completely satisfied with the opportunity or don't earn money within your first 30 days,
-          simply let us know and we'll refund your registration fee - no questions asked.
-        </p>
-        <p class="emphasis">
-          You have absolutely nothing to lose and a potential $4,500/month income to gain!
-        </p>
       </div>
     </div>
   </main>
