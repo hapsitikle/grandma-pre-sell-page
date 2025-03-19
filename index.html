@@ -828,6 +828,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .modal-close-btn:hover {
       background-color: #2563eb;
     }
+    
+    /* Shimmer effect for redirect modal */
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(400%);
+      }
+    }
   </style>
 </head>
 <body>
@@ -1230,20 +1240,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   
-  <!-- Redirect Modal -->
+  <!-- Redirect Modal - NEW VIBRANT VERSION -->
   <div id="redirect-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.7); z-index: 2000; align-items: center; justify-content: center;">
-    <div style="background-color: white; border-radius: 8px; padding: 30px; text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 400px;">
-      <h3 style="margin-top: 0; color: #1e40af; font-size: 1.5rem; margin-bottom: 15px;">Redirecting...</h3>
-      <p style="margin-bottom: 20px; font-size: 1.1rem;">Please be patient. It might take upto 15 seconds</p>
-      
-      <div style="position: relative; height: 4px; width: 100%; background-color: #e5e7eb; border-radius: 2px; overflow: hidden; margin-bottom: 10px;">
-        <div id="progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; background-color: #3b82f6; transform-origin: left; transition: transform 15s linear;"></div>
-      </div>
-      
-      <div style="display: flex; justify-content: space-between; font-size: 14px; color: #6b7280;">
-        <span>15</span>
-        <span id="countdown-timer">15</span>
-        <span>0</span>
+    <div class="bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 p-1 rounded-xl shadow-xl max-w-md w-full" style="background: linear-gradient(to bottom right, #4f46e5, #9333ea, #ec4899); padding: 4px; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); max-width: 400px; width: 100%;">
+      <div style="background-color: white; border-radius: 10px; padding: 30px; text-align: center;">
+        <h3 style="margin-top: 0; font-size: 1.5rem; margin-bottom: 15px; background: linear-gradient(to right, #3b82f6, #8b5cf6, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">
+          Redirecting...
+        </h3>
+        
+        <p style="margin-bottom: 20px; font-size: 1.1rem; color: #4b5563;">
+          Please be patient. It might take up to 15 seconds
+        </p>
+        
+        <!-- Colorful progress container -->
+        <div style="position: relative; height: 32px; width: 100%; overflow: hidden; border-radius: 16px; background-color: #f3f4f6; margin-bottom: 8px;">
+          <!-- Background effect -->
+          <div style="position: absolute; inset: 0; background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6); opacity: 0.2;"></div>
+          
+          <!-- Progress bar with gradient -->
+          <div id="progress-bar" 
+            style="position: absolute; top: 0; left: 0; height: 100%; border-radius: 16px; background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899); width: 100%; transform-origin: left; transition: transform 15s linear; transform: translateX(-100%);">
+            
+            <div style="position: relative; width: 100%; height: 100%;">
+              <!-- Moving light effect -->
+              <div 
+                style="position: absolute; top: 0; bottom: 0; width: 64px; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%); animation: shimmer 2s infinite;">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Countdown display on progress bar -->
+          <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 1.125rem; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
+            <span id="countdown-timer">15</span>s
+          </div>
+        </div>
+        
+        <!-- Timer labels -->
+        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #6b7280; padding: 0 4px; margin-top: 4px;">
+          <span>15</span>
+          <span>0</span>
+        </div>
+        
+        <!-- Security message -->
+        <div style="margin-top: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; color: #4b5563;">
+          <svg style="width: 20px; height: 20px; margin-right: 8px; color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          100% Secure & Confidential
+        </div>
       </div>
     </div>
   </div>
@@ -1282,7 +1326,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const progressBar = document.getElementById('progress-bar');
       const countdownTimer = document.getElementById('countdown-timer');
       modal.style.display = 'flex';
-      progressBar.style.transform = 'translateX(0%)';
       
       // Start the countdown
       let seconds = 15;
@@ -1294,9 +1337,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       }, 1000);
       
-      // Animate the progress bar shrinking
+      // Reset the progress bar position first
+      progressBar.style.transition = 'none';
       progressBar.style.transform = 'translateX(-100%)';
+      
+      // Force a reflow to make sure the reset is applied before the animation
+      void progressBar.offsetWidth;
+      
+      // Now animate the progress bar filling up
+      progressBar.style.transition = 'transform 15s linear';
+      progressBar.style.transform = 'translateX(0%)';
     }
   </script>
+  
+  <style>
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(400%);
+      }
+    }
+  </style>
 </body>
 </html>
