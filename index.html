@@ -1,49 +1,871 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Preconnect to external domains to speed up loading -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net">
+  
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PKM8Q4TX');</script>
+<!-- End Google Tag Manager -->
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Typing Job Landing Page</title>
-  <!-- Preload critical assets -->
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  
-  <!-- Inline critical CSS -->
   <style>
-    /* Critical Path CSS */
-    body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:#f0f2f5;color:#333}
-    .container{max-width:1000px;margin:0 auto;padding:0 20px}
-    .header{background:linear-gradient(to right,#1e40af,#7e22ce);color:#fff;padding:30px 20px;text-align:center}
-    .announcement-badge{display:inline-block;background-color:#dc2626;color:#fff;padding:5px 15px;border-radius:20px;font-weight:700;margin-bottom:15px;animation:pulse 2s infinite}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.8}}
-    .header h1{font-size:2.5rem;margin-bottom:20px;line-height:1.2}
-    .header h1 .highlight{color:#fcd34d}
-    .header p{font-size:1.25rem;margin-bottom:25px}
-    .social-proof-bar{background-color:#1f2937;color:#fff;padding:10px 0;text-align:center}
-    .social-proof-items{display:flex;justify-content:center;flex-wrap:wrap;gap:30px}
-    .social-proof-item{display:flex;align-items:center}
-    .social-proof-item i{color:#fcd34d;margin-right:8px}
-    .urgency-notice{background-color:#fee2e2;border-left:4px solid #ef4444;color:#991b1b;padding:15px;border-radius:5px;margin:30px 0;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 4px 6px rgba(0,0,0,.1)}
-    .benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:30px 0}
-    .benefit-card{background-color:#fff;padding:20px;border-radius:8px;text-align:center;box-shadow:0 4px 6px rgba(0,0,0,.1)}
-    .benefit-card .icon{font-size:2rem;margin-bottom:10px}
-    .floating-btn{position:fixed;bottom:20px;right:20px;z-index:100;background-color:#dc2626;color:#fff;font-weight:700;padding:12px 16px;border-radius:6px;border:none;box-shadow:0 4px 6px rgba(0,0,0,.1);display:flex;align-items:center;animation:pulse 2s infinite;cursor:pointer}
+    /* Base styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header styles */
+    .header {
+      background: linear-gradient(to right, #1e40af, #7e22ce);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    
+    .announcement-badge {
+      display: inline-block;
+      background-color: #dc2626;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .header h1 .highlight {
+      color: #fcd34d;
+    }
+    
+    .header p {
+      font-size: 1.25rem;
+      margin-bottom: 25px;
+    }
+    
+    .header p .underline {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    
+    .header p .emphasis {
+      background-color: #fcd34d;
+      color: #1e3a8a;
+      padding: 0 5px;
+    }
+    
+    /* Social proof bar */
+    .social-proof-bar {
+      background-color: #1f2937;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+    
+    .social-proof-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .social-proof-item {
+      display: flex;
+      align-items: center;
+    }
+    
+    .social-proof-item i {
+      color: #fcd34d;
+      margin-right: 8px;
+    }
+    
+    .social-proof-item .bold {
+      font-weight: bold;
+    }
+    
+    /* Urgency notice */
+    .urgency-notice {
+      background-color: #fee2e2;
+      border-left: 4px solid #ef4444;
+      color: #991b1b;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 30px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .urgency-notice .underline {
+      text-decoration: underline;
+    }
+    
+    .urgency-notice .timer {
+      background-color: #fef3c7;
+      padding: 0 5px;
+      margin: 0 5px;
+    }
+    
+    /* Benefit icons */
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 30px 0;
+    }
+    
+    .benefit-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .benefit-card .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    
+    .benefit-card h3 {
+      margin: 10px 0 5px;
+    }
+    
+    .benefit-card p {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    
+    /* Main content grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin: 30px 0;
+    }
+    
+    /* Story section */
+    .story-section {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .story-section h2 {
+      color: #1e40af;
+      border-bottom: 2px solid #bfdbfe;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    
+    .testimonial {
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-quote {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 15px;
+      background-color: #e5e7eb;
+      border: 2px solid #93c5fd;
+    }
+    
+    .author-info .name {
+      font-weight: bold;
+    }
+    
+    .author-info .role {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    
+    .verified-badge {
+      display: inline-block;
+      background-color: #d1fae5;
+      color: #065f46;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-top: 5px;
+    }
+    
+    .star-rating {
+      color: #f59e0b;
+      margin-top: 5px;
+    }
+    
+    /* Benefits list */
+    .benefits-list {
+      margin-top: 20px;
+    }
+    
+    .benefits-list h3 {
+      color: #047857;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+    
+    .benefits-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .benefits-list li {
+      display: flex;
+      margin-bottom: 12px;
+      align-items: flex-start;
+    }
+    
+    .benefits-list li i {
+      color: #10b981;
+      margin-right: 10px;
+      margin-top: 3px;
+    }
+    
+    /* Comparison section */
+    .comparison-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 30px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .comparison-section {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .comparison-table {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .comparison-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .comparison-table th {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .comparison-table th:first-child {
+      color: #dc2626;
+    }
+    
+    .comparison-table th:last-child {
+      color: #059669;
+    }
+    
+    .comparison-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .comparison-table td:first-child {
+      color: #dc2626;
+    }
+    
+    .comparison-table td:last-child {
+      color: #059669;
+    }
+    
+    /* How it works */
+    .how-it-works {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .steps-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .steps-list li {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .step-number {
+      background-color: #3b82f6;
+      color: white;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    
+    .step-content .title {
+      font-weight: bold;
+      margin-bottom: 3px;
+    }
+    
+    .step-content .description {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    
+    .get-started-btn {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto 0;
+      transition: background-color 0.2s;
+    }
+    
+    .get-started-btn:hover {
+      background-color: #2563eb;
+    }
+    
+    /* Testimonials grid */
+    .testimonials-section {
+      margin: 40px 0;
+    }
+    
+    .testimonials-section h3 {
+      color: #1e40af;
+      border-bottom: 2px solid #bfdbfe;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    
+    .testimonials-section p.intro {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+      margin: 40px 0;
+    }
+    
+    .faq-section h3 {
+      color: #1e40af;
+      border-bottom: 2px solid #bfdbfe;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    
+    .faq-item {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #3b82f6;
+    }
+    
+    .faq-question {
+      font-weight: bold;
+      color: #1e40af;
+      margin-bottom: 10px;
+    }
+    
+    /* Trust section */
+    .trust-section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 40px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .trust-section h3 {
+      color: #1e40af;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    
+    .trust-badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+    
+    .trust-badge {
+      height: 50px;
+      background-color: #e5e7eb;
+    }
+    
+    /* Final CTA */
+    .final-cta {
+      background: linear-gradient(to right, #2563eb, #7c3aed);
+      color: white;
+      border-radius: 8px;
+      padding: 30px 20px;
+      text-align: center;
+      margin: 40px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .final-cta h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    
+    .final-cta p {
+      margin-bottom: 20px;
+    }
+    
+    .final-cta .highlight {
+      color: #fcd34d;
+      font-weight: bold;
+    }
+    
+    .final-cta-btn {
+      background-color: #dc2626;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      animation: pulse 2s infinite;
+    }
+    
+    .final-cta-btn:hover {
+      background-color: #b91c1c;
+    }
+    
+    .final-cta-disclaimer {
+      font-size: 0.875rem;
+      margin-top: 15px;
+    }
+    
+    .final-cta-security {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    
+    .final-cta-security i {
+      color: #fcd34d;
+      margin-right: 5px;
+    }
+    
+    /* Guarantee section */
+    .guarantee-section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 2px solid #fcd34d;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .guarantee-badge {
+      width: 25%;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+    
+    .guarantee-badge-inner {
+      background-color: #fcd34d;
+      color: #78350f;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(12deg);
+      font-weight: bold;
+      padding: 10px;
+    }
+    
+    .guarantee-badge-inner div {
+      transform: rotate(-12deg);
+    }
+    
+    .guarantee-content {
+      width: 75%;
+      padding: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .guarantee-badge, .guarantee-content {
+        width: 100%;
+      }
+    }
+    
+    .guarantee-content h3 {
+      color: #1e40af;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .guarantee-content p {
+      margin-bottom: 15px;
+    }
+    
+    .guarantee-content p.emphasis {
+      font-weight: bold;
+      color: #1e40af;
+    }
+    
+    /* Footer */
+    .footer {
+      background: linear-gradient(to right, #1e3a8a, #581c87);
+      color: white;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+    
+    .footer-content {
+      text-align: center;
+    }
+    
+    .footer-content p {
+      font-size: 0.875rem;
+      margin-bottom: 10px;
+    }
+    
+    .footer-content p.disclaimer {
+      font-size: 0.75rem;
+      color: #d1d5db;
+      margin-top: 10px;
+    }
+    
+    .footer-links {
+      margin-top: 15px;
+    }
+    
+    .footer-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 0.75rem;
+      margin: 0 10px;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    /* Sign-up form */
+    .signup-form-container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+    
+    .spots-left {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .spots-left span {
+      display: inline-block;
+      background-color: #dc2626;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      animation: pulse 2s infinite;
+    }
+    
+    .signup-form-container h3 {
+      text-align: center;
+      color: #1e40af;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .signup-form-container .highlight {
+      color: #059669;
+    }
+    
+    .signup-form {
+      background: linear-gradient(to bottom right, #eff6ff, #f5f3ff);
+      padding: 20px;
+      border-radius: 5px;
+      border: 1px solid #dbeafe;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      margin-bottom: 5px;
+      color: #4b5563;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    
+    .cta-button {
+      width: 100%;
+      background-color: #dc2626;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+      margin: 15px 0 10px;
+    }
+    
+    .cta-button:hover {
+      background-color: #b91c1c;
+    }
+    
+    .form-disclaimer {
+      font-size: 0.75rem;
+      text-align: center;
+      color: #6b7280;
+      margin-top: 10px;
+    }
+    
+    .security-badges {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 10px;
+    }
+    
+    .security-badge {
+      height: 25px;
+      background-color: #e5e7eb;
+    }
+    
+    .security-message {
+      text-align: center;
+      color: #059669;
+      font-size: 0.875rem;
+      margin-top: 8px;
+    }
+    
+    .recent-signups {
+      background-color: #f3f4f6;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #4b5563;
+      margin-top: 15px;
+    }
+    
+    .recent-signups .bold {
+      color: #1e40af;
+      font-weight: bold;
+    }
+    
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .modal-content {
+      background-color: white;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 100%;
+      padding: 20px;
+    }
+    
+    .modal-success {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .modal-success-badge {
+      display: inline-block;
+      background-color: #059669;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      color: #1e40af;
+      margin-bottom: 10px;
+    }
+    
+    .modal-message {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    .modal-alert {
+      background-color: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .modal-alert p.title {
+      font-weight: bold;
+      color: #d97706;
+      margin-bottom: 5px;
+    }
+    
+    .modal-alert p.message {
+      font-size: 0.875rem;
+      color: #92400e;
+    }
+    
+    .modal-close-btn {
+      width: 100%;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .modal-close-btn:hover {
+      background-color: #2563eb;
+    }
+    
+    /* Shimmer effect for redirect modal */
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(400%);
+      }
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(-50%); }
+      50% { transform: translateY(-40%); }
+    }
   </style>
-  
-  <!-- Google Tag Manager - Async with minimal blocking -->
-  <script>
-  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
-  gtag('js',new Date());gtag('config','GTM-PKM8Q4TX');
-  </script>
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PKM8Q4TX"></script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKM8Q4TX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKM8Q4TX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
   <!-- Floating CTA Button -->
-  <button class="floating-btn" onclick="showRedirect()">
-    <span style="margin-right:8px">$</span>START EARNING $4,500/MONTH
-  </button>
+  <div style="position: fixed; bottom: 20px; right: 20px; z-index: 100;">
+    <button 
+      onclick="showRedirect();"
+      style="background-color: #dc2626; color: white; font-weight: bold; padding: 12px 16px; border-radius: 6px; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); display: flex; align-items: center; animation: pulse 2s infinite;"
+    >
+      <span style="margin-right: 8px;">$</span>
+      START EARNING $4,500/MONTH
+    </button>
+  </div>
   
   <!-- Header with Attention-Grabbing Hook -->
   <header class="header">
@@ -55,25 +877,25 @@
         "Learn How A 67-Year-Old Grandma Makes <span class="highlight">$4,500 A Month</span> Typing Just 2 Hours Per Day"
       </h1>
       <p>
-        Discover How <span style="text-decoration:underline;font-weight:bold">Ordinary People</span> Are 
-        Earning <span style="background-color:#fcd34d;color:#1e3a8a;padding:0 5px">Life-Changing Income</span> With Simple Typing Jobs - No Experience Required
+        Discover How <span class="underline">Ordinary People</span> Are 
+        Earning <span class="emphasis">Life-Changing Income</span> With Simple Typing Jobs - No Experience Required
       </p>
       
       <!-- Image Display Section with Arrow -->
-      <div style="background-color:rgba(0,0,0,0.2);padding:16px;border-radius:8px;display:inline-block;max-width:384px;position:relative">
-        <div style="position:relative;display:flex;align-items:center">
-          <div style="position:relative;width:100%">
-            <img src="https://i.pinimg.com/736x/d0/ef/9d/d0ef9d29538317bc2130103789c9f179.jpg" alt="Martha's Success Story" width="240" height="180" style="border-radius:6px;box-shadow:0 4px 6px rgba(0,0,0,0.1);max-width:100%;width:60%" loading="eager" />
+      <div style="background-color: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; display: inline-block; max-width: 384px; position: relative;">
+        <div style="position: relative; display: flex; align-items: center;">
+          <div style="position: relative; width: 100%;">
+            <img src="https://i.pinimg.com/736x/d0/ef/9d/d0ef9d29538317bc2130103789c9f179.jpg" alt="Martha's Success Story" width="240" height="180" style="border-radius: 6px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); max-width: 100%; width: 60%;" loading="eager" />
             
             <!-- Animated Arrow moved to right side -->
-            <div style="position:absolute;right:-80px;top:50%;transform:translateY(-50%);animation:bounceDown 1.5s infinite">
+            <div style="position: absolute; right: -80px; top: 50%; transform: translateY(-50%); animation: bounceDown 1.5s infinite;">
               <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M35 5 L35 45 L20 30 L35 45 L50 30" stroke="#dc2626" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </div>
             
-            <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,black,transparent);padding:12px;color:white;border-bottom-left-radius:6px;border-bottom-right-radius:6px">
-              <p style="font-weight:bold;margin:0">Martha's Transformation: From Struggling Retiree to $4,500/Month</p>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, black, transparent); padding: 12px; color: white; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
+              <p style="font-weight: bold;">Martha's Transformation: From Struggling Retiree to $4,500/Month</p>
             </div>
           </div>
         </div>
@@ -87,7 +909,7 @@
       <div class="social-proof-items">
         <div class="social-proof-item">
           <i>👥</i>
-          <span><span style="font-weight:bold">900</span> people joined last month</span>
+          <span><span class="bold">900</span> people joined last month</span>
         </div>
         <div class="social-proof-item">
           <i>🛡️</i>
@@ -95,7 +917,7 @@
         </div>
         <div class="social-proof-item">
           <i>🏆</i>
-          <span>Top Rated: <span style="font-weight:bold">4.7/5</span></span>
+          <span>Top Rated: <span class="bold">4.7/5</span></span>
         </div>
       </div>
     </div>
@@ -105,136 +927,445 @@
   <main class="container">
     <!-- Limited Time Warning -->
     <div class="urgency-notice">
-      <i style="margin-right:8px">⏰</i>
-      <span style="display:inline-block">URGENT: Due to high demand, we can only accept <span style="text-decoration:underline">200 positions for March</span>. Offer expires soon!</span>
+      <i style="margin-right: 8px;">⏰</i>
+      <span style="display: inline-block;">URGENT: Due to high demand, we can only accept <span class="underline">200 positions for March</span>. Offer expires soon!</span>
     </div>
     
     <!-- Benefit Icons Section -->
     <div class="benefit-grid">
       <div class="benefit-card">
-        <div class="icon" style="color:#3b82f6">⏰</div>
-        <h3>Work 2 Hours Daily</h3>
-        <p>Flexible schedule</p>
-      </div>
-      <div class="benefit-card">
-        <div class="icon" style="color:#10b981">💰</div>
-        <h3>Earn $4,500/Month</h3>
-        <p>Paid weekly</p>
-      </div>
-      <div class="benefit-card">
-        <div class="icon" style="color:#8b5cf6">✅</div>
+        <div class="icon" style="color: #8b5cf6;">✅</div>
         <h3>No Experience Needed</h3>
         <p>Full training provided</p>
       </div>
       <div class="benefit-card">
-        <div class="icon" style="color:#0d9488">🛡️</div>
+        <div class="icon" style="color: #0d9488;">🛡️</div>
         <h3>Legitimate Opportunity</h3>
         <p>100% satisfaction guarantee</p>
       </div>
     </div>
     
-    <!-- Redirect Modal -->
-    <div id="redirect-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.7);z-index:2000;align-items:center;justify-content:center">
-      <div style="background:linear-gradient(to bottom right,#4f46e5,#9333ea,#ec4899);padding:4px;border-radius:12px;box-shadow:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);max-width:400px;width:100%">
-        <div style="background-color:white;border-radius:10px;padding:30px;text-align:center">
-          <h3 style="margin-top:0;font-size:1.5rem;margin-bottom:15px;background:linear-gradient(to right,#3b82f6,#8b5cf6,#d946ef);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:bold">
-            Redirecting...
-          </h3>
-          
-          <p style="margin-bottom:20px;font-size:1.1rem;color:#4b5563">
-            Please be patient. It might take up to 15 seconds
-          </p>
-          
-          <!-- Colorful progress container -->
-          <div style="position:relative;height:32px;width:100%;overflow:hidden;border-radius:16px;background-color:#f3f4f6;margin-bottom:8px">
-            <!-- Background effect -->
-            <div style="position:absolute;inset:0;background:linear-gradient(to right,#60a5fa,#a78bfa,#f472b6);opacity:0.2"></div>
-            
-            <!-- Progress bar with gradient -->
-            <div id="progress-bar" 
-              style="position:absolute;top:0;left:0;height:100%;border-radius:16px;background:linear-gradient(to right,#3b82f6,#8b5cf6,#ec4899);width:100%;transform-origin:left;transition:transform 15s linear;transform:translateX(-100%)">
-              
-              <div style="position:relative;width:100%;height:100%">
-                <!-- Moving light effect -->
-                <div style="position:absolute;top:0;bottom:0;width:64px;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.4) 50%,rgba(255,255,255,0) 100%);animation:shimmer 2s infinite"></div>
+    <!-- Martha's Story Section - Now a single section -->
+    <div class="story-section">
+      <h2>How Martha Turned Simple Typing Into A $4,500/Month Income Stream...</h2>
+      <div class="testimonial">
+        <p class="testimonial-quote">
+          "I was struggling to make ends meet after retirement. My pension barely covered my bills. 
+          Then I discovered these typing jobs that I could do from my living room. Now I'm making 
+          $4,500 a month working just a couple hours each day. It's changed my life completely!"
+        </p>
+        <div class="testimonial-author">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Eo_circle_pink_white_letter-m.svg/1024px-Eo_circle_pink_white_letter-m.svg.png" alt="Martha" class="author-image" width="80" height="80" />
+          <div class="author-info">
+            <p class="name">Martha J.</p>
+            <p class="role">Retired Teacher, Age 67</p>
+            <div class="star-rating">★★★★★</div>
+            <div class="verified-badge">
+              ✓ Verified Member
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Benefits List -->
+      <div class="benefits-list">
+        <h3>What You'll Get:</h3>
+        <ul>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Immediate access to our database of high-paying typing jobs</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Step-by-step training program to increase your typing speed</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Weekly payments directly to your bank account or PayPal</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Personal coach to help you maximize your earnings</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>Flexible schedule - work whenever you want, from anywhere</span></li>
+          <li><i style="color: #10b981; margin-right: 10px;">✓</i> <span>No boss, no commute, no strict deadlines</span></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Comparison and How It Works Section Side-by-Side -->
+    <div class="comparison-section">
+      <div>
+        <h3>Why Our Typing Job Beats Traditional Work</h3>
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Traditional Jobs</th>
+                <th>Our Typing Job</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Work 40+ hours per week</td>
+                <td>✓ Work just 2 hours daily</td>
+              </tr>
+              <tr>
+                <td>30+ minute commute each way</td>
+                <td>✓ Work from your couch</td>
+              </tr>
+              <tr>
+                <td>Fixed schedule, no flexibility</td>
+                <td>✓ Complete freedom to choose hours</td>
+              </tr>
+              <tr>
+                <td>Work until retirement age (65+)</td>
+                <td>✓ Work as long as you want</td>
+              </tr>
+              <tr>
+                <td>Limited income potential</td>
+                <td>✓ Unlimited earning potential</td>
+              </tr>
+              <tr>
+                <td>Boss breathing down your neck</td>
+                <td>✓ Be your own boss</td>
+              </tr>
+              <tr>
+                <td>Health risks from stress</td>
+                <td>✓ Low-stress, comfortable work</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div>
+        <h3>How Our Typing Jobs Work</h3>
+        <div class="how-it-works">
+          <ol class="steps-list">
+            <li>
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <p class="title">Sign up today to secure your spot</p>
+                <p class="description">Complete the form with your information to get started immediately</p>
               </div>
+            </li>
+            <li>
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <p class="title">Access our exclusive job database</p>
+                <p class="description">Browse hundreds of available typing jobs from verified companies</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <p class="title">Complete our speed-boosting training</p>
+                <p class="description">Follow our proven system to increase your typing speed and accuracy</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <p class="title">Select jobs that fit your schedule</p>
+                <p class="description">Work whenever you want, for as long as you want</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <p class="title">Get paid weekly, directly to your account</p>
+                <p class="description">Receive payments via PayPal, direct deposit, or check - your choice</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    
+
+    
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+      <h3>Real People Making Real Money With Us 💰</h3>
+      <p class="intro">We've helped 1,000+ people achieve financial freedom. You could be next!</p>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial" style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; background-color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+          <p class="testimonial-quote">"After the factory closed, I was desperate. These typing jobs saved me. Now I make $3,700/month working from home. I work when I want, where I want. Best decision I ever made!"</p>
+          <div class="testimonial-author">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eo_circle_blue_letter-j.svg/2048px-Eo_circle_blue_letter-j.svg.png" alt="James W." class="author-image" width="80" height="80" />
+            <div class="author-info">
+              <p class="name">James W., 52</p>
+              <p class="role">Former Factory Worker</p>
+              <div class="verified-badge">
+                ✓ Verified Member
+              </div>
+              <div class="star-rating">★★★★★</div>
             </div>
-            
-            <!-- Countdown display on progress bar -->
-            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;font-size:1.125rem;text-shadow:0 1px 2px rgba(0,0,0,0.2)">
-              <span id="countdown-timer">15</span>s
+          </div>
+          <div style="margin-top: 10px;">
+            <span style="color: #10b981; font-weight: bold;">
+              💰 $3,700/month
+            </span>
+          </div>
+        </div>
+        
+        <div class="testimonial" style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; background-color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+          <p class="testimonial-quote">"My retirement savings weren't enough. These typing jobs give me the extra income I need without physical strain. I can work on my schedule, even with my health issues."</p>
+          <div class="testimonial-author">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Eo_circle_purple_letter-r.svg/2048px-Eo_circle_purple_letter-r.svg.png" alt="Robert K." class="author-image" width="80" height="80" />
+            <div class="author-info">
+              <p class="name">Robert K., 71</p>
+              <p class="role">Retiree</p>
+              <div class="verified-badge">
+                ✓ Verified Member
+              </div>
+              <div class="star-rating">★★★★★</div>
             </div>
           </div>
-          
-          <!-- Timer labels -->
-          <div style="display:flex;justify-content:space-between;font-size:0.875rem;color:#6b7280;padding:0 4px;margin-top:4px">
-            <span>15</span>
-            <span>0</span>
+          <div style="margin-top: 10px;">
+            <span style="color: #10b981; font-weight: bold;">
+              💰 $3,200/month
+            </span>
           </div>
-          
-          <!-- Security message -->
-          <div style="margin-top:24px;display:flex;align-items:center;justify-content:center;font-size:0.875rem;color:#4b5563">
-            <svg style="width:20px;height:20px;margin-right:8px;color:#10b981" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-            </svg>
-            100% Secure & Confidential
-          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-item">
+        <p class="faq-question">Do I need special skills or experience?</p>
+        <p>Absolutely not! If you can type at a basic level and have a computer with internet access, you're fully qualified to start. Our proprietary training system will help boost your typing speed and show you exactly how to complete the tasks efficiently.</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">How soon can I start earning?</p>
+        <p>Most of our members start earning within 24-48 hours of joining. Your first payment could arrive as soon as next week! We have an immediate need for typists and our onboarding process is designed to get you working and earning quickly.</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">Is there a fee to join?</p>
+        <p>There's a small one-time registration fee of $37 that gives you lifetime access to our exclusive job database and training materials. This fee helps us maintain quality opportunities and provide ongoing support. Many members earn this back on their very first day!</p>
+      </div>
+      
+      <div class="faq-item">
+        <p class="faq-question">How much can I really earn?</p>
+        <p>While earnings vary based on your typing speed and how many hours you commit, our average member earns $25-35 per hour. Our top performers make $50+ per hour, with monthly earnings of $4,000-$5,000 working part-time. The potential is truly unlimited as you gain experience.</p>
+      </div>
+    </section>
+    
+
+    <!-- Guarantee Section -->
+    <div class="guarantee-section">
+      <div class="guarantee-badge">
+        <div class="guarantee-badge-inner">
+          <div>100% SATISFACTION RATING</div>
+        </div>
+      </div>
+      <div class="guarantee-content">
+        <h3>Our 5-Star Customer Satisfaction Rating</h3>
+        <p>
+          Over 97% of our members report being "extremely satisfied" with our typing job program. 
+          Our dedicated support team ensures you have everything you need to succeed from day one.
+          Join thousands of happy members who are building reliable income streams working from home.
+        </p>
+        <p class="emphasis">
+          You have absolutely nothing to lose and a potential $4,500/month income to gain!
+        </p>
+      </div>
+    </div>
+    
+    <!-- Final CTA -->
+    <div class="final-cta">
+      <h2>Success starts with one decision. You are just one click away!</h2>
+      <p>Spots are filling up fast - only <span class="highlight">200 positions</span> left for March</p>
+      <button 
+        class="final-cta-btn"
+        onclick="showRedirect();"
+      >
+        YES! I WANT TO START EARNING $4,500/MONTH NOW
+      </button>
+      <div class="final-cta-disclaimer">
+        <p>No obligation to continue. Try risk-free.</p>
+        <div class="final-cta-security">
+          <i>🛡️</i>
+          <p>100% Secure & Confidential</p>
         </div>
       </div>
     </div>
   </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>
+          © 2025 Typing Jobs Program. All Rights Reserved.
+        </p>
+        <p class="disclaimer">
+          *Results may vary. Testimonials shown are from our top performers. 
+          The average person who follows our program earns between $1,500-$3,000 per month.
+          Your results will depend on your typing speed, time commitment, and how closely you follow our system.
+        </p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-  <!-- Load non-critical CSS asynchronously -->
-  <link rel="stylesheet" href="data:text/css;base64,LnN0b3J5LXNlY3Rpb257YmFja2dyb3VuZC1jb2xvcjojZmZmO3BhZGRpbmc6MjBweDtib3JkZXItcmFkaXVzOjhweDttYXJnaW4tYm90dG9tOjIwcHg7Ym94LXNoYWRvdzowIDRweCA2cHggcmdiYSgwLDAsMCwuMSl9LnN0b3J5LXNlY3Rpb24gaDJ7Y29sb3I6IzFlNDBhZjtib3JkZXItYm90dG9tOjJweCBzb2xpZCAjYmZkYmZlO3BhZGRpbmctYm90dG9tOjEwcHg7bWFyZ2luLWJvdHRvbToyMHB4O2ZvbnQtc2l6ZToxLjVyZW19LnRlc3RpbW9uaWFse21hcmdpbi1ib3R0b206MjBweH0uY29tcGFyaXNvbi1zZWN0aW9ue2Rpc3BsYXk6Z3JpZDtncmlkLXRlbXBsYXRlLWNvbHVtbnM6MWZyIDFmcjtnYXA6MzBweDttYXJnaW46MzBweCAwfS5jb21wYXJpc29uLXRhYmxle2JhY2tncm91bmQtY29sb3I6I2ZmZjtib3JkZXItcmFkaXVzOjhweDtvdmVyZmxvdzpoaWRkZW47Ym94LXNoYWRvdzowIDRweCA2cHggcmdiYSgwLDAsMCwuMSl9LmNvbXBhcmlzb24tdGFibGUgdGFibGV7d2lkdGg6MTAwJTtib3JkZXItY29sbGFwc2U6Y29sbGFwc2V9LmZpbmFsLWN0YXtiYWNrZ3JvdW5kOmxpbmVhci1ncmFkaWVudCh0byByaWdodCwjMjU2M2ViLCM3YzNhZWQpO2NvbG9yOiNmZmY7Ym9yZGVyLXJhZGl1czo4cHg7cGFkZGluZzozMHB4IDIwcHg7dGV4dC1hbGlnbjpjZW50ZXI7bWFyZ2luOjQwcHggMDtib3gtc2hhZG93OjAgNHB4IDZweCByZ2JhKDAsMCwwLC4xKX0uZmluYWwtY3RhIGgye2ZvbnQtc2l6ZToxLjhyZW07bWFyZ2luLWJvdHRvbToxMHB4fS5maW5hbC1jdGEgLmhpZ2hsaWdodHtjb2xvcjojZmNkMzRkO2ZvbnQtd2VpZ2h0OmJvbGR9LmZpbmFsLWN0YS1idG57YmFja2dyb3VuZC1jb2xvcjojZGMyNjI2O2NvbG9yOiNmZmY7Ym9yZGVyOm5vbmU7cGFkZGluZzoxNXB4IDMwcHg7Ym9yZGVyLXJhZGl1czo1cHg7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6MS4ycmVtO2N1cnNvcjpwb2ludGVyO3RyYW5zaXRpb246YmFja2dyb3VuZC1jb2xvciAuMnM7YW5pbWF0aW9uOnB1bHNlIDJzIGluZmluaXRlfS5maW5hbC1jdGEtYnRuOmhvdmVye2JhY2tncm91bmQtY29sb3I6I2I5MWMxY30uZm9vdGVye2JhY2tncm91bmQ6bGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCMxZTNhOGEsIzU4MWM4Nyk7Y29sb3I6I2ZmZjtwYWRkaW5nOjIwcHggMDttYXJnaW4tdG9wOjUwcHh9LmZvb3Rlci1jb250ZW50e3RleHQtYWxpZ246Y2VudGVyO2ZvbnQtc2l6ZTowLjg3NXJlbX0uZm9vdGVyLWxpbmtze21hcmdpbi10b3A6MTVweH1Aa2V5ZnJhbWVzIGJvdW5jZURvd257MCUsMTAwJXt0cmFuc2Zvcm06dHJhbnNsYXRlWSgtNTAlKX01MCV7dHJhbnNmb3JtOnRyYW5zbGF0ZVkoLTQwJSl9fUBrZXlmcmFtZXMgc2hpbW1lcnswJXt0cmFuc2Zvcm06dHJhbnNsYXRlWCgtMTAwJSl9MTAwJXt0cmFuc2Zvcm06dHJhbnNsYXRlWCg0MDAlKX19" id="non-critical-css" media="print" onload="this.media='all'">
-
-  <!-- Efficient JavaScript -->
+  <!-- Success Modal (Hidden by default) -->
+  <div id="success-modal" style="display: none;" class="modal">
+    <div class="modal-content">
+      <div class="modal-success">
+        <div class="modal-success-badge">
+          ✓ Application Received!
+        </div>
+      </div>
+      <h3 class="modal-title">Congratulations!</h3>
+      <p class="modal-message">
+        Your application has been successfully submitted. One of our job specialists will contact you within the next 24 hours with your account details.
+      </p>
+      <div class="modal-alert">
+        <p class="title">IMPORTANT: Check your email!</p>
+        <p class="message">
+          We've sent important next steps to your email address. Please check both your inbox and spam folder.
+        </p>
+      </div>
+      <button 
+        class="modal-close-btn"
+        onclick="document.getElementById('success-modal').style.display = 'none'"
+      >
+        Close This Window
+      </button>
+    </div>
+  </div>
+  
+  <!-- Optimized Redirect Modal -->
+  <div id="redirect-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.7); z-index: 2000; align-items: center; justify-content: center;">
+    <div style="background: linear-gradient(to bottom right, #4f46e5, #9333ea, #ec4899); padding: 4px; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); max-width: 400px; width: 100%;">
+      <div style="background-color: white; border-radius: 10px; padding: 30px; text-align: center;">
+        <h3 style="margin-top: 0; font-size: 1.5rem; margin-bottom: 15px; background: linear-gradient(to right, #3b82f6, #8b5cf6, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">
+          Redirecting...
+        </h3>
+        
+        <p style="margin-bottom: 20px; font-size: 1.1rem; color: #4b5563;">
+          Please be patient. It might take up to 15 seconds
+        </p>
+        
+        <!-- Colorful progress container -->
+        <div style="position: relative; height: 32px; width: 100%; overflow: hidden; border-radius: 16px; background-color: #f3f4f6; margin-bottom: 8px;">
+          <!-- Background effect -->
+          <div style="position: absolute; inset: 0; background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6); opacity: 0.2;"></div>
+          
+          <!-- Progress bar with gradient -->
+          <div id="progress-bar" 
+            style="position: absolute; top: 0; left: 0; height: 100%; border-radius: 16px; background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899); width: 100%; transform-origin: left; transition: transform 15s linear; transform: translateX(-100%);">
+            
+            <div style="position: relative; width: 100%; height: 100%;">
+              <!-- Moving light effect -->
+              <div 
+                style="position: absolute; top: 0; bottom: 0; width: 64px; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%); animation: shimmer 2s infinite;">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Countdown display on progress bar -->
+          <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 1.125rem; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
+            <span id="countdown-timer">15</span>s
+          </div>
+        </div>
+        
+        <!-- Timer labels -->
+        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #6b7280; padding: 0 4px; margin-top: 4px;">
+          <span>15</span>
+          <span>0</span>
+        </div>
+        
+        <!-- Security message -->
+        <div style="margin-top: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; color: #4b5563;">
+          <svg style="width: 20px; height: 20px; margin-right: 8px; color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          100% Secure & Confidential
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Optimized JavaScript for Faster Performance -->
   <script>
-    // Load rest of the page after critical content is shown
-    window.addEventListener('load', function() {
-      // Load remaining content
-      var nonCriticalCss = document.getElementById('non-critical-css');
-      if (nonCriticalCss) nonCriticalCss.media = 'all';
+    // Preconnect to ClickBank on page load for faster redirect
+    document.addEventListener('DOMContentLoaded', function() {
+      // Preload ClickBank destination to make the redirect faster
+      let preconnect = document.createElement('link');
+      preconnect.rel = 'preconnect';
+      preconnect.href = 'https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net';
+      document.head.appendChild(preconnect);
       
-      // Pre-connect to ClickBank
-      var link = document.createElement('link');
-      link.rel = 'preconnect';
-      link.href = 'https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net';
-      document.head.appendChild(link);
+      // Create an invisible iframe to start loading the target page in background
+      let preloadFrame = document.createElement('iframe');
+      preloadFrame.style.display = 'none';
+      preloadFrame.src = 'https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net';
+      document.body.appendChild(preloadFrame);
+      
+      // Handle any form submission
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          document.getElementById('success-modal').style.display = 'flex';
+        });
+      }
+      
+      // Countdown Timer for urgency
+      let timeLeft = 15 * 60; // 15 minutes in seconds
+      const timerDisplay = document.querySelector('.timer');
+      
+      if (timerDisplay) {
+        setInterval(function() {
+          if (timeLeft > 0) {
+            timeLeft--;
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            timerDisplay.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+          }
+        }, 1000);
+      }
     });
     
-    // Redirect Modal Function - Optimized
+    // Optimized Redirect Modal Function
     function showRedirect() {
-      // Show modal
       const modal = document.getElementById('redirect-modal');
-      modal.style.display = 'flex';
-      
-      // Get elements once
       const progressBar = document.getElementById('progress-bar');
       const countdownTimer = document.getElementById('countdown-timer');
+      modal.style.display = 'flex';
       
       // Start the countdown
       let seconds = 15;
       const interval = setInterval(function() {
         seconds--;
         countdownTimer.textContent = seconds;
-        
         if (seconds <= 0) {
           clearInterval(interval);
-          window.location.href = 'https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net';
+          // Use location.replace instead of location.href for faster page transition
+          window.location.replace('https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net');
         }
       }, 1000);
       
-      // Reset and animate progress bar
+      // Reset the progress bar position first
       progressBar.style.transition = 'none';
       progressBar.style.transform = 'translateX(-100%)';
       
-      // Force reflow
+      // Force a reflow to make sure the reset is applied before the animation
       void progressBar.offsetWidth;
       
-      // Animate progress bar
+      // Now animate the progress bar filling up
       progressBar.style.transition = 'transform 15s linear';
       progressBar.style.transform = 'translateX(0%)';
     }
   </script>
-</body>
-</html>
+" style="color: #3b82f6;">⏰</div>
+        <h3>Work 2 Hours Daily</h3>
+        <p>Flexible schedule</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon" style="color: #10b981;">💰</div>
+        <h3>Earn $4,500/Month</h3>
+        <p>Paid weekly</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon
