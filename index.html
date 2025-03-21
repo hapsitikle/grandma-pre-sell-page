@@ -783,7 +783,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <!-- Floating CTA Button -->
  <div style="position: fixed; bottom: 20px; right: 20px; z-index: 100;">
  <button
- onclick="showRedirect(); setTimeout(function() { window.location.href='https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net'; }, 15000); return false;"
+ class="floating-cta-btn"
  style="background-color: #dc2626; color: white; font-weight: bold; padding: 12px 16px; border-radius: 6px; border: none; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); display: flex; align-items: center; animation: pulse 2s infinite;"
  >
  <span style="margin-right: 8px;">$</span>
@@ -1090,7 +1090,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <p>Spots are filling up fast - only <span class="highlight">200 positions</span> left for March</p>
  <button
  class="final-cta-btn"
- onclick="showRedirect(); setTimeout(function() { window.location.href='https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net'; }, 15000); return false;"
  >
  YES! I WANT TO START EARNING $4,500/MONTH NOW
  </button>
@@ -1152,113 +1151,165 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  </div>
  </div>
 
- <!-- Redirect Modal - NEW VIBRANT VERSION -->
+ <!-- Video Redirect Modal - UPDATED VERSION -->
  <div id="redirect-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.7); z-index: 2000; align-items: center; justify-content: center;">
- <div class="bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 p-1 rounded-xl shadow-xl max-w-md w-full" style="background: linear-gradient(to bottom right, #4f46e5, #9333ea, #ec4899); padding: 4px; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); max-width: 400px; width: 100%;">
- <div style="background-color: white; border-radius: 10px; padding: 30px; text-align: center;">
- <h3 style="margin-top: 0; font-size: 1.5rem; margin-bottom: 15px; background: linear-gradient(to right, #3b82f6, #8b5cf6, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">
- Redirecting...
- </h3>
+  <div class="bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 p-1 rounded-xl shadow-xl max-w-lg w-full" style="background: linear-gradient(to bottom right, #4f46e5, #9333ea, #ec4899); padding: 4px; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); max-width: 800px; width: 90%;">
+    <div style="background-color: white; border-radius: 10px; padding: 30px; text-align: center;">
+      <h3 style="margin-top: 0; font-size: 1.5rem; margin-bottom: 15px; background: linear-gradient(to right, #3b82f6, #8b5cf6, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">
+        One of our successful friends has something valuable to share with you!
+      </h3>
 
- <p style="margin-bottom: 20px; font-size: 1.1rem; color: #4b5563;">
- Please be patient. It might take up to 15 seconds
- </p>
+      <p style="margin-bottom: 20px; font-size: 1.1rem; color: #4b5563;">
+        Watch this important message while we prepare your destination
+      </p>
 
- <!-- Colorful progress container -->
- <div style="position: relative; height: 32px; width: 100%; overflow: hidden; border-radius: 16px; background-color: #f3f4f6; margin-bottom: 8px;">
- <!-- Background effect -->
- <div style="position: absolute; inset: 0; background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6); opacity: 0.2;"></div>
+      <!-- Video player container -->
+      <div id="video-container" style="margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <!-- Replace the src with your actual video URL -->
+        <video id="testimonial-video" width="100%" controls autoplay style="display: block;">
+          <source src="YOUR_VIDEO_URL_HERE.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
- <!-- Progress bar with gradient -->
- <div id="progress-bar"
- style="position: absolute; top: 0; left: 0; height: 100%; border-radius: 16px; background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899); width: 100%; transform-origin: left; transition: transform 15s linear; transform: translateX(-100%);">
+      <!-- Colorful progress container -->
+      <div style="position: relative; height: 32px; width: 100%; overflow: hidden; border-radius: 16px; background-color: #f3f4f6; margin-bottom: 8px;">
+        <!-- Background effect -->
+        <div style="position: absolute; inset: 0; background: linear-gradient(to right, #60a5fa, #a78bfa, #f472b6); opacity: 0.2;"></div>
 
- <div style="position: relative; width: 100%; height: 100%;">
- <!-- Moving light effect -->
- <div
- style="position: absolute; top: 0; bottom: 0; width: 64px; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%); animation: shimmer 2s infinite;">
- </div>
- </div>
- </div>
+        <!-- Progress bar with gradient -->
+        <div id="progress-bar"
+          style="position: absolute; top: 0; left: 0; height: 100%; border-radius: 16px; background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899); width: 100%; transform-origin: left; transition: transform 15s linear; transform: translateX(-100%);">
 
- <!-- Countdown display on progress bar -->
- <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 1.125rem; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
- <span id="countdown-timer">15</span>s
- </div>
- </div>
+          <div style="position: relative; width: 100%; height: 100%;">
+            <!-- Moving light effect -->
+            <div
+              style="position: absolute; top: 0; bottom: 0; width: 64px; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%); animation: shimmer 2s infinite;">
+            </div>
+          </div>
+        </div>
 
- <!-- Timer labels -->
- <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #6b7280; padding: 0 4px; margin-top: 4px;">
- <span>15</span>
- <span>0</span>
- </div>
+        <!-- Countdown display on progress bar -->
+        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 1.125rem; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
+          <span id="countdown-timer">15</span>s
+        </div>
+      </div>
 
- <!-- Security message -->
- <div style="margin-top: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; color: #4b5563;">
- <svg style="width: 20px; height: 20px; margin-right: 8px; color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
- </svg>
- 100% Secure & Confidential
- </div>
- </div>
- </div>
+      <!-- Timer labels -->
+      <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #6b7280; padding: 0 4px; margin-top: 4px;">
+        <span>15</span>
+        <span>0</span>
+      </div>
+
+      <!-- Security message -->
+      <div style="margin-top: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; color: #4b5563;">
+        <svg style="width: 20px; height: 20px; margin-right: 8px; color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+        100% Secure & Confidential
+      </div>
+    </div>
+  </div>
  </div>
 
  <!-- JavaScript for Functionality -->
  <script>
  // Add simple form submission with modal
  document.addEventListener('DOMContentLoaded', function() {
- const form = document.querySelector('form');
- if (form) {
- form.addEventListener('submit', function(e) {
- e.preventDefault();
- document.getElementById('success-modal').style.display = 'flex';
- });
- }
+   const form = document.querySelector('form');
+   if (form) {
+     form.addEventListener('submit', function(e) {
+       e.preventDefault();
+       document.getElementById('success-modal').style.display = 'flex';
+     });
+   }
 
- // Countdown Timer
- let timeLeft = 15 * 60; // 15 minutes in seconds
- const timerDisplay = document.querySelector('.timer');
+   // Countdown Timer
+   let timeLeft = 15 * 60; // 15 minutes in seconds
+   const timerDisplay = document.querySelector('.timer');
 
- if (timerDisplay) {
- setInterval(function() {
- if (timeLeft > 0) {
- timeLeft--;
- const mins = Math.floor(timeLeft / 60);
- const secs = timeLeft % 60;
- timerDisplay.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
- }
- }, 1000);
- }
+   if (timerDisplay) {
+     setInterval(function() {
+       if (timeLeft > 0) {
+         timeLeft--;
+         const mins = Math.floor(timeLeft / 60);
+         const secs = timeLeft % 60;
+         timerDisplay.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+       }
+     }, 1000);
+   }
+   
+   // Set up click handlers for all CTA buttons
+   const ctaButtons = document.querySelectorAll('.cta-button, .final-cta-btn, .get-started-btn, .floating-cta-btn');
+   ctaButtons.forEach(button => {
+     button.addEventListener('click', function(e) {
+       e.preventDefault();
+       showRedirect();
+       return false;
+     });
+   });
  });
 
  // Redirect Modal Function
  function showRedirect() {
- const modal = document.getElementById('redirect-modal');
- const progressBar = document.getElementById('progress-bar');
- const countdownTimer = document.getElementById('countdown-timer');
- modal.style.display = 'flex';
+   const modal = document.getElementById('redirect-modal');
+   const progressBar = document.getElementById('progress-bar');
+   const countdownTimer = document.getElementById('countdown-timer');
+   const video = document.getElementById('testimonial-video');
+   
+   modal.style.display = 'flex';
 
- // Start the countdown
- let seconds = 15;
- const interval = setInterval(function() {
- seconds--;
- countdownTimer.textContent = seconds;
- if (seconds <= 0) {
- clearInterval(interval);
- }
- }, 1000);
+   // Make sure video starts playing
+   if (video) {
+     video.play().catch(error => {
+       console.log('Auto-play was prevented by the browser', error);
+     });
+   }
 
- // Reset the progress bar position first
- progressBar.style.transition = 'none';
- progressBar.style.transform = 'translateX(-100%)';
+   // Set the redirect timer
+   let redirectTime = 15; // Length in seconds
+   
+   // Check if the video has metadata loaded so we can get its duration
+   if (video && video.readyState >= 1) {
+     // Use the video duration if it's longer than our minimum redirect time
+     redirectTime = Math.max(redirectTime, Math.ceil(video.duration));
+     updateProgressBar(redirectTime);
+   } else if (video) {
+     // If metadata isn't loaded yet, wait for it
+     video.addEventListener('loadedmetadata', function() {
+       redirectTime = Math.max(redirectTime, Math.ceil(video.duration));
+       updateProgressBar(redirectTime);
+     });
+   } else {
+     updateProgressBar(redirectTime);
+   }
 
- // Force a reflow to make sure the reset is applied before the animation
- void progressBar.offsetWidth;
+   function updateProgressBar(duration) {
+     // Reset countdown display to match the duration
+     countdownTimer.textContent = duration;
+     
+     // Start the countdown
+     let seconds = duration;
+     const interval = setInterval(function() {
+       seconds--;
+       countdownTimer.textContent = seconds;
+       if (seconds <= 0) {
+         clearInterval(interval);
+         window.location.href = 'https://99f877par3pe7uf6gj3nsaxc58.hop.clickbank.net';
+       }
+     }, 1000);
 
- // Now animate the progress bar filling up
- progressBar.style.transition = 'transform 15s linear';
- progressBar.style.transform = 'translateX(0%)';
+     // Reset the progress bar position first
+     progressBar.style.transition = 'none';
+     progressBar.style.transform = 'translateX(-100%)';
+
+     // Force a reflow to make sure the reset is applied before the animation
+     void progressBar.offsetWidth;
+
+     // Now animate the progress bar filling up based on the video duration
+     progressBar.style.transition = `transform ${duration}s linear`;
+     progressBar.style.transform = 'translateX(0%)';
+   }
  }
  </script>
 
