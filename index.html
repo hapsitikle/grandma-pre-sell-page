@@ -384,6 +384,32 @@
             color: #666;
         }
         
+        .video-section {
+            margin: 40px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            background-color: #f5f9ff;
+            padding: 20px;
+        }
+        
+        .video-caption {
+            font-size: 1.1rem;
+            color: #2c5282;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .video-container {
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+        
         @media (max-width: 768px) {
             .headline {
                 font-size: 1.8rem;
@@ -445,6 +471,16 @@
                 <div class="stat-item">
                     <div class="stat-number">$4,500+</div>
                     <div class="stat-label">potential monthly income</div>
+                </div>
+            </div>
+            
+            <div class="video-section">
+                <p class="video-caption">Check out this fun little AI video from our top student, David</p>
+                <div class="video-container">
+                    <video width="100%" controls poster="/api/placeholder/640/360">
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
             
