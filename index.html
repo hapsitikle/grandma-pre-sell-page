@@ -422,6 +422,58 @@
             border: 0;
         }
         
+        /* Popup styles */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .popup-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        .popup-message {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .popup-timer-container {
+            width: 100%;
+            height: 6px;
+            background-color: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 25px 0 15px;
+        }
+        
+        .popup-timer-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #2c5282;
+            border-radius: 3px;
+            transition: width 0.1s linear;
+        }
+        
+        .popup-timer-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
         @media (max-width: 768px) {
             .headline {
                 font-size: 1.8rem;
@@ -489,7 +541,7 @@
             <div class="video-section">
                 <p class="video-caption">Check out this fun little AI video from our top student, David</p>
                 <div class="video-container">
-                    <iframe width="100%" height="360" src="https://www.youtube.com/embed/TAYdEoegmz8" title="David's AI Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="360" src="https://www.youtube.com/embed/TAYdEoegmz8?controls=1&rel=0&modestbranding=1&showinfo=0" title="David's AI Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
             
@@ -602,6 +654,21 @@
         </div>
     </div>
     
+    <!-- Popup -->
+    <div class="popup-overlay" id="redirectPopup">
+        <div class="popup-container">
+            <div class="popup-message">
+                <p>Due to high traffic, our servers are slow right now.</p>
+                <p>You will be redirected in <span id="countdown">7</span> seconds.</p>
+                <p>Don't worry, we'll get you to the destination :)</p>
+            </div>
+            <div class="popup-timer-container">
+                <div class="popup-timer-bar" id="timerBar"></div>
+            </div>
+            <div class="popup-timer-text">Please wait...</div>
+        </div>
+    </div>
+    
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
@@ -637,6 +704,40 @@
                             otherItem.classList.remove('active');
                         }
                     });
+                });
+            });
+
+            // Redirect popup functionality
+            const ctaButtons = document.querySelectorAll('.action-button, .read-more, .floating-cta');
+            const popup = document.getElementById('redirectPopup');
+            const timerBar = document.getElementById('timerBar');
+            const countdownEl = document.getElementById('countdown');
+            const redirectUrl = 'https://6a08cin7r7nc1va-embkz8v-vq.hop.clickbank.net';
+            
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Show popup
+                    popup.style.display = 'flex';
+                    
+                    // Set up countdown
+                    let timeLeft = 7;
+                    let progress = 0;
+                    
+                    // Update timer bar and countdown text
+                    const timer = setInterval(() => {
+                        timeLeft--;
+                        progress = ((7 - timeLeft) / 7) * 100;
+                        
+                        countdownEl.textContent = timeLeft;
+                        timerBar.style.width = progress + '%';
+                        
+                        if (timeLeft <= 0) {
+                            clearInterval(timer);
+                            window.location.href = redirectUrl;
+                        }
+                    }, 1000);
                 });
             });
         });
