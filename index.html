@@ -10,7 +10,43 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-}
+    }
+    else if (step.type === 'thank-you') {
+      const thankYouDiv = document.createElement('div');
+      thankYouDiv.className = 'quiz-thank-you';
+      
+      const title = document.createElement('h3');
+      title.className = 'quiz-thank-you-title';
+      title.textContent = step.title;
+      thankYouDiv.appendChild(title);
+      
+      const subtitle = document.createElement('p');
+      subtitle.className = 'quiz-thank-you-subtitle';
+      subtitle.textContent = step.subtitle;
+      thankYouDiv.appendChild(subtitle);
+      
+      modalContent.appendChild(thankYouDiv);
+      
+      // Close button for thank you screen
+      const closeButton = document.createElement('button');
+      closeButton.className = 'quiz-button';
+      closeButton.textContent = 'Close';
+      closeButton.addEventListener('click', () => {
+        modalOverlay.classList.remove('active');
+      });
+</script>
+</body>
+</html>
+      modalContent.appendChild(closeButton);
+    }
+  }
+  
+  // Show modal and start quiz when action button is clicked
+  actionButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    showQuiz();
+  });
+});
 
 body {
   background-color: #f8fafc;
