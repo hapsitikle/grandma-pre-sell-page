@@ -9,848 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-    }
-    else if (step.type === 'thank-you') {
-      const thankYouDiv = document.createElement('div');
-      thankYouDiv.className = 'quiz-thank-you';
-      
-      const title = document.createElement('h3');
-      title.className = 'quiz-thank-you-title';
-      title.textContent = step.title;
-      thankYouDiv.appendChild(title);
-      
-      const subtitle = document.createElement('p');
-      subtitle.className = 'quiz-thank-you-subtitle';
-      subtitle.textContent = step.subtitle;
-      thankYouDiv.appendChild(subtitle);
-      
-      modalContent.appendChild(thankYouDiv);
-      
-      // Close button for thank you screen
-      const closeButton = document.createElement('button');
-      closeButton.className = 'quiz-button';
-      closeButton.textContent = 'Close';
-      closeButton.addEventListener('click', () => {
-        modalOverlay.classList.remove('active');
-      });
-</script>
-</body>
-</html>
-      modalContent.appendChild(closeButton);
-    }
-  }
-  
-  // Show modal and start quiz when action button is clicked
-  actionButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    showQuiz();
-  });
-});
-
-body {
-  background-color: #f8fafc;
-  color: #334155;
-  line-height: 1.8;
-  font-size: 16px;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-}
-
-header {
-  background: linear-gradient(135deg, #4338ca, #6366f1);
-  color: white;
-  padding: 60px 0;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25);
-  position: relative;
-  overflow: hidden;
-}
-
-.headline {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  line-height: 1.2;
-  font-weight: 800;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  letter-spacing: -0.5px;
-}
-
-.sub-headline {
-  font-size: 1.4rem;
-  margin-bottom: 25px;
-  font-style: italic;
-  opacity: 0.95;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 300;
-}
-
-.byline {
-  font-size: 1rem;
-  opacity: 0.85;
-  margin-bottom: 10px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.story-container {
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04), 0 6px 12px rgba(0,0,0,0.02);
-  padding: 50px;
-  margin: 40px 0;
-  position: relative;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-}
-
-.story-text {
-  font-size: 1.15rem;
-  margin-bottom: 28px;
-  color: #334155;
-  line-height: 1.8;
-}
-
-.highlight {
-  font-weight: 700;
-  color: #6366f1;
-  position: relative;
-  display: inline-block;
-}
-
-.highlight::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background-color: rgba(165, 180, 252, 0.3);
-  z-index: -1;
-  transform: skew(-12deg);
-}
-
-.pull-quote {
-  background-color: #f1f5f9;
-  border-left: 4px solid #6366f1;
-  padding: 30px 40px;
-  margin: 40px 0;
-  border-radius: 0 16px 16px 0;
-  position: relative;
-  font-style: italic;
-  font-size: 1.3rem;
-  color: #4338ca;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-  line-height: 1.6;
-}
-
-.pull-quote::before {
-  content: '"';
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  font-size: 6rem;
-  color: rgba(99, 102, 241, 0.15);
-  line-height: 1;
-  font-family: Georgia, serif;
-}
-
-.action-button {
-  display: inline-block;
-  background: linear-gradient(135deg, #6366f1, #4338ca);
-  color: white;
-  font-size: 1.15rem;
-  font-weight: 700;
-  padding: 16px 36px;
-  border-radius: 50px;
-  text-decoration: none;
-  margin-top: 25px;
-  transition: all 0.4s ease;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  letter-spacing: 0.5px;
-}
-
-.action-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.5);
-}
-
-.section-title {
-  font-size: 2rem;
-  margin: 60px 0 35px;
-  text-align: left;
-  color: #4338ca;
-  font-weight: 700;
-  border-bottom: 2px solid rgba(224, 231, 255, 0.8);
-  padding-bottom: 12px;
-  position: relative;
-  letter-spacing: -0.5px;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100px;
-  height: 2px;
-  background-color: #6366f1;
-}
-
-.testimonial-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin: 40px 0;
-}
-
-.testimonial-card {
-  background: linear-gradient(135deg, #ffffff, #fafaff);
-  border-radius: 16px;
-  padding: 35px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04), 0 6px 12px rgba(0,0,0,0.02);
-  transition: all 0.4s ease;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  position: relative;
-  overflow: hidden;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-8px) rotate(1deg);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.07);
-}
-
-.testimonial-card::before {
-  content: '"';
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  font-size: 8rem;
-  color: rgba(99, 102, 241, 0.06);
-  z-index: 0;
-  line-height: 1;
-  font-family: Georgia, serif;
-}
-
-.testimonial-image {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  overflow: hidden;
-  background-color: #f0f0f0;
-  border: 3px solid #e0e7ff;
-  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.15);
-  position: relative;
-  z-index: 1;
-}
-
-.testimonial-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.testimonial-text {
-  font-style: italic;
-  margin-bottom: 20px;
-  color: #4b5563;
-  position: relative;
-  z-index: 1;
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-.testimonial-name {
-  font-weight: 700;
-  margin-bottom: 5px;
-  color: #4338ca;
-  font-size: 1.15rem;
-}
-
-.testimonial-position {
-  font-size: 0.95rem;
-  color: #6b7280;
-}
-
-.faq-container {
-  margin: 50px 0;
-}
-
-.faq-item {
-  margin-bottom: 20px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-  background-color: white;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-  transform: translateY(-2px);
-}
-
-.faq-question {
-  padding: 22px 25px;
-  background-color: #f8fafc;
-  cursor: pointer;
-  font-weight: 700;
-  color: #4338ca;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
-  font-size: 1.1rem;
-}
-
-.faq-question:hover {
-  background-color: #f1f5f9;
-}
-
-.faq-question:after {
-  content: '+';
-  font-size: 1.6rem;
-  transition: all 0.3s ease;
-  color: #6366f1;
-}
-
-.faq-item.active .faq-question {
-  background-color: #eff6ff;
-}
-
-.faq-item.active .faq-question:after {
-  transform: rotate(45deg);
-}
-
-.faq-answer {
-  padding: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.5s ease;
-  background-color: white;
-}
-
-.faq-item.active .faq-answer {
-  padding: 25px;
-  max-height: 300px;
-}
-
-.footer {
-  background: linear-gradient(135deg, #4338ca, #312e81);
-  color: white;
-  padding: 50px 0;
-  text-align: center;
-  margin-top: 70px;
-  font-size: 0.95rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-  margin: 25px 0;
-}
-
-.footer-link {
-  color: white;
-  text-decoration: none;
-  opacity: 0.85;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  position: relative;
-}
-
-.footer-link:hover {
-  opacity: 1;
-}
-
-.featured-image {
-  width: 100%;
-  max-height: 500px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin: 30px 0;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  transition: all 0.5s ease;
-}
-
-.featured-image:hover {
-  transform: scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.side-note {
-  background: linear-gradient(135deg, #eff6ff, #eef2ff);
-  border: 1px solid rgba(224, 231, 255, 0.8);
-  border-radius: 12px;
-  padding: 30px;
-  margin: 35px 0;
-  font-size: 1.05rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-}
-
-.side-note-title {
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #4338ca;
-  font-size: 1.2rem;
-}
-
-.stats-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 50px 0;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.stat-item {
-  background: linear-gradient(135deg, #eff6ff, #eef2ff);
-  padding: 30px;
-  border-radius: 16px;
-  text-align: center;
-  flex: 1;
-  min-width: 160px;
-  transition: all 0.4s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-  border: 1px solid rgba(224, 231, 255, 0.8);
-  position: relative;
-  overflow: hidden;
-}
-
-.stat-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-}
-
-.stat-number {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: #6366f1;
-  margin-bottom: 10px;
-  line-height: 1;
-  position: relative;
-  display: inline-block;
-}
-
-.stat-label {
-  font-size: 1rem;
-  color: #4b5563;
-  font-weight: 500;
-}
-
-.success-story {
-  border-left: 4px solid #10b981;
-  padding: 25px 30px;
-  margin: 30px 0;
-  background-color: #f0fdf4;
-  border-radius: 0 12px 12px 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-}
-
-.success-highlight {
-  color: #059669;
-  font-weight: 700;
-  background: linear-gradient(to bottom, transparent 50%, rgba(16, 185, 129, 0.2) 50%);
-}
-
-.benefits-list {
-  list-style: none;
-  margin: 30px 0;
-}
-
-.benefits-list li {
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 18px;
-  font-size: 1.1rem;
-}
-
-.benefits-list li:before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #6366f1;
-  font-weight: 700;
-  background-color: rgba(165, 180, 252, 0.2);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-}
-
-.form-container {
-  background: linear-gradient(135deg, #eff6ff, #eef2ff);
-  color: #333;
-  padding: 50px;
-  border-radius: 16px;
-  margin: 50px 0;
-  position: relative;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-  border: 1px solid rgba(224, 231, 255, 0.8);
-  text-align: center;
-  overflow: hidden;
-}
-
-.form-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #4338ca;
-  font-weight: 700;
-  position: relative;
-  z-index: 1;
-}
-
-.form-description {
-  margin-bottom: 30px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1.15rem;
-  line-height: 1.7;
-  position: relative;
-  z-index: 1;
-}
-
-.fixed-cta {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, #6366f1, #4338ca);
-  color: white;
-  font-weight: 700;
-  padding: 16px 25px;
-  border-radius: 50px;
-  text-decoration: none;
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  border: none;
-  cursor: pointer;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
-  transform: translateY(100px);
-  opacity: 0;
-}
-
-.fixed-cta.visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.fixed-cta:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.5);
-}
-
-.fixed-cta-icon {
-  margin-right: 10px;
-  font-size: 1.2em;
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(30, 41, 59, 0.85);
-  backdrop-filter: blur(5px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal-content {
-  background-color: white;
-  border-radius: 16px;
-  padding: 40px;
-  max-width: 550px;
-  width: 90%;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-  transform: translateY(-30px) scale(0.98);
-  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-  position: relative;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  overflow: hidden;
-}
-
-.modal-overlay.active .modal-content {
-  transform: translateY(0) scale(1);
-}
-
-.modal-content::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, #6366f1, #818cf8, #a5b4fc);
-}
-
-.quiz-title {
-  font-size: 1.8rem;
-  color: #4338ca;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.quiz-question {
-  font-size: 1.3rem;
-  margin-bottom: 25px;
-  color: #334155;
-  font-weight: 600;
-  text-align: center;
-}
-
-.quiz-options {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-bottom: 35px;
-}
-
-.quiz-option {
-  padding: 18px;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1.1rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-}
-
-.quiz-option:hover {
-  border-color: #818cf8;
-  background-color: #f5f3ff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(129, 140, 248, 0.1);
-}
-
-.quiz-option.selected {
-  background-color: #eff6ff;
-  border-color: #6366f1;
-  font-weight: 600;
-  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.1);
-}
-
-.quiz-option.selected::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: linear-gradient(180deg, #6366f1, #818cf8);
-}
-
-.quiz-button {
-  background: linear-gradient(135deg, #6366f1, #4338ca);
-  color: white;
-  font-size: 1.15rem;
-  font-weight: 700;
-  padding: 16px 30px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  display: block;
-  width: 100%;
-  margin-top: 25px;
-  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.3);
-  position: relative;
-  overflow: hidden;
-  letter-spacing: 0.5px;
-}
-
-.quiz-button:hover {
-  background: linear-gradient(135deg, #4338ca, #312e81);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
-}
-
-.quiz-button:disabled {
-  background: #cbd5e0;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-.quiz-form {
-  margin-top: 25px;
-}
-
-.quiz-form-group {
-  margin-bottom: 20px;
-}
-
-.quiz-form-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #334155;
-  font-size: 1.05rem;
-}
-
-.quiz-form-control {
-  width: 100%;
-  padding: 16px;
-  border-radius: 12px;
-  border: 2px solid #e2e8f0;
-  font-size: 1.05rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-}
-
-.quiz-form-control:focus {
-  outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
-}
-
-.quiz-thank-you {
-  text-align: center;
-  padding: 20px 0;
-}
-
-.quiz-thank-you-title {
-  font-size: 1.8rem;
-  color: #4338ca;
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-
-.quiz-thank-you-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #4b5563;
-  line-height: 1.6;
-}
-
-.quiz-progress {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 25px;
-}
-
-.quiz-progress-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #e2e8f0;
-  margin: 0 6px;
-  transition: all 0.4s ease;
-}
-
-.quiz-progress-dot.active {
-  background-color: #6366f1;
-  transform: scale(1.3);
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
-}
-
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 1.8rem;
-  color: #94a3b8;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.close-modal:hover {
-  color: #4338ca;
-  background-color: #f8fafc;
-  transform: rotate(90deg);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .headline {
-    font-size: 2.2rem;
-  }
-  
-  .sub-headline {
-    font-size: 1.25rem;
-  }
-  
-  .story-container {
-    padding: 30px 25px;
-  }
-  
-  .testimonial-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .form-container {
-    padding: 35px 25px;
-  }
-  
-  .stats-container {
-    flex-direction: column;
-  }
-  
-  .stat-item {
-    min-width: 100%;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .fixed-cta {
-    padding: 12px 20px;
-    font-size: 1rem;
-    bottom: 20px;
-    right: 20px;
-  }
+  font-family: 'Georgia', serif;
 }
 </style>
 </head>
@@ -859,31 +18,70 @@ header {
 <div class="container">
 <h1 class="headline">How I Turned AI Article Writing Into Financial Freedom as a Single Mom</h1>
 <p class="sub-headline">My journey from struggling paycheck-to-paycheck to earning $5,000+ monthly with flexible hours</p>
-<p class="byline">By Sarah Miller | March 18, 2025</p>
+<p class="byline">By Sarah Miller | March 24, 2025</p>
 </div>
 </header>
 
 <div class="container">
 <div class="story-container">
 <img src="/api/placeholder/800/450" alt="Woman working on laptop at home with children nearby" class="featured-image">
+
 <p class="story-text">I still remember that moment, sitting at my kitchen table after putting the kids to bed, staring at my past-due bills and wondering how I would make it through another month. Working two part-time jobs while juggling childcare for my two little ones was running me into the ground, both emotionally and financially.</p>
+
 <p class="story-text">That was 18 months ago, before I discovered what would <span class="highlight">change everything</span> for me and my family.</p>
 
 <div class="success-story">
 <p class="story-text"><span class="success-highlight">Update:</span> Since writing this article, I've helped over 120 people start their own AI content businesses. Many are now earning <span class="success-highlight">$3,000-$8,000 monthly</span> with complete location and schedule freedom.</p>
 </div>
 
-<h2 class="section-title">The Step-by-Step System I Created</h2>
-<p class="story-text">After helping numerous friends start their own AI content businesses, I decided to document my entire process in a step-by-step guide. This isn't just theory—it's the exact system I use to maintain my $5,000+ monthly income while working 25-30 hours per week.</p>
-<p class="story-text">I cover everything from:</p>
+<h2 class="section-title">My Unexpected Journey</h2>
+<p class="story-text">I never planned to become an AI content creator. Before kids, I worked in retail management—nothing related to writing or digital marketing. But necessity truly is the mother of invention (or in my case, reinvention).</p>
+
+<p class="story-text">While searching for legitimate work-from-home opportunities late one night, I stumbled across a forum where website owners were <span class="highlight">desperately seeking help</span> with content creation. They needed articles—lots of them—to rank their sites in search engines. What caught my attention was how much they were willing to pay for this content.</p>
+
+<div class="pull-quote">
+<p>"I always enjoyed writing, even if it was just in my personal journal, but I had no formal training. Still, I decided to give it a shot. What did I have to lose? Within 60 days, I was making more than both my part-time jobs combined."</p>
+</div>
+
+<p class="story-text">My first attempts at writing SEO articles were... well, let's just say they weren't great. I spent hours researching topics I knew nothing about, and the end results were mediocre at best.</p>
+
+<h2 class="section-title">The Game-Changer: AI-Powered Writing</h2>
+<p class="story-text">Then I discovered AI writing tools. These weren't just basic spelling and grammar checkers—they were sophisticated systems that could help generate content outlines, suggest ideas, and even draft sections based on my direction.</p>
+
+<p class="story-text">The lightbulb moment came when I realized that combining these AI tools with my human touch created something <span class="highlight">uniquely valuable</span>. The AI could handle the heavy lifting of research and structure, while I added the personal insights, emotional connections, and creative angles that no computer could replicate.</p>
+
+<div class="stats-container">
+<div class="stat-item">
+<div class="stat-number">3</div>
+<div class="stat-label">months to replace previous income</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">6</div>
+<div class="stat-label">months to double income</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">120+</div>
+<div class="stat-label">people I've helped start their AI content journey</div>
+</div>
+</div>
+
+<h2 class="section-title">What Makes This Opportunity Different</h2>
+<p class="story-text">I've tried many side hustles before, from drop shipping to social media management. Here's why AI content creation has been the most sustainable for me as a single parent:</p>
+
 <ul class="benefits-list">
-<li>Finding your first clients (even with zero portfolio)</li>
-<li>Setting up efficient AI workflows that save hours per article</li>
-<li>Pricing strategies that attract clients while maximizing your value</li>
-<li>The exact AI prompts I use to generate high-quality outlines and drafts</li>
-<li>How to add your human touch to AI content so it stands out</li>
-<li>Building systems that let you scale beyond the dollars-for-hours trap</li>
+<li><strong>Flexible Hours:</strong> I work when my kids are in school or asleep. No more calling in sick when a child has a fever.</li>
+<li><strong>Location Freedom:</strong> All I need is a laptop and internet connection. We've even taken "workcations" where I work a few hours in the morning and spend the rest of the day with my kids.</li>
+<li><strong>Scalable Income:</strong> As I've gotten more efficient with AI tools, I can produce more content in less time, directly increasing my hourly rate.</li>
+<li><strong>Low Startup Costs:</strong> All I needed was a basic laptop and a few AI tool subscriptions that quickly paid for themselves.</li>
+<li><strong>Continuous Demand:</strong> Every business needs content, and AI knowledge puts you ahead of the competition.</li>
 </ul>
+
+<p class="story-text">The most surprising benefit has been how this work has allowed me to be <span class="highlight">more present</span> with my children. I'm no longer constantly stressed about money or working late shifts that took me away from them.</p>
+
+<div class="side-note">
+<div class="side-note-title">A Common Misconception</div>
+<p>Many people think AI will replace writers. I've found the opposite to be true. Businesses value human writers who know how to use AI effectively even more now, because they get the efficiency of AI with the quality only humans can provide.</p>
+</div>
 
 <h2 class="section-title">Real People, Real Results</h2>
 <div class="testimonial-container">
@@ -905,48 +103,1590 @@ header {
 </div>
 </div>
 
-<h2 class="section-title">My Unexpected Journey</h2>
-<p class="story-text">I never planned to become an AI content creator. Before kids, I worked in retail management—nothing related to writing or digital marketing. But necessity truly is the mother of invention (or in my case, reinvention).</p>
-<p class="story-text">While searching for legitimate work-from-home opportunities late one night, I stumbled across a forum where website owners were <span class="highlight">desperately seeking help</span> with content creation. They needed articles—lots of them—to rank their sites in search engines. What caught my attention was how much they were willing to pay for this content.</p>
+<h2 class="section-title">The Step-by-Step System I Created</h2>
+<p class="story-text">After helping numerous friends start their own AI content businesses, I decided to document my entire process in a step-by-step guide. This isn't just theory—it's the exact system I use to maintain my $5,000+ monthly income while working 25-30 hours per week.</p>
 
-<div class="pull-quote">
-<p>"I always enjoyed writing, even if it was just in my personal journal, but I had no formal training. Still, I decided to give it a shot. What did I have to lose? Within 60 days, I was making more than both my part-time jobs combined."</p>
-</div>
-
-<p class="story-text">My first attempts at writing SEO articles were... well, let's just say they weren't great. I spent hours researching topics I knew nothing about, and the end results were mediocre at best.</p>
-
-<h2 class="section-title">The Game-Changer: AI-Powered Writing</h2>
-<p class="story-text">Then I discovered AI writing tools. These weren't just basic spelling and grammar checkers—they were sophisticated systems that could help generate content outlines, suggest ideas, and even draft sections based on my direction.</p>
-<p class="story-text">The lightbulb moment came when I realized that combining these AI tools with my human touch created something <span class="highlight">uniquely valuable</span>. The AI could handle the heavy lifting of research and structure, while I added the personal insights, emotional connections, and creative angles that no computer could replicate.</p>
-
-<div class="stats-container">
-<div class="stat-item">
-<div class="stat-number">3</div>
-<div class="stat-label">months to replace previous income</div>
-</div>
-<div class="stat-item">
-<div class="stat-number">6</div>
-<div class="stat-label">months to double income</div>
-</div>
-<div class="stat-item">
-<div class="stat-number">120+</div>
-<div class="stat-label">people I've helped start their AI content journey</div>
-</div>
-</div>
-
-<h2 class="section-title">What Makes This Opportunity Different</h2>
-<p class="story-text">I've tried many side hustles before, from drop shipping to social media management. Here's why AI content creation has been the most sustainable for me as a single parent:</p>
+<p class="story-text">I cover everything from:</p>
 <ul class="benefits-list">
-<li><strong>Flexible Hours:</strong> I work when my kids are in school or asleep. No more calling in sick when a child has a fever.</li>
-<li><strong>Location Freedom:</strong> All I need is a laptop and internet connection. We've even taken "workcations" where I work a few hours in the morning and spend the rest of the day with my kids.</li>
-<li><strong>Scalable Income:</strong> As I've gotten more efficient with AI tools, I can produce more content in less time, directly increasing my hourly rate.</li>
-<li><strong>Low Startup Costs:</strong> All I needed was a basic laptop and a few AI tool subscriptions that quickly paid for themselves.</li>
-<li><strong>Continuous Demand:</strong> Every business needs content, and AI knowledge puts you ahead of the competition.</li>
+<li>Finding your first clients (even with zero portfolio)</li>
+<li>Setting up efficient AI workflows that save hours per article</li>
+<li>Pricing strategies that attract clients while maximizing your value</li>
+<li>The exact AI prompts I use to generate high-quality outlines and drafts</li>
+<li>How to add your human touch to AI content so it stands out</li>
+<li>Building systems that let you scale beyond the dollars-for-hours trap</li>
 </ul>
 
-<p class="story-text">The most surprising benefit has been how this work has allowed me to be <span class="highlight">more present</span> with my children. I'm no longer constantly stressed about money or working late shifts that took me away from them.</p>
-
-<div class="side-note">
-<div class="side-note-title">A Common Misconception</div>
-<p>Many people think AI will replace writers. I've found the opposite to be true. Businesses value human writers who know how to use AI effectively even more now, because they get the efficiency of AI with the quality only humans can provide.</p>
+<h2 class="section-title">Frequently Asked Questions</h2>
+<div class="faq-container">
+<div class="faq-item">
+<div class="faq-question">Do I need to be a professional writer?</div>
+<div class="faq-answer">
+<p>Not at all! I had zero professional writing experience when I started. The beauty of AI-assisted content creation is that the technology helps bridge the gap. You'll need good communication skills and attention to detail, but the AI does much of the heavy lifting.</p>
 </div>
+</div>
+<div class="faq-item">
+<div class="faq-question">How much time does this require?</div>
+<div class="faq-answer">
+<p>You can start with as little as 5-10 hours per week. Most beginners start part-time while keeping their day jobs. As you build clients and efficiency, you can scale up. I currently work 25-30 hours per week by choice, though I could work more if I wanted to increase my income further.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-question">What kind of startup costs are involved?</div>
+<div class="faq-answer">
+<p>The minimal startup costs include a reliable computer and internet connection, which you likely already have. The AI tools I recommend range from $30-100 monthly, but they pay for themselves quickly. My guide includes both premium and budget options to get started.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-question">Is this market saturated?</div>
+<div class="faq-answer">
+<p>Despite the growth of AI content tools, demand still far exceeds supply for skilled human writers who know how to use AI effectively. Most businesses understand that pure AI content lacks the human touch needed for truly engaging writing. This creates a perfect opportunity for people who can bridge that gap.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-question">How long until I start seeing results?</div>
+<div class="faq-answer">
+<p>Most of my students land their first paying client within 2-4 weeks of implementing my strategies. Building up to a full-time income typically takes 3-6 months of consistent effort. The key factor is implementing the client acquisition strategies I teach rather than just creating content.</p>
+</div>
+</div>
+</div>
+
+<p class="story-text">I never imagined I'd find financial freedom through writing with AI, but it's become the perfect career for my life as a single parent. The flexibility, income potential, and satisfaction of helping businesses grow has transformed my family's life.</p>
+
+<p class="story-text">If you're looking for a legitimate way to work from home with flexible hours and strong income potential, I'd love to help you get started on your own journey.</p>
+
+<div class="cta-container">
+<h3 class="cta-title">Is AI Content Creation Right for You?</h3>
+<p class="cta-description">Take my quick assessment to discover if you're a good fit for this flexible, high-income opportunity. I'll analyze your situation and provide personalized guidance.</p>
+<button class="action-button animate-pulse" id="quizButton">Take the Free Quiz</button>
+</div>
+
+</div>
+</div>
+
+<button class="fixed-cta" id="fixedCta">
+  <span class="fixed-cta-icon">✨</span> Take the Free Quiz
+</button>
+
+<div class="modal-overlay" id="quizModal">
+  <div class="modal-content">
+    <button class="close-modal" id="closeModal">×</button>
+    <div id="quizContainer"></div>
+  </div>
+</div>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-links">
+<a href="#" class="footer-link">About</a>
+<a href="#" class="footer-link">Contact</a>
+<a href="#" class="footer-link">Privacy Policy</a>
+<a href="#" class="footer-link">Terms of Service</a>
+</div>
+<p>&copy; 2025 AI Content Mastery. All rights reserved.</p>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Add animation classes to elements as they enter the viewport
+  const animateElements = () => {
+    const elements = document.querySelectorAll('.story-text, .section-title, .testimonial-card, .stat-item, .side-note, .faq-item');
+    
+    elements.forEach(element => {
+      const elementPosition = element.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.2;
+      
+      if (elementPosition < screenPosition) {
+        element.classList.add('animate-fadeIn');
+      }
+    });
+  };
+  
+  // Run once on load
+  animateElements();
+  
+  // Run on scroll
+  window.addEventListener('scroll', animateElements);
+  
+  // Quiz Data
+  // DOM Elements
+  const quizModal = document.getElementById('quizModal');
+  const quizContainer = document.getElementById('quizContainer');
+  const closeModal = document.getElementById('closeModal');
+  const quizButton = document.getElementById('quizButton');
+  const fixedCta = document.getElementById('fixedCta');
+  
+  // Current quiz step
+  let currentStep = 0;
+  let userResponses = [];
+  
+  // Open quiz modal
+  function openQuizModal() {
+    quizModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    renderQuizStep(0);
+  }
+  
+  // Close quiz modal
+  function closeQuizModal() {
+    quizModal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+    
+    // Reset quiz after a delay
+    setTimeout(() => {
+      currentStep = 0;
+      userResponses = [];
+    }, 500);
+  }
+  
+  // Render current quiz step
+  function renderQuizStep(stepIndex) {
+    quizContainer.innerHTML = '';
+    const step = quizData[stepIndex];
+    
+    // Create progress indicator
+    if (stepIndex > 0 && stepIndex < quizData.length - 1) {
+      const progressDiv = document.createElement('div');
+      progressDiv.className = 'quiz-progress';
+      
+      for (let i = 0; i < quizData.length - 2; i++) {
+        const dot = document.createElement('div');
+        dot.className = i < stepIndex ? 'quiz-progress-dot active' : 'quiz-progress-dot';
+        progressDiv.appendChild(dot);
+      }
+      
+      quizContainer.appendChild(progressDiv);
+    }
+    
+    if (step.type === 'intro') {
+      // Intro step
+      const titleEl = document.createElement('h3');
+      titleEl.className = 'quiz-title animate-fadeIn';
+      titleEl.textContent = step.title;
+      quizContainer.appendChild(titleEl);
+      
+      const descEl = document.createElement('p');
+      descEl.className = 'quiz-description animate-slideUp';
+      descEl.textContent = step.description;
+      quizContainer.appendChild(descEl);
+      
+      const startButton = document.createElement('button');
+      startButton.className = 'action-button animate-fadeIn';
+      startButton.style.animationDelay = '0.3s';
+      startButton.textContent = 'Start Assessment';
+      startButton.addEventListener('click', () => {
+        currentStep++;
+        renderQuizStep(currentStep);
+      });
+      
+      quizContainer.appendChild(startButton);
+    } 
+    else if (step.type === 'question') {
+      // Question step
+      const questionEl = document.createElement('h3');
+      questionEl.className = 'quiz-question animate-fadeIn';
+      questionEl.textContent = step.question;
+      quizContainer.appendChild(questionEl);
+      
+      const optionsDiv = document.createElement('div');
+      optionsDiv.className = 'quiz-options';
+      
+      step.options.forEach((option, idx) => {
+        const optionButton = document.createElement('div');
+        optionButton.className = 'quiz-option animate-slideUp';
+        optionButton.style.animationDelay = `${0.1 + idx * 0.1}s`;
+        optionButton.textContent = option;
+        optionButton.dataset.value = idx;
+        
+        optionButton.addEventListener('click', () => {
+          // Remove selected class from all options
+          document.querySelectorAll('.quiz-option').forEach(op => {
+            op.classList.remove('selected');
+          });
+          
+          // Add selected class to clicked option
+          optionButton.classList.add('selected');
+          
+          // Store the response
+          userResponses[currentStep] = option;
+          
+          // Show the stat after a short delay
+          setTimeout(() => {
+            // Create or update stat element
+            let statEl = document.querySelector('.quiz-stat');
+            if (!statEl) {
+              statEl = document.createElement('div');
+              statEl.className = 'quiz-stat';
+              quizContainer.insertBefore(statEl, document.querySelector('.quiz-nav'));
+            }
+            
+            statEl.textContent = step.stat;
+            setTimeout(() => {
+              statEl.classList.add('visible');
+            }, 50);
+          }, 300);
+          
+          // Enable next button
+          document.querySelector('.quiz-button[data-action="next"]').disabled = false;
+        });
+        
+        optionsDiv.appendChild(optionButton);
+      });
+      
+      quizContainer.appendChild(optionsDiv);
+      
+      // Navigation buttons
+      const navDiv = document.createElement('div');
+      navDiv.className = 'quiz-nav';
+      
+      if (stepIndex > 1) {
+        const backButton = document.createElement('button');
+        backButton.className = 'quiz-button back';
+        backButton.textContent = 'Back';
+        backButton.dataset.action = 'back';
+        backButton.addEventListener('click', () => {
+          currentStep--;
+          renderQuizStep(currentStep);
+        });
+        navDiv.appendChild(backButton);
+      } else {
+        // Empty div for spacing
+        const spacer = document.createElement('div');
+        navDiv.appendChild(spacer);
+      }
+      
+      const nextButton = document.createElement('button');
+      nextButton.className = 'quiz-button';
+      nextButton.textContent = 'Continue';
+      nextButton.dataset.action = 'next';
+      nextButton.disabled = true;
+      nextButton.addEventListener('click', () => {
+        currentStep++;
+        renderQuizStep(currentStep);
+      });
+      navDiv.appendChild(nextButton);
+      
+      quizContainer.appendChild(navDiv);
+    }
+    else if (step.type === 'form') {
+      // Form step
+      const titleEl = document.createElement('h3');
+      titleEl.className = 'quiz-title animate-fadeIn';
+      titleEl.textContent = step.title;
+      quizContainer.appendChild(titleEl);
+      
+      const descEl = document.createElement('p');
+      descEl.className = 'quiz-description animate-slideUp';
+      descEl.textContent = step.description;
+      quizContainer.appendChild(descEl);
+      
+      const formEl = document.createElement('div');
+      formEl.className = 'quiz-form animate-fadeIn';
+      formEl.style.animationDelay = '0.2s';
+      
+      // Name input
+      const nameGroup = document.createElement('div');
+      nameGroup.className = 'quiz-form-group';
+      
+      const nameLabel = document.createElement('label');
+      nameLabel.className = 'quiz-form-label';
+      nameLabel.textContent = 'Your Name';
+      nameGroup.appendChild(nameLabel);
+      
+      const nameInput = document.createElement('input');
+      nameInput.type = 'text';
+      nameInput.className = 'quiz-form-control';
+      nameInput.placeholder = 'Enter your full name';
+      nameInput.required = true;
+      nameGroup.appendChild(nameInput);
+      
+      formEl.appendChild(nameGroup);
+      
+      // Email input
+      const emailGroup = document.createElement('div');
+      emailGroup.className = 'quiz-form-group';
+      
+      const emailLabel = document.createElement('label');
+      emailLabel.className = 'quiz-form-label';
+      emailLabel.textContent = 'Email Address';
+      emailGroup.appendChild(emailLabel);
+      
+      const emailInput = document.createElement('input');
+      emailInput.type = 'email';
+      emailInput.className = 'quiz-form-control';
+      emailInput.placeholder = 'Enter your email address';
+      emailInput.required = true;
+      emailGroup.appendChild(emailInput);
+      
+      formEl.appendChild(emailGroup);
+      
+      quizContainer.appendChild(formEl);
+      
+      // Navigation buttons
+      const navDiv = document.createElement('div');
+      navDiv.className = 'quiz-nav';
+      
+      const backButton = document.createElement('button');
+      backButton.className = 'quiz-button back';
+      backButton.textContent = 'Back';
+      backButton.addEventListener('click', () => {
+        currentStep--;
+        renderQuizStep(currentStep);
+      });
+      navDiv.appendChild(backButton);
+      
+      const continueButton = document.createElement('button');
+      continueButton.className = 'quiz-button';
+      continueButton.textContent = step.buttonText || 'Continue';
+      continueButton.addEventListener('click', () => {
+        // Validate form
+        if (nameInput.value.trim() === '' || emailInput.value.trim() === '') {
+          // Apply a shake animation to invalid inputs
+          if (nameInput.value.trim() === '') {
+            nameInput.style.borderColor = '#f43f5e';
+            nameInput.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+              nameInput.style.animation = '';
+            }, 500);
+          }
+          
+          if (emailInput.value.trim() === '') {
+            emailInput.style.borderColor = '#f43f5e';
+            emailInput.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+              emailInput.style.animation = '';
+            }, 500);
+          }
+          
+          return;
+        }
+        
+        // Store form data
+        userResponses.name = nameInput.value;
+        userResponses.email = emailInput.value;
+        
+        // Move to next step
+        currentStep++;
+        renderQuizStep(currentStep);
+      });
+      navDiv.appendChild(continueButton);
+      
+      quizContainer.appendChild(navDiv);
+      
+      // Focus on the name input
+      setTimeout(() => {
+        nameInput.focus();
+      }, 400);
+    }
+    else if (step.type === 'thank-you') {
+      // Thank you step
+      const thankYouDiv = document.createElement('div');
+      thankYouDiv.className = 'thank-you-container animate-fadeIn';
+      
+      const titleEl = document.createElement('h3');
+      titleEl.className = 'thank-you-title';
+      titleEl.textContent = step.title;
+      thankYouDiv.appendChild(titleEl);
+      
+      const messageEl = document.createElement('p');
+      messageEl.className = 'thank-you-message animate-slideUp';
+      messageEl.style.animationDelay = '0.2s';
+      messageEl.textContent = step.message;
+      thankYouDiv.appendChild(messageEl);
+      
+      const closeButton = document.createElement('button');
+      closeButton.className = 'action-button animate-fadeIn';
+      closeButton.style.animationDelay = '0.4s';
+      closeButton.textContent = 'Close';
+      closeButton.addEventListener('click', closeQuizModal);
+      thankYouDiv.appendChild(closeButton);
+      
+      quizContainer.appendChild(thankYouDiv);
+      
+      // Add confetti effect
+      createConfetti();
+    }
+  }
+  
+  // Simple confetti effect
+  function createConfetti() {
+    const confettiContainer = document.createElement('div');
+    confettiContainer.style.position = 'absolute';
+    confettiContainer.style.top = '0';
+    confettiContainer.style.left = '0';
+    confettiContainer.style.width = '100%';
+    confettiContainer.style.height = '100%';
+    confettiContainer.style.overflow = 'hidden';
+    confettiContainer.style.pointerEvents = 'none';
+    confettiContainer.style.zIndex = '0';
+    
+    document.querySelector('.modal-content').appendChild(confettiContainer);
+    
+    const colors = ['#3b82f6', '#60a5fa', '#93c5fd', '#38bdf8', '#10b981'];
+    
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.style.position = 'absolute';
+      confetti.style.width = `${Math.random() * 10 + 5}px`;
+      confetti.style.height = `${Math.random() * 5 + 5}px`;
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.borderRadius = '50%';
+      confetti.style.top = `-50px`;
+      confetti.style.left = `${Math.random() * 100}%`;
+      confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+      confetti.style.opacity = Math.random() * 0.7 + 0.3;
+      confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+      confetti.style.animationDelay = `${Math.random() * 2}s`;
+      
+      confettiContainer.appendChild(confetti);
+    }
+    
+    // Add keyframes for the fall animation
+    const styleSheet = document.styleSheets[0];
+    
+    const fallKeyframes = `
+      @keyframes fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(${document.querySelector('.modal-content').clientHeight}px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+      }
+    `;
+    
+    styleSheet.insertRule(fallKeyframes, styleSheet.cssRules.length);
+  }
+  
+  // Event Listeners
+  quizButton.addEventListener('click', openQuizModal);
+  fixedCta.addEventListener('click', openQuizModal);
+    {
+      type: 'intro',
+      title: 'AI Content Creator Assessment',
+      description: 'This quick quiz will help us understand your situation and determine if you\'re a good fit for AI content creation. Your answers are completely confidential.'
+    },
+    {
+      type: 'question',
+      question: 'What\'s your primary goal with AI content creation?',
+      options: [
+        'Replace my full-time income',
+        'Create a flexible side hustle',
+        'Build a business I can grow long-term',
+        'Just exploring my options for now'
+      ],
+      stat: '78% of successful AI content creators started with the goal of replacing their full-time income'
+    },
+    {
+      type: 'question',
+      question: 'How much time can you dedicate to building your AI content business weekly?',
+      options: [
+        'Less than 5 hours',
+        '5-10 hours',
+        '10-20 hours',
+        '20+ hours'
+      ],
+      stat: '83% of my students who achieve $3,000+ monthly started with at least 10 hours per week'
+    },
+    {
+      type: 'form',
+      title: 'You\'re a perfect fit!',
+      description: 'Based on your answers, you have excellent potential for success with AI content creation. Let\'s customize the rest of your assessment.',
+      buttonText: 'Continue'
+    },
+    {
+      type: 'question',
+      question: 'What\'s your biggest challenge right now when it comes to work?',
+      options: [
+        'Not enough income',
+        'No flexibility with my schedule',
+        'Limited growth opportunities',
+        'Work doesn\'t align with my passions'
+      ],
+      stat: '92% of people who succeed in AI content creation were previously frustrated with their work-life balance'
+    },
+    {
+      type: 'question',
+      question: 'Which of these skills do you consider a strength? (Choose your strongest)',
+      options: [
+        'Writing and communication',
+        'Research and organization',
+        'Creative thinking',
+        'Problem-solving'
+      ],
+      stat: '67% of top AI content creators consider themselves strongest in research rather than writing'
+    },
+    {
+      type: 'thank-you',
+      title: 'Thank You!',
+      message: 'Your assessment is complete! Based on your responses, you have excellent potential for success with AI content creation. We\'ll be in touch soon with personalized guidance when spots open in our training program.'
+    }
+  ];
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --primary-light: #60a5fa;
+  --primary-lightest: #eff6ff;
+  --primary-accent: #93c5fd;
+  --secondary: #38bdf8;
+  --secondary-light: #e0f2fe;
+  --dark: #1e293b;
+  --gray-dark: #334155;
+  --gray: #64748b;
+  --gray-light: #cbd5e1;
+  --gray-lightest: #f8fafc;
+  --success: #10b981;
+  --success-light: #ecfdf5;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 20px rgba(0,0,0,0.08);
+  --shadow-xl: 0 15px 30px rgba(0,0,0,0.12);
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+  --border-radius-sm: 6px;
+  --border-radius: 10px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 50px;
+}
+
+body {
+  background-color: #f8f9fb;
+  color: var(--dark);
+  line-height: 1.8;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%);
+  z-index: 0;
+}
+
+.headline {
+  font-size: 2.75rem;
+  margin-bottom: 24px;
+  line-height: 1.3;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 1;
+}
+
+.sub-headline {
+  font-size: 1.35rem;
+  margin-bottom: 24px;
+  font-style: italic;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.byline {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.story-container {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 48px;
+  margin: 40px 0;
+  position: relative;
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  overflow: hidden;
+}
+
+.story-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light), var(--secondary));
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.story-text {
+  font-size: 1.125rem;
+  margin-bottom: 26px;
+  color: var(--gray-dark);
+  line-height: 1.9;
+}
+
+.highlight {
+  font-weight: bold;
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background-color: rgba(96, 165, 250, 0.2);
+  z-index: -1;
+  transform: skew(-12deg);
+}
+
+.pull-quote {
+  background-color: var(--primary-lightest);
+  border-left: 4px solid var(--primary);
+  padding: 32px 36px;
+  margin: 44px 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  position: relative;
+  font-style: italic;
+  font-size: 1.28rem;
+  color: var(--primary-dark);
+  box-shadow: var(--shadow-sm);
+  line-height: 1.7;
+}
+
+.pull-quote::before {
+  content: '"';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 5rem;
+  color: var(--primary);
+  opacity: 0.15;
+  line-height: 1;
+  font-family: 'Georgia', serif;
+}
+
+.action-button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 16px 38px;
+  border-radius: var(--border-radius-xl);
+  text-decoration: none;
+  margin-top: 25px;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-md), 0 0 0 4px rgba(59, 130, 246, 0.1);
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.action-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg), 0 0 0 5px rgba(59, 130, 246, 0.15);
+}
+
+.action-button:active {
+  transform: translateY(-1px);
+}
+
+.action-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: var(--transition-normal);
+  z-index: -1;
+}
+
+.action-button:hover::before {
+  left: 100%;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin: 65px 0 36px;
+  text-align: left;
+  color: var(--primary-dark);
+  font-weight: normal;
+  border-bottom: 2px solid #e6f0ff;
+  padding-bottom: 14px;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 85px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+}
+
+.testimonial-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin: 38px 0;
+}
+
+.testimonial-card {
+  background: linear-gradient(135deg, white, #f8faff);
+  border-radius: var(--border-radius);
+  padding: 36px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  border: 1px solid #edf2f7;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px) rotate(1deg);
+  box-shadow: var(--shadow-xl);
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 5rem;
+  color: #e6f0ff;
+  z-index: 0;
+  line-height: 1;
+}
+
+.testimonial-image {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  margin-bottom: 22px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  border: 3px solid var(--primary-lightest);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-normal);
+}
+
+.testimonial-card:hover .testimonial-image img {
+  transform: scale(1.05);
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 22px;
+  color: var(--gray-dark);
+  position: relative;
+  z-index: 1;
+  line-height: 1.8;
+}
+
+.testimonial-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--primary-dark);
+  font-size: 1.15rem;
+}
+
+.testimonial-position {
+  font-size: 0.95rem;
+  color: var(--gray);
+}
+
+.faq-container {
+  margin: 45px 0;
+}
+
+.faq-item {
+  margin-bottom: 16px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background-color: white;
+  border: 1px solid #edf2f7;
+  transition: var(--transition-normal);
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.faq-question {
+  padding: 22px 26px;
+  background-color: var(--gray-lightest);
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--primary-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition-normal);
+}
+
+.faq-question:hover {
+  background-color: #edf2f7;
+}
+
+.faq-question:after {
+  content: '+';
+  font-size: 1.6rem;
+  transition: var(--transition-normal);
+  color: var(--primary);
+}
+
+.faq-item.active {
+  box-shadow: var(--shadow-md);
+}
+
+.faq-item.active .faq-question {
+  background-color: var(--primary-lightest);
+}
+
+.faq-item.active .faq-question:after {
+  transform: rotate(45deg);
+  color: var(--primary-dark);
+}
+
+.faq-answer {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--transition-slow);
+  background-color: white;
+}
+
+.faq-item.active .faq-answer {
+  padding: 26px;
+  max-height: 300px;
+}
+
+.featured-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin: 26px 0;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-normal);
+}
+
+.featured-image:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+.side-note {
+  background: linear-gradient(135deg, var(--primary-lightest), var(--secondary-light));
+  border: 1px solid #bfdbfe;
+  border-radius: var(--border-radius);
+  padding: 28px;
+  margin: 36px 0;
+  font-size: 1.05rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.side-note::before {
+  content: '💡';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  font-size: 3.5rem;
+  opacity: 0.1;
+  transform: rotate(-15deg);
+}
+
+.side-note-title {
+  font-weight: bold;
+  margin-bottom: 14px;
+  color: var(--primary-dark);
+  font-size: 1.15rem;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 45px 0;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.stat-item {
+  background: linear-gradient(135deg, var(--primary-lightest), var(--secondary-light));
+  padding: 32px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  flex: 1;
+  min-width: 130px;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(191, 219, 254, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-item::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+  opacity: 0.65;
+}
+
+.stat-number {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 10px;
+  line-height: 1;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--gray-dark);
+  font-weight: 500;
+}
+
+.success-story {
+  border-left: 4px solid var(--success);
+  padding: 0 0 0 25px;
+  margin: 32px 0;
+  position: relative;
+}
+
+.success-story::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--success), var(--secondary));
+}
+
+.success-highlight {
+  color: var(--success);
+  font-weight: bold;
+  background: linear-gradient(to bottom, transparent 50%, rgba(16, 185, 129, 0.15) 50%);
+}
+
+.benefits-list {
+  list-style: none;
+  margin: 32px 0;
+}
+
+.benefits-list li {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+}
+
+.benefits-list li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary);
+  font-weight: bold;
+  background-color: var(--primary-lightest);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 5px rgba(59, 130, 246, 0.15);
+}
+
+.cta-container {
+  background: linear-gradient(135deg, var(--primary-lightest), var(--secondary-light));
+  color: var(--dark);
+  padding: 52px;
+  border-radius: var(--border-radius-lg);
+  margin: 52px 0;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(191, 219, 254, 0.7);
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+  animation: shimmer 7s infinite;
+  z-index: 0;
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(5%, 10%); }
+}
+
+.cta-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary-dark);
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-description {
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+  color: var(--gray-dark);
+}
+
+.fixed-cta {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 99;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-weight: bold;
+  padding: 14px 24px;
+  border-radius: var(--border-radius-xl);
+  text-decoration: none;
+  box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
+  transition: var(--transition-normal);
+  transform: translateY(100px);
+  opacity: 0;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.fixed-cta.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.fixed-cta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.fixed-cta-icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.footer {
+  background: linear-gradient(135deg, var(--primary-dark), #1e40af);
+  color: white;
+  padding: 52px 0;
+  text-align: center;
+  margin-top: 70px;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin: 25px 0;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: white;
+  transition: var(--transition-normal);
+}
+
+.footer-link:hover {
+  opacity: 1;
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* Quiz Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  padding: 45px;
+  max-width: 580px;
+  width: 90%;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  transform: translateY(-20px) scale(0.98);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light), var(--secondary));
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: var(--gray);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.close-modal:hover {
+  color: var(--primary-dark);
+  background-color: var(--primary-lightest);
+  transform: rotate(90deg);
+}
+
+.quiz-container {
+  text-align: center;
+}
+
+.quiz-title {
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.quiz-description {
+  font-size: 1.15rem;
+  margin-bottom: 30px;
+  color: var(--gray-dark);
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.quiz-question {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: var(--dark);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 35px;
+}
+
+.quiz-option {
+  padding: 18px 22px;
+  border: 2px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  font-size: 1.1rem;
+  text-align: left;
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.quiz-option:hover {
+  border-color: var(--primary-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
+}
+
+.quiz-option.selected {
+  border-color: var(--primary);
+  background-color: var(--primary-lightest);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.15);
+  font-weight: 600;
+}
+
+.quiz-option.selected::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary), var(--primary-light));
+}
+
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+
+.quiz-button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-size: 1.05rem;
+  font-weight: bold;
+  padding: 14px 28px;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-md);
+  min-width: 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-button:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 15px rgba(59, 130, 246, 0.3);
+}
+
+.quiz-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: var(--transition-normal);
+  z-index: 1;
+}
+
+.quiz-button:hover::before {
+  left: 100%;
+}
+
+.quiz-button:disabled {
+  background: var(--gray-light);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.quiz-button.back {
+  background: white;
+  color: var(--gray-dark);
+  border: 1px solid var(--gray-light);
+  box-shadow: none;
+}
+
+.quiz-button.back:hover {
+  background: var(--gray-lightest);
+  border-color: var(--gray);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.quiz-progress {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.quiz-progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--gray-light);
+  margin: 0 5px;
+  transition: var(--transition-normal);
+}
+
+.quiz-progress-dot.active {
+  background-color: var(--primary);
+  transform: scale(1.3);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.quiz-stat {
+  background-color: #eff6ff;
+  border-radius: var(--border-radius);
+  padding: 18px 22px;
+  margin: 25px auto 35px auto;
+  max-width: 420px;
+  border-left: 3px solid var(--primary);
+  transition: var(--transition-normal);
+  transform: translateY(20px);
+  opacity: 0;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+  color: var(--primary-dark);
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.quiz-stat.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.quiz-form {
+  margin-top: 25px;
+}
+
+.quiz-form-group {
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.quiz-form-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 1.05rem;
+}
+
+.quiz-form-control {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--gray-light);
+  font-size: 1.05rem;
+  transition: var(--transition-normal);
+  font-family: inherit;
+  background-color: var(--gray-lightest);
+}
+
+.quiz-form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background-color: white;
+}
+
+.thank-you-container {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.thank-you-title {
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.thank-you-message {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--gray-dark);
+  line-height: 1.7;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.8s ease forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .headline {
+    font-size: 2.2rem;
+  }
+  
+  .story-container {
+    padding: 38px 28px;
+  }
+  
+  .testimonial-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-container {
+    padding: 38px 28px;
+  }
+  
+  .stats-container {
+    flex-direction: column;
+  }
+  
+  .modal-content {
+    padding: 38px 28px;
+  }
+  
+  .quiz-title {
+    font-size: 1.9rem;
+  }
+  
+  .fixed-cta {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
