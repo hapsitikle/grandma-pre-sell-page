@@ -294,6 +294,34 @@
             opacity: 1;
         }
         
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #2c5282;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .floating-cta:hover {
+            background-color: #1a365d;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+        
+        .floating-cta-icon {
+            font-size: 1.2rem;
+        }
+        
         .sponsored-tag {
             display: inline-block;
             background-color: #eaeaea;
@@ -540,6 +568,11 @@
             <p>&copy; 2025 Senior Living Today. All rights reserved.</p>
         </div>
     </footer>
+    
+    <a href="#" class="floating-cta">
+        <span class="floating-cta-icon">🚀</span>
+        <span>Start Your Journey Today</span>
+    </a>
 
     <script>
         // Initialize FAQ accordion
