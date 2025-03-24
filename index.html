@@ -1034,17 +1034,57 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"
             document.getElementById(stepId).classList.add('active');
         }
         
-        // Validate contact form
         function validateContact() {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            
-            if (name && email && email.includes('@') && email.includes('.')) {
-                showStep('quiz-q3');
-            } else {
-                alert('Please enter your name and a valid email address.');
-            }
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    
+    if (name && email && email.includes('@') && email.includes('.')) {
+        // Add subscriber to Moosend list
+        addSubscriberToMoosend(name, email);
+        
+        // Continue with the quiz
+        showStep('quiz-q3');
+    } else {
+        alert('Please enter your name and a valid email address.');
+    }
+}
+
+// Function to add subscriber to Moosend
+function addSubscriberToMoosend(name, email) {
+    // Your Moosend API key and List ID (replace these with your actual values)
+    const apiKey = "YOUR_MOOSEND_API_KEY";
+    const listId = "YOUR_MOOSEND_LIST_ID";
+    
+    // Create request data
+    const subscriptionData = {
+        Name: name,
+        Email: email,
+        HasExternalDoubleOptIn: false // Set to true if you want double opt-in
+    };
+    
+    // Make API request to Moosend
+    fetch(`https://api.moosend.com/v3/subscribers/${listId}/subscribe.json?apikey=${apiKey}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(subscriptionData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Subscriber added successfully:", data);
+        
+        // Also identify the user for tracking (this uses mootrack code if available)
+        if (typeof mootrack === 'function') {
+            mootrack('identify', email);
         }
+    })
+    .catch(error => {
+        console.error("Error adding subscriber:", error);
+        // Still continue with the quiz even if there's an error
+    });
+}
    
     </script>
     
