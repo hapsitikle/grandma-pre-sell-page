@@ -1045,6 +1045,121 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"
                 alert('Please enter your name and a valid email address.');
             }
         }
+    // Add this script to your website, ideally just before the closing </body> tag
+// Replace YOUR_API_KEY and YOUR_LIST_ID with your actual Moosend credentials
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Find your form - update the selector to match your form's ID or class
+  const form = document.querySelector('#email-signup-form'); // Change this selector to match your form
+  
+  if (form) {
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+      
+      // Get the input values from the form
+      const nameInput = form.querySelector('input[name="name"]'); // Update if your field has a different name
+      const emailInput = form.querySelector('input[name="email"]'); // Update if your field has a different name
+      
+      if (!nameInput || !emailInput) {
+        console.error('Form fields not found. Please check the input field names.');
+        return;
+      }
+      
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      
+      // Basic validation
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      
+      if (!email || !isValidEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      
+      // Send data to Moosend
+      addSubscriberToMoosend(name, email);
+    });
+  } else {
+    console.error('Form not found. Please check your form selector.');
+  }
+  
+  // Email validation function
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  
+  // Function to send data to Moosend
+  function addSubscriberToMoosend(name, email) {
+    const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+    const listId = 'YOUR_LIST_ID'; // Replace with your actual list ID
+    
+    // Show loading state
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton ? submitButton.innerHTML : '';
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.innerHTML = 'Subscribing...';
+    }
+    
+    // Create the payload for Moosend API
+    const payload = {
+      Name: name,
+      Email: email,
+      HasExternalDoubleOptIn: false // Set to true if you want double opt-in
+    };
+    
+    // Make the API request to Moosend
+    fetch(`https://api.moosend.com/v3/subscribers/${listId}/subscribe.json?apikey=${apiKey}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Handle success
+      console.log('Subscription successful:', data);
+      
+      // Show success message to user
+      alert('Thank you for subscribing!');
+      
+      // Optional: Clear the form
+      form.reset();
+    })
+    .catch(error => {
+      // Handle error
+      console.error('Subscription error:', error);
+      alert('There was a problem with your subscription. Please try again.');
+    })
+    .finally(() => {
+      // Reset button state
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
+      }
+    });
+  }
+});
+
+// If you want to also track this conversion with Facebook Pixel
+// Add this code after the successful subscription
+function trackFacebookConversion() {
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead');
+  }
+}
     </script>
+    
 </body>
 </html>
