@@ -11,7 +11,7 @@
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        
+       
         .fixed-cta-button {
             position: fixed;
             bottom: 30px;
@@ -28,13 +28,13 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
+       
         .fixed-cta-button:hover {
             background-color: #4a49c5;
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
         }
-        
+       
         /* Quiz Popup Styles */
         .quiz-overlay {
             position: fixed;
@@ -48,7 +48,7 @@
             align-items: center;
             z-index: 1000;
         }
-        
+       
         .quiz-container {
             background-color: white;
             border-radius: 10px;
@@ -60,7 +60,7 @@
             max-height: 90vh;
             overflow-y: auto;
         }
-        
+       
         .close-quiz {
             position: absolute;
             top: 15px;
@@ -71,40 +71,40 @@
             transition: color 0.3s;
             line-height: 1;
         }
-        
+       
         .close-quiz:hover {
             color: #333;
         }
-        
+       
         .quiz-step {
             display: none;
         }
-        
+       
         .quiz-step.active {
             display: block;
         }
-        
+       
         .quiz-title {
             color: #3b5998;
             margin-bottom: 20px;
             font-size: 1.8rem;
             text-align: center;
         }
-        
+       
         .quiz-subtitle {
             color: #444;
             margin-bottom: 30px;
             text-align: center;
             font-size: 1.1rem;
         }
-        
+       
         .quiz-options {
             display: flex;
             flex-direction: column;
             gap: 15px;
             margin: 30px 0;
         }
-        
+       
         .quiz-option {
             background-color: #f0f6ff;
             border: 2px solid #e2e8f0;
@@ -113,17 +113,17 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+       
         .quiz-option:hover {
             border-color: #5e5cf6;
             background-color: #f5f7ff;
         }
-        
+       
         .quiz-option.selected {
             border-color: #5e5cf6;
             background-color: #f0f4ff;
         }
-        
+       
         .stat-feedback {
             background-color: #f0f9ff;
             border-left: 4px solid #4299e1;
@@ -132,7 +132,7 @@
             color: #2c5282;
             display: none;
         }
-        
+       
         .next-button {
             background-color: #5e5cf6;
             color: white;
@@ -146,36 +146,36 @@
             margin-top: 20px;
             transition: all 0.3s;
         }
-        
+       
         .next-button:hover {
             background-color: #4a49c5;
             transform: translateY(-2px);
         }
-        
+       
         .next-button:disabled {
             background-color: #a0aec0;
             cursor: not-allowed;
             transform: none;
         }
-        
+       
         .form-fields {
             display: flex;
             flex-direction: column;
             gap: 15px;
             margin: 30px 0;
         }
-        
+       
         .form-field {
             display: flex;
             flex-direction: column;
             gap: 5px;
         }
-        
+       
         .form-field label {
             font-weight: bold;
             color: #4a5568;
         }
-        
+       
         .form-field input {
             padding: 12px 15px;
             border: 2px solid #e2e8f0;
@@ -183,19 +183,19 @@
             font-size: 1rem;
             transition: all 0.3s;
         }
-        
+       
         .form-field input:focus {
             border-color: #5e5cf6;
             outline: none;
         }
-        
+       
         .thank-you-icon {
             font-size: 60px;
             color: #48bb78;
             text-align: center;
             margin: 20px 0;
         }
-        
+       
         .quiz-actions {
             display: flex;
             justify-content: center;
@@ -279,14 +279,14 @@
             border-bottom: 2px solid #e6e6e6;
             padding-bottom: 10px;
         }
-        
+       
         /* Highlighting for key elements to improve readability */
         .highlight-section {
             border-left: 4px solid #5e5cf6;
             padding-left: 15px;
             margin: 25px 0;
         }
-        
+       
         /* Improved paragraph readability */
         p {
             margin-bottom: 20px;
@@ -294,7 +294,7 @@
             line-height: 1.8; /* Increased line height */
             max-width: 90ch; /* Character limit for easier reading */
         }
-        
+       
         /* Visual dividers */
         .section-divider {
             border: 0;
@@ -371,7 +371,7 @@
             margin-bottom: 15px;
             overflow: hidden;
         }
-        
+       
         .testimonial-image img {
             width: 100%;
             height: 100%;
@@ -424,7 +424,7 @@
             color: #3b5998;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        
+       
         .faq-answer {
             padding: 0;
             max-height: 0;
@@ -432,17 +432,17 @@
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
             background-color: white;
         }
-        
+       
         .faq-answer p {
             padding: 0 20px 20px;
             margin: 0;
         }
-        
+       
         .faq-item.active .faq-question:after {
             content: "+";
             transform: rotate(45deg);
         }
-        
+       
         .faq-item.active .faq-answer {
             max-height: 500px;
             padding-top: 10px;
@@ -490,22 +490,22 @@
             padding: 30px 20px;
             margin-top: 50px;
         }
-        
+       
         .footer-links {
             margin-bottom: 15px;
         }
-        
+       
         .footer-links a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-size: 0.9rem;
         }
-        
+       
         .footer-links a:hover {
             text-decoration: underline;
         }
-        
+       
         .copyright {
             font-size: 0.85rem;
             opacity: 0.9;
@@ -521,12 +521,14 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2343973465986277');
+fbq('init', '1716891038953705');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></noscript>
+src="https://www.facebook.com/tr?id=1716891038953705&ev=PageView&noscript=1"
+/></noscript>
 <!-- End Meta Pixel Code -->
+
 </head>
 <body>
     <!-- Mgid Sensor -->
@@ -704,31 +706,31 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
         <div class="cta-box">
             <h3 class="cta-title">Ready to start your AI content journey?</h3>
             <p class="cta-text">I will reach out to you shortly with my exclusive AI content opportunities that have helped over 5,000 people create profitable writing businesses working from home.</p>
-            <button class="cta-button" style="background-color: #6c5ce7;" onclick="fbq('trackCustom', 'CTAClick', {button: 'main_quiz'}); document.querySelector('.quiz-overlay').style.display = 'flex';">Take The Free Quiz Now</button>
+            <button class="cta-button" style="background-color: #6c5ce7;" onclick="document.querySelector('.quiz-overlay').style.display = 'flex';">Take The Free Quiz Now</button>
         </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const faqItems = document.querySelectorAll('.faq-item');
-            
+           
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
                 const answer = item.querySelector('.faq-answer');
-                
+               
                 // Pre-calculate the answer height for smoother animation
                 answer.style.display = 'block';
                 const height = answer.scrollHeight;
                 answer.style.display = '';
-                
+               
                 question.addEventListener('click', () => {
                     // Check if this item is already active
                     const isActive = item.classList.contains('active');
-                    
+                   
                     // Close all items first
                     faqItems.forEach(otherItem => {
                         otherItem.classList.remove('active');
                     });
-                    
+                   
                     // If this item wasn't active before, make it active
                     if (!isActive) {
                         setTimeout(() => {
@@ -737,15 +739,15 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
                     }
                 });
             });
-            
+           
             // Auto-highlight sections when they come into view
             const highlightOnScroll = () => {
                 const sections = document.querySelectorAll('.highlight-section');
-                
+               
                 sections.forEach(section => {
                     const sectionTop = section.getBoundingClientRect().top;
                     const sectionBottom = section.getBoundingClientRect().bottom;
-                    
+                   
                     // Check if section is in viewport
                     if (sectionTop < window.innerHeight && sectionBottom > 0) {
                         // Add a subtle animation class
@@ -755,14 +757,14 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
                     }
                 });
             };
-            
+           
             // Listen for scroll events
             window.addEventListener('scroll', highlightOnScroll);
             // Initial check
             highlightOnScroll();
         });
     </script>
-    
+   
     <style>
         .footer {
             background-color: #3b5998;
@@ -771,49 +773,49 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             padding: 20px;
             margin-top: 40px;
         }
-        
+       
         .footer-links {
             margin-bottom: 10px;
         }
-        
+       
         .footer-links a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-size: 0.9rem;
         }
-        
+       
         .footer-links a:hover {
             text-decoration: underline;
         }
-        
+       
         .copyright {
             font-size: 0.85rem;
             opacity: 0.9;
         }
-        
+       
         /* Animation for highlighted sections */
         .highlight-section {
             transition: all 0.3s ease;
             opacity: 0.95;
         }
-        
+       
         .highlight-section.highlight-active {
             opacity: 1;
             transform: translateX(5px);
         }
-        
+       
         /* Improve readability for FAQ */
         .faq-question {
             font-size: 1.1rem;
         }
-        
+       
         .faq-answer p {
             font-size: 1rem;
             line-height: 1.7;
         }
     </style>
-    
+   
     <footer class="footer">
         <div class="footer-links">
             <a href="#">About</a>
@@ -825,15 +827,15 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             © 2025 AI Content Mastery. All rights reserved.
         </div>
     </footer>
-    
+   
     <!-- Fixed CTA Button -->
-    <a href="#" class="fixed-cta-button" onclick="fbq('trackCustom', 'CTAClick', {button: 'fixed_button'}); document.querySelector('.quiz-overlay').style.display = 'flex'; return false;">Start Now</a>
-    
+    <a href="#" class="fixed-cta-button">Start Now</a>
+   
     <!-- Quiz Popup -->
     <div class="quiz-overlay">
         <div class="quiz-container">
             <span class="close-quiz">&times;</span>
-            
+           
             <!-- Intro Step -->
             <div class="quiz-step active" id="quiz-intro">
                 <h3 class="quiz-title">Quick 60-Second Quiz</h3>
@@ -842,7 +844,7 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
                     <button class="next-button" onclick="showStep('quiz-q1')">Let's Begin</button>
                 </div>
             </div>
-            
+           
             <!-- Question 1 -->
             <div class="quiz-step" id="quiz-q1">
                 <h3 class="quiz-title">Question 1 of 4</h3>
@@ -868,7 +870,7 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
                     <button class="next-button" id="q1-next" disabled onclick="showStep('quiz-q2')">Continue</button>
                 </div>
             </div>
-            
+           
             <!-- Question 2 -->
             <div class="quiz-step" id="quiz-q2">
                 <h3 class="quiz-title">Question 2 of 4</h3>
@@ -894,12 +896,12 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
                     <button class="next-button" id="q2-next" disabled onclick="showStep('quiz-contact')">Continue</button>
                 </div>
             </div>
-            
+           
             <!-- Contact Information -->
             <div class="quiz-step" id="quiz-contact">
                 <h3 class="quiz-title">You're Almost There!</h3>
                 <p class="quiz-subtitle">Let's personalize your AI content journey. We'll send you custom tips based on your answers.</p>
-                
+               
                 <div class="form-fields">
                     <div class="form-field">
                         <label for="name">Your Name</label>
@@ -910,12 +912,12 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
                         <input type="email" id="email" placeholder="Enter your email">
                     </div>
                 </div>
-                
+               
                 <div class="quiz-actions">
                     <button class="next-button" id="contact-next" onclick="validateContact()">Continue</button>
                 </div>
             </div>
-            
+           
             <!-- Question 3 -->
             <div class="quiz-step" id="quiz-q3">
                 <h3 class="quiz-title">Question 3 of 4</h3>
@@ -941,7 +943,7 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
                     <button class="next-button" id="q3-next" disabled onclick="showStep('quiz-q4')">Continue</button>
                 </div>
             </div>
-            
+           
             <!-- Question 4 -->
             <div class="quiz-step" id="quiz-q4">
                 <h3 class="quiz-title">Question 4 of 4</h3>
@@ -967,7 +969,7 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
                     <button class="next-button" id="q4-next" disabled onclick="showStep('quiz-thanks')">Complete Quiz</button>
                 </div>
             </div>
-            
+           
             <!-- Thank You -->
             <div class="quiz-step" id="quiz-thanks">
                 <div class="thank-you-icon">✓</div>
@@ -979,21 +981,21 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             </div>
         </div>
     </div>
-    
+   
     <script>
         // Open quiz when CTA button is clicked
         document.querySelector('.fixed-cta-button').addEventListener('click', function(e) {
             e.preventDefault();
             document.querySelector('.quiz-overlay').style.display = 'flex';
         });
-        
+       
         // Close quiz when X is clicked
         document.querySelector('.close-quiz').addEventListener('click', closeQuiz);
-        
+       
         function closeQuiz() {
             document.querySelector('.quiz-overlay').style.display = 'none';
         }
-        
+       
         // Handle option selection
         function selectOption(element, groupId) {
             // Remove selection from all options in the group
@@ -1001,26 +1003,26 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             options.forEach(option => {
                 option.classList.remove('selected');
             });
-            
+           
             // Add selection to clicked option
             element.classList.add('selected');
-            
+           
             // Get question number
             const questionNum = groupId.charAt(1);
-            
+           
             // Show stat feedback
             const feedback = document.getElementById(`q${questionNum}-feedback`);
             feedback.style.display = 'block';
-            
+           
             // Update stat percentage
             const statElement = document.getElementById(`q${questionNum}-stat`);
             statElement.textContent = element.getAttribute('data-stat');
-            
+           
             // Enable next button
             const nextButton = document.getElementById(`q${questionNum}-next`);
             nextButton.disabled = false;
         }
-        
+       
         // Show a specific step
         function showStep(stepId) {
             // Hide all steps
@@ -1028,19 +1030,19 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             steps.forEach(step => {
                 step.classList.remove('active');
             });
-            
+           
             // Show the specified step
             document.getElementById(stepId).classList.add('active');
         }
-        
+       
         function validateContact() {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
-    
+   
     if (name && email && email.includes('@') && email.includes('.')) {
         // Add subscriber to Moosend list
         addSubscriberToMoosend(name, email);
-        
+       
         // Continue with the quiz
         showStep('quiz-q3');
     } else {
@@ -1053,14 +1055,14 @@ function addSubscriberToMoosend(name, email) {
     // Your Moosend API key and List ID (replace these with your actual values)
     const apiKey = "c2e35807-d953-4a67-8f22-ac9d2ec4b44e";
     const listId = "80c63a89-41da-4b38-893c-eea56a033e8c";
-    
+   
     // Create request data
     const subscriptionData = {
         Name: name,
         Email: email,
         HasExternalDoubleOptIn: false // Set to true if you want double opt-in
     };
-    
+   
     // Make API request to Moosend
     fetch(`https://api.moosend.com/v3/subscribers/${listId}/subscribe.json?apikey=${apiKey}`, {
         method: 'POST',
@@ -1073,7 +1075,7 @@ function addSubscriberToMoosend(name, email) {
     .then(response => response.json())
     .then(data => {
         console.log("Subscriber added successfully:", data);
-        
+       
         // Also identify the user for tracking (this uses mootrack code if available)
         if (typeof mootrack === 'function') {
             mootrack('identify', email);
@@ -1086,6 +1088,6 @@ function addSubscriberToMoosend(name, email) {
 }
    
     </script>
-    
+   
 </body>
 </html>
