@@ -1088,6 +1088,22 @@ function addSubscriberToMoosend(name, email) {
 }
    
     </script>
+<script>
+    // Track clicks on the fixed CTA button
+    document.querySelector('.fixed-cta-button').addEventListener('click', function() {
+        fbq('track', 'Lead', {content_name: 'Fixed CTA Button Click'});
+    });
+
+    // Track clicks on the quiz CTA button
+    document.querySelector('.cta-button').addEventListener('click', function() {
+        fbq('track', 'Lead', {content_name: 'Quiz CTA Button Click'});
+    });
+
+    // Track quiz completion
+    document.getElementById('q4-next').addEventListener('click', function() {
+        fbq('track', 'CompleteRegistration', {content_name: 'Quiz Completion'});
+    });
+    </script>
    
 </body>
 </html>
