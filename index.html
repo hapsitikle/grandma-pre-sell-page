@@ -704,7 +704,7 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
         <div class="cta-box">
             <h3 class="cta-title">Ready to start your AI content journey?</h3>
             <p class="cta-text">I will reach out to you shortly with my exclusive AI content opportunities that have helped over 5,000 people create profitable writing businesses working from home.</p>
-            <button class="cta-button" style="background-color: #6c5ce7;" onclick="document.querySelector('.quiz-overlay').style.display = 'flex';">Take The Free Quiz Now</button>
+            <button class="cta-button" style="background-color: #6c5ce7;" onclick="fbq('trackCustom', 'CTAClick', {button: 'main_quiz'}); document.querySelector('.quiz-overlay').style.display = 'flex';">Take The Free Quiz Now</button>
         </div>
     </div>
     <script>
@@ -827,7 +827,7 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
     </footer>
     
     <!-- Fixed CTA Button -->
-    <a href="#" class="fixed-cta-button">Start Now</a>
+    <a href="#" class="fixed-cta-button" onclick="fbq('trackCustom', 'CTAClick', {button: 'fixed_button'}); document.querySelector('.quiz-overlay').style.display = 'flex'; return false;">Start Now</a>
     
     <!-- Quiz Popup -->
     <div class="quiz-overlay">
