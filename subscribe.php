@@ -17,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // Your Moosend API Key
-    $apiKey = 'YOUR_MOOSEND_API_KEY';
+    $apiKey = 'c2e35807-d953-4a67-8f22-ac9d2ec4b44e';
     
     // Your Moosend List ID
-    $listId = 'YOUR_MOOSEND_LIST_ID';
+    $listId = '80c63a89-41da-4b38-893c-eea56a033e8c';
     
     // Prepare the data for the API request
     $data = [
