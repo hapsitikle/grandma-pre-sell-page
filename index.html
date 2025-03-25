@@ -28,7 +28,14 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-       
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }    
+        
         .fixed-cta-button:hover {
             background-color: #4a49c5;
             transform: translateY(-3px);
@@ -1016,22 +1023,82 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
        function validateContact() {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
-   
+    
+    // Clear any previous error messages
+    clearErrorMessages();
+    
     if (name && email && isValidEmail(email)) {
         // Add subscriber to Moosend list
         addSubscriberToMoosend(name, email);
-       
+        
         // Continue with the quiz
         showStep('quiz-q3');
-    } else if (!isValidEmail(email) && email.includes('@') && email.includes('.')) {
-        // Email is valid format but not from allowed domains
-        alert('Please use an email address from Google (@gmail.com), Yahoo (@yahoo.com), or Outlook (@outlook.com or @hotmail.com).');
     } else {
-        // Invalid input
-        alert('Please enter your name and a valid email address.');
+        // Show appropriate error messages
+        if (!name) {
+            showErrorMessage('name', 'Please enter your name.');
+        }
+        
+        if (!email) {
+            showErrorMessage('email', 'Please enter your email address.');
+        } else if (!isValidEmail(email) && email.includes('@') && email.includes('.')) {
+            showErrorMessage('email', 'Please use an email address from Google (@gmail.com), Yahoo (@yahoo.com), or Outlook (@outlook.com or @hotmail.com).');
+        } else if (email && (!email.includes('@') || !email.includes('.'))) {
+            showErrorMessage('email', 'Please enter a valid email address.');
+        }
     }
 }
 
+        function showErrorMessage(fieldId, message) {
+    // Check if an error message element already exists
+    let errorElement = document.getElementById(`${fieldId}-error`);
+    
+    // If not, create a new one
+    if (!errorElement) {
+        errorElement = document.createElement('div');
+        errorElement.id = `${fieldId}-error`;
+        errorElement.className = 'error-message';
+        
+        // Insert the error message after the input field
+        const inputField = document.getElementById(fieldId);
+        inputField.parentNode.insertBefore(errorElement, inputField.nextSibling);
+    }
+    
+    // Set the error message and display it
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+    errorElement.style.color = '#e74c3c';
+    errorElement.style.fontSize = '0.85rem';
+    errorElement.style.marginTop = '5px';
+}
+
+function clearErrorMessages() {
+    // Remove all error messages
+    const errorElements = document.querySelectorAll('.error-message');
+    errorElements.forEach(element => {
+        element.style.display = 'none';
+    });
+}
+
+// Add event listeners to clear error messages when user starts typing
+document.addEventListener('DOMContentLoaded', function() {
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    
+    nameInput.addEventListener('input', function() {
+        const errorElement = document.getElementById('name-error');
+        if (errorElement) {
+            errorElement.style.display = 'none';
+        }
+    });
+    
+    emailInput.addEventListener('input', function() {
+        const errorElement = document.getElementById('email-error');
+        if (errorElement) {
+            errorElement.style.display = 'none';
+        }
+    });
+});
 function isValidEmail(email) {
     // Convert email to lowercase for case-insensitive comparison
     email = email.toLowerCase();
