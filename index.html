@@ -939,57 +939,15 @@ src="https://www.facebook.com/tr?id=1716891038953705&ev=PageView&noscript=1"
        
         // Validate contact form and submit to PHP backend
         function validateContact() {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            
-            if (name && email && email.includes('@') && email.includes('.')) {
-                // Create form data
-                const formData = new FormData();
-                formData.append('name', name);
-                formData.append('email', email);
-                
-                // Create and send AJAX request
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', 'subscribe.php', true);
-                xhr.onload = function() {
-                    if (xhr.status === 200) {
-                        try {
-                            const response = JSON.parse(xhr.responseText);
-                            
-                            if (response.success) {
-                                // If subscription was successful, continue to next step
-                                showStep('quiz-q3');
-                                
-                                // Trigger Facebook conversion event
-                                if (typeof fbq !== 'undefined') {
-                                    fbq('track', 'Lead');
-                                }
-                            } else {
-                                // If there was an error, show error message but still continue
-                                console.error(response.message);
-                                showStep('quiz-q3');
-                            }
-                        } catch (e) {
-                            console.error('Error parsing response:', e);
-                            // Continue anyway to ensure good user experience
-                            showStep('quiz-q3');
-                        }
-                    } else {
-                        console.error('Server error');
-                        // Continue anyway to ensure good user experience
-                        showStep('quiz-q3');
-                    }
-                };
-                xhr.onerror = function() {
-                    console.error('Request failed');
-                    // Continue anyway to ensure good user experience
-                    showStep('quiz-q3');
-                };
-                xhr.send(formData);
-            } else {
-                alert('Please enter your name and a valid email address.');
-            }
-        }
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+   
+    if (name && email && email.includes('@') && email.includes('.')) {
+        showStep('quiz-q3');
+    } else {
+        alert('Please enter your name and a valid email address.');
+    }
+}
     </script>
 </body>
 </html>
