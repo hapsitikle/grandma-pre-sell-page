@@ -1013,19 +1013,46 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             document.getElementById(stepId).classList.add('active');
         }
        
-        function validateContact() {
+       function validateContact() {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
    
-    if (name && email && email.includes('@') && email.includes('.')) {
+    if (name && email && isValidEmail(email)) {
         // Add subscriber to Moosend list
         addSubscriberToMoosend(name, email);
        
         // Continue with the quiz
         showStep('quiz-q3');
+    } else if (!isValidEmail(email) && email.includes('@') && email.includes('.')) {
+        // Email is valid format but not from allowed domains
+        alert('Please use an email address from Google (@gmail.com), Yahoo (@yahoo.com), or Outlook (@outlook.com or @hotmail.com).');
     } else {
+        // Invalid input
         alert('Please enter your name and a valid email address.');
     }
+}
+
+function isValidEmail(email) {
+    // Convert email to lowercase for case-insensitive comparison
+    email = email.toLowerCase();
+    
+    // Check if email contains @ and a period
+    if (!email.includes('@') || !email.includes('.')) {
+        return false;
+    }
+    
+    // Check if email is from allowed domains
+    const allowedDomains = ['@gmail.com', '@yahoo.com', '@outlook.com', '@hotmail.com'];
+    
+    // Check each domain
+    for (const domain of allowedDomains) {
+        if (email.endsWith(domain)) {
+            return true;
+        }
+    }
+    
+    // If we get here, the email is not from any allowed domain
+    return false;
 }
 
 // Function to add subscriber to Moosend
