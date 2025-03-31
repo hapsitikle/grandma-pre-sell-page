@@ -517,6 +517,81 @@
             font-size: 0.85rem;
             opacity: 0.9;
         }
+       
+        .footer {
+            background-color: #3b5998;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+       
+        .footer-links {
+            margin-bottom: 10px;
+        }
+       
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+       
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+       
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+       
+        /* Animation for highlighted sections */
+        .highlight-section {
+            transition: all 0.3s ease;
+            opacity: 0.95;
+        }
+       
+        .highlight-section.highlight-active {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+       
+        /* Improve readability for FAQ */
+        .faq-question {
+            font-size: 1.1rem;
+        }
+       
+        .faq-answer p {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Limited spots styling */
+        .limited-spots {
+            background-color: #ff5e5e;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin: 15px auto;
+            display: inline-block;
+            animation: pulse 2s infinite;
+            text-align: center;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -694,112 +769,6 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             <button class="cta-button" style="background-color: #6c5ce7;" onclick="fbq('trackCustom', 'CTAClick', {button: 'main_quiz'}); document.querySelector('.quiz-overlay').style.display = 'flex';">Take The Free Quiz Now</button>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqItems = document.querySelectorAll('.faq-item');
-           
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-               
-                // Pre-calculate the answer height for smoother animation
-                answer.style.display = 'block';
-                const height = answer.scrollHeight;
-                answer.style.display = '';
-               
-                question.addEventListener('click', () => {
-                    // Check if this item is already active
-                    const isActive = item.classList.contains('active');
-                   
-                    // Close all items first
-                    faqItems.forEach(otherItem => {
-                        otherItem.classList.remove('active');
-                    });
-                   
-                    // If this item wasn't active before, make it active
-                    if (!isActive) {
-                        setTimeout(() => {
-                            item.classList.add('active');
-                        }, 10); // Small delay helps make the animation smoother
-                    }
-                });
-            });
-           
-            // Auto-highlight sections when they come into view
-            const highlightOnScroll = () => {
-                const sections = document.querySelectorAll('.highlight-section');
-               
-                sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    const sectionBottom = section.getBoundingClientRect().bottom;
-                   
-                    // Check if section is in viewport
-                    if (sectionTop < window.innerHeight && sectionBottom > 0) {
-                        // Add a subtle animation class
-                        if (!section.classList.contains('highlight-active')) {
-                            section.classList.add('highlight-active');
-                        }
-                    }
-                });
-            };
-           
-            // Listen for scroll events
-            window.addEventListener('scroll', highlightOnScroll);
-            // Initial check
-            highlightOnScroll();
-        });
-    </script>
-   
-    <style>
-        .footer {
-            background-color: #3b5998;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-       
-        .footer-links {
-            margin-bottom: 10px;
-        }
-       
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.9rem;
-        }
-       
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-       
-        .copyright {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-       
-        /* Animation for highlighted sections */
-        .highlight-section {
-            transition: all 0.3s ease;
-            opacity: 0.95;
-        }
-       
-        .highlight-section.highlight-active {
-            opacity: 1;
-            transform: translateX(5px);
-        }
-       
-        /* Improve readability for FAQ */
-        .faq-question {
-            font-size: 1.1rem;
-        }
-       
-        .faq-answer p {
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-    </style>
    
     <footer class="footer">
         <div class="footer-links">
@@ -825,6 +794,9 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             <div class="quiz-step active" id="quiz-intro">
                 <h3 class="quiz-title">Quick 60-Second Quiz</h3>
                 <p class="quiz-subtitle">This quiz will help us understand you better and customize recommendations for your AI content journey.</p>
+                <div class="limited-spots">
+                    LIMITED: Only 5 spots available for today's intake!
+                </div>
                 <div class="quiz-actions">
                     <button class="next-button" onclick="showStep('quiz-q1')">Let's Begin</button>
                 </div>
@@ -834,6 +806,9 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             <div class="quiz-step" id="quiz-q1">
                 <h3 class="quiz-title">Question 1 of 4</h3>
                 <p class="quiz-subtitle">What is your current experience level with writing?</p>
+                <div class="limited-spots">
+                    HURRY: Only 5 people can apply today!
+                </div>
                 <div class="quiz-options" id="q1-options">
                     <div class="quiz-option" data-stat="68" onclick="selectOption(this, 'q1-options')">
                         I'm a complete beginner with little to no experience
@@ -860,6 +835,9 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             <div class="quiz-step" id="quiz-q2">
                 <h3 class="quiz-title">Question 2 of 4</h3>
                 <p class="quiz-subtitle">How many hours per week can you dedicate to building your AI content business?</p>
+                <div class="limited-spots">
+                    URGENT: Only 4 spots remaining!
+                </div>
                 <div class="quiz-options" id="q2-options">
                     <div class="quiz-option" data-stat="25" onclick="selectOption(this, 'q2-options')">
                         Less than 5 hours per week
@@ -886,7 +864,9 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             <div class="quiz-step" id="quiz-contact">
                 <h3 class="quiz-title">You're Almost There!</h3>
                 <p class="quiz-subtitle">Let's personalize your AI content journey. We'll send you custom tips based on your answers.</p>
-               
+                <div class="limited-spots">
+                    LAST CHANCE: Only 3 spots left - secure yours now!
+                </div>
                 <div class="form-fields">
                     <div class="form-field">
                         <label for="name">Your Name</label>
@@ -968,6 +948,62 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
     </div>
    
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+           
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+               
+                // Pre-calculate the answer height for smoother animation
+                answer.style.display = 'block';
+                const height = answer.scrollHeight;
+                answer.style.display = '';
+               
+                question.addEventListener('click', () => {
+                    // Check if this item is already active
+                    const isActive = item.classList.contains('active');
+                   
+                    // Close all items first
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+                   
+                    // If this item wasn't active before, make it active
+                    if (!isActive) {
+                        setTimeout(() => {
+                            item.classList.add('active');
+                        }, 10); // Small delay helps make the animation smoother
+                    }
+                });
+            });
+           
+            // Auto-highlight sections when they come into view
+            const highlightOnScroll = () => {
+                const sections = document.querySelectorAll('.highlight-section');
+               
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const sectionBottom = section.getBoundingClientRect().bottom;
+                   
+                    // Check if section is in viewport
+                    if (sectionTop < window.innerHeight && sectionBottom > 0) {
+                        // Add a subtle animation class
+                        if (!section.classList.contains('highlight-active')) {
+                            section.classList.add('highlight-active');
+                        }
+                    }
+                });
+            };
+           
+            // Listen for scroll events
+            window.addEventListener('scroll', highlightOnScroll);
+            // Initial check
+            highlightOnScroll();
+        });
+    </script>
+   
+    <script>
         // Open quiz when CTA button is clicked
         document.querySelector('.fixed-cta-button').addEventListener('click', function(e) {
             e.preventDefault();
@@ -1018,148 +1054,156 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
            
             // Show the specified step
             document.getElementById(stepId).classList.add('active');
+            
+            // Make the limited spots text pulse animation restart
+            const limitedSpots = document.querySelector(`#${stepId} .limited-spots`);
+            if (limitedSpots) {
+                limitedSpots.style.animation = 'none';
+                setTimeout(() => {
+                    limitedSpots.style.animation = 'pulse 2s infinite';
+                }, 10);
+            }
         }
        
-       function validateContact() {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    
-    // Clear any previous error messages
-    clearErrorMessages();
-    
-    if (name && email && isValidEmail(email)) {
-        // Add subscriber to Moosend list
-        addSubscriberToMoosend(name, email);
-        
-        // Continue with the quiz
-        showStep('quiz-q3');
-    } else {
-        // Show appropriate error messages
-        if (!name) {
-            showErrorMessage('name', 'Please enter your name.');
+        function validateContact() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            
+            // Clear any previous error messages
+            clearErrorMessages();
+            
+            if (name && email && isValidEmail(email)) {
+                // Add subscriber to Moosend list
+                addSubscriberToMoosend(name, email);
+                
+                // Continue with the quiz
+                showStep('quiz-q3');
+            } else {
+                // Show appropriate error messages
+                if (!name) {
+                    showErrorMessage('name', 'Please enter your name.');
+                }
+                
+                if (!email) {
+                    showErrorMessage('email', 'Please enter your email address.');
+                } else if (!isValidEmail(email) && email.includes('@') && email.includes('.')) {
+                    showErrorMessage('email', 'Please use an email address from Google (@gmail.com), Yahoo (@yahoo.com), or Outlook (@outlook.com or @hotmail.com).');
+                } else if (email && (!email.includes('@') || !email.includes('.'))) {
+                    showErrorMessage('email', 'Please enter a valid email address.');
+                }
+            }
         }
-        
-        if (!email) {
-            showErrorMessage('email', 'Please enter your email address.');
-        } else if (!isValidEmail(email) && email.includes('@') && email.includes('.')) {
-            showErrorMessage('email', 'Please use an email address from Google (@gmail.com), Yahoo (@yahoo.com), or Outlook (@outlook.com or @hotmail.com).');
-        } else if (email && (!email.includes('@') || !email.includes('.'))) {
-            showErrorMessage('email', 'Please enter a valid email address.');
-        }
-    }
-}
 
         function showErrorMessage(fieldId, message) {
-    // Check if an error message element already exists
-    let errorElement = document.getElementById(`${fieldId}-error`);
-    
-    // If not, create a new one
-    if (!errorElement) {
-        errorElement = document.createElement('div');
-        errorElement.id = `${fieldId}-error`;
-        errorElement.className = 'error-message';
+            // Check if an error message element already exists
+            let errorElement = document.getElementById(`${fieldId}-error`);
+            
+            // If not, create a new one
+            if (!errorElement) {
+                errorElement = document.createElement('div');
+                errorElement.id = `${fieldId}-error`;
+                errorElement.className = 'error-message';
+                
+                // Insert the error message after the input field
+                const inputField = document.getElementById(fieldId);
+                inputField.parentNode.insertBefore(errorElement, inputField.nextSibling);
+            }
+            
+            // Set the error message and display it
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            errorElement.style.color = '#e74c3c';
+            errorElement.style.fontSize = '0.85rem';
+            errorElement.style.marginTop = '5px';
+        }
+
+        function clearErrorMessages() {
+            // Remove all error messages
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(element => {
+                element.style.display = 'none';
+            });
+        }
+
+        // Add event listeners to clear error messages when user starts typing
+        document.addEventListener('DOMContentLoaded', function() {
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            
+            nameInput.addEventListener('input', function() {
+                const errorElement = document.getElementById('name-error');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            });
+            
+            emailInput.addEventListener('input', function() {
+                const errorElement = document.getElementById('email-error');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            });
+        });
         
-        // Insert the error message after the input field
-        const inputField = document.getElementById(fieldId);
-        inputField.parentNode.insertBefore(errorElement, inputField.nextSibling);
-    }
-    
-    // Set the error message and display it
-    errorElement.textContent = message;
-    errorElement.style.display = 'block';
-    errorElement.style.color = '#e74c3c';
-    errorElement.style.fontSize = '0.85rem';
-    errorElement.style.marginTop = '5px';
-}
+        function isValidEmail(email) {
+            // Convert email to lowercase for case-insensitive comparison
+            email = email.toLowerCase();
+            
+            // Check if email contains @ and a period
+            if (!email.includes('@') || !email.includes('.')) {
+                return false;
+            }
+            
+            // Check if email is from allowed domains
+            const allowedDomains = ['@gmail.com', '@yahoo.com', '@outlook.com', '@hotmail.com'];
+            
+            // Check each domain
+            for (const domain of allowedDomains) {
+                if (email.endsWith(domain)) {
+                    return true;
+                }
+            }
+            
+            // If we get here, the email is not from any allowed domain
+            return false;
+        }
 
-function clearErrorMessages() {
-    // Remove all error messages
-    const errorElements = document.querySelectorAll('.error-message');
-    errorElements.forEach(element => {
-        element.style.display = 'none';
-    });
-}
-
-// Add event listeners to clear error messages when user starts typing
-document.addEventListener('DOMContentLoaded', function() {
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    
-    nameInput.addEventListener('input', function() {
-        const errorElement = document.getElementById('name-error');
-        if (errorElement) {
-            errorElement.style.display = 'none';
+        // Function to add subscriber to Moosend
+        function addSubscriberToMoosend(name, email) {
+            // Your Moosend API key and List ID (replace these with your actual values)
+            const apiKey = "c2e35807-d953-4a67-8f22-ac9d2ec4b44e";
+            const listId = "80c63a89-41da-4b38-893c-eea56a033e8c";
+           
+            // Create request data
+            const subscriptionData = {
+                Name: name,
+                Email: email,
+                HasExternalDoubleOptIn: false // Set to true if you want double opt-in
+            };
+           
+            // Make API request to Moosend
+            fetch(`https://api.moosend.com/v3/subscribers/${listId}/subscribe.json?apikey=${apiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(subscriptionData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Subscriber added successfully:", data);
+               
+                // Also identify the user for tracking (this uses mootrack code if available)
+                if (typeof mootrack === 'function') {
+                    mootrack('identify', email);
+                }
+            })
+            .catch(error => {
+                console.error("Error adding subscriber:", error);
+                // Still continue with the quiz even if there's an error
+            });
         }
-    });
-    
-    emailInput.addEventListener('input', function() {
-        const errorElement = document.getElementById('email-error');
-        if (errorElement) {
-            errorElement.style.display = 'none';
-        }
-    });
-});
-function isValidEmail(email) {
-    // Convert email to lowercase for case-insensitive comparison
-    email = email.toLowerCase();
-    
-    // Check if email contains @ and a period
-    if (!email.includes('@') || !email.includes('.')) {
-        return false;
-    }
-    
-    // Check if email is from allowed domains
-    const allowedDomains = ['@gmail.com', '@yahoo.com', '@outlook.com', '@hotmail.com'];
-    
-    // Check each domain
-    for (const domain of allowedDomains) {
-        if (email.endsWith(domain)) {
-            return true;
-        }
-    }
-    
-    // If we get here, the email is not from any allowed domain
-    return false;
-}
-
-// Function to add subscriber to Moosend
-function addSubscriberToMoosend(name, email) {
-    // Your Moosend API key and List ID (replace these with your actual values)
-    const apiKey = "c2e35807-d953-4a67-8f22-ac9d2ec4b44e";
-    const listId = "80c63a89-41da-4b38-893c-eea56a033e8c";
-   
-    // Create request data
-    const subscriptionData = {
-        Name: name,
-        Email: email,
-        HasExternalDoubleOptIn: false // Set to true if you want double opt-in
-    };
-   
-    // Make API request to Moosend
-    fetch(`https://api.moosend.com/v3/subscribers/${listId}/subscribe.json?apikey=${apiKey}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(subscriptionData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Subscriber added successfully:", data);
-       
-        // Also identify the user for tracking (this uses mootrack code if available)
-        if (typeof mootrack === 'function') {
-            mootrack('identify', email);
-        }
-    })
-    .catch(error => {
-        console.error("Error adding subscriber:", error);
-        // Still continue with the quiz even if there's an error
-    });
-}
-   
     </script>
-   
 </body>
 </html>
