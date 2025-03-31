@@ -64,7 +64,7 @@
             padding: 30px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             position: relative;
-            max-height: 90vh;
+            max-height: 85vh; /* Reduced from 90vh to ensure button visibility */
             overflow-y: auto;
         }
        
@@ -109,7 +109,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin: 30px 0;
+            margin: 20px 0; /* Reduced from 30px to 20px */
         }
        
         .quiz-option {
@@ -567,7 +567,7 @@
             line-height: 1.7;
         }
 
-        /* Limited spots styling */
+        /* Limited spots styling - UPDATED to center it properly */
         .limited-spots {
             background-color: #ff5e5e;
             color: white;
@@ -576,9 +576,10 @@
             font-weight: bold;
             font-size: 0.9rem;
             margin: 15px auto;
-            display: inline-block;
+            display: table; /* Changed from inline-block to table for better centering */
             animation: pulse 2s infinite;
             text-align: center;
+            width: fit-content;
         }
         
         @keyframes pulse {
@@ -590,6 +591,29 @@
             }
             100% {
                 transform: scale(1);
+            }
+        }
+        
+        /* Mobile responsive adjustments */
+        @media (max-width: 480px) {
+            .quiz-container {
+                padding: 20px;
+                max-height: 80vh;
+            }
+            
+            .quiz-option {
+                padding: 10px;
+                font-size: 0.95rem;
+            }
+            
+            .quiz-title {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .quiz-subtitle {
+                font-size: 1rem;
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -657,7 +681,170 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
         <hr class="section-divider">
 
         <div class="stats-container">
-            <div class="stat-box">
+            <div class="quiz-step active" id="quiz-intro">
+                <h3 class="quiz-title">Quick 60-Second Quiz</h3>
+                <p class="quiz-subtitle">This quiz will help us understand you better and customize recommendations for your AI content journey.</p>
+                <div class="limited-spots">
+                    LIMITED: Only 5 spots available for today's intake!
+                </div>
+                <div class="quiz-actions">
+                    <button class="next-button" onclick="showStep('quiz-q1')">Let's Begin</button>
+                </div>
+            </div>
+           
+            <!-- Question 1 -->
+            <div class="quiz-step" id="quiz-q1">
+                <h3 class="quiz-title">Question 1 of 4</h3>
+                <p class="quiz-subtitle">What is your current experience level with writing?</p>
+                <div class="limited-spots">
+                    HURRY: Only 5 people can apply today!
+                </div>
+                <div class="quiz-options" id="q1-options">
+                    <div class="quiz-option" data-stat="68" onclick="selectOption(this, 'q1-options')">
+                        I'm a complete beginner with little to no experience
+                    </div>
+                    <div class="quiz-option" data-stat="22" onclick="selectOption(this, 'q1-options')">
+                        I write occasionally but not professionally
+                    </div>
+                    <div class="quiz-option" data-stat="7" onclick="selectOption(this, 'q1-options')">
+                        I have some professional writing experience
+                    </div>
+                    <div class="quiz-option" data-stat="3" onclick="selectOption(this, 'q1-options')">
+                        I'm a professional writer looking to use AI
+                    </div>
+                </div>
+                <div class="stat-feedback" id="q1-feedback">
+                    <strong><span id="q1-stat"></span>%</strong> of people who now earn $3,000+ monthly started with the same experience level as you.
+                </div>
+                <div class="quiz-actions">
+                    <button class="next-button" id="q1-next" disabled onclick="showStep('quiz-q2')">Continue</button>
+                </div>
+            </div>
+           
+            <!-- Question 2 -->
+            <div class="quiz-step" id="quiz-q2">
+                <h3 class="quiz-title">Question 2 of 4</h3>
+                <p class="quiz-subtitle">How many hours per week can you dedicate to building your AI content business?</p>
+                <div class="limited-spots">
+                    URGENT: Only 4 spots remaining!
+                </div>
+                <div class="quiz-options" id="q2-options">
+                    <div class="quiz-option" data-stat="25" onclick="selectOption(this, 'q2-options')">
+                        Less than 5 hours per week
+                    </div>
+                    <div class="quiz-option" data-stat="42" onclick="selectOption(this, 'q2-options')">
+                        5-10 hours per week
+                    </div>
+                    <div class="quiz-option" data-stat="23" onclick="selectOption(this, 'q2-options')">
+                        11-20 hours per week
+                    </div>
+                    <div class="quiz-option" data-stat="10" onclick="selectOption(this, 'q2-options')">
+                        More than 20 hours per week
+                    </div>
+                </div>
+                <div class="stat-feedback" id="q2-feedback">
+                    <strong><span id="q2-stat"></span>%</strong> of successful AI content creators started with this time commitment and reached their first $1,000 month within 90 days.
+                </div>
+                <div class="quiz-actions">
+                    <button class="next-button" id="q2-next" disabled onclick="showStep('quiz-contact')">Continue</button>
+                </div>
+            </div>
+           
+            <!-- Contact Information -->
+            <div class="quiz-step" id="quiz-contact">
+                <h3 class="quiz-title">You're Almost There!</h3>
+                <p class="quiz-subtitle">Let's personalize your AI content journey. We'll send you custom tips based on your answers.</p>
+                <div class="limited-spots">
+                    LAST CHANCE: Only 3 spots left - secure yours now!
+                </div>
+                <div class="form-fields">
+                    <div class="form-field">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                </div>
+               
+                <div class="quiz-actions">
+                    <button class="next-button" id="contact-next" onclick="validateContact()">Continue</button>
+                </div>
+            </div>
+           
+            <!-- Question 3 -->
+            <div class="quiz-step" id="quiz-q3">
+                <h3 class="quiz-title">Question 3 of 4</h3>
+                <p class="quiz-subtitle">What type of content are you most interested in creating?</p>
+                <div class="limited-spots">
+                    ALMOST DONE: Just 2 more quick questions!
+                </div>
+                <div class="quiz-options" id="q3-options">
+                    <div class="quiz-option" data-stat="31" onclick="selectOption(this, 'q3-options')">
+                        Blog articles and website content
+                    </div>
+                    <div class="quiz-option" data-stat="26" onclick="selectOption(this, 'q3-options')">
+                        Social media content
+                    </div>
+                    <div class="quiz-option" data-stat="29" onclick="selectOption(this, 'q3-options')">
+                        Product descriptions and e-commerce content
+                    </div>
+                    <div class="quiz-option" data-stat="14" onclick="selectOption(this, 'q3-options')">
+                        Email newsletters and marketing materials
+                    </div>
+                </div>
+                <div class="stat-feedback" id="q3-feedback">
+                    <strong><span id="q3-stat"></span>%</strong> of our most successful members focus on this content type, which currently has strong market demand.
+                </div>
+                <div class="quiz-actions">
+                    <button class="next-button" id="q3-next" disabled onclick="showStep('quiz-q4')">Continue</button>
+                </div>
+            </div>
+           
+            <!-- Question 4 -->
+            <div class="quiz-step" id="quiz-q4">
+                <h3 class="quiz-title">Question 4 of 4</h3>
+                <p class="quiz-subtitle">What is your primary goal with AI content creation?</p>
+                <div class="limited-spots">
+                    FINAL STEP: Last question before your personalized plan!
+                </div>
+                <div class="quiz-options" id="q4-options">
+                    <div class="quiz-option" data-stat="47" onclick="selectOption(this, 'q4-options')">
+                        Create a side income while keeping my current job
+                    </div>
+                    <div class="quiz-option" data-stat="38" onclick="selectOption(this, 'q4-options')">
+                        Replace my full-time income and work from home
+                    </div>
+                    <div class="quiz-option" data-stat="9" onclick="selectOption(this, 'q4-options')">
+                        Scale into an agency and hire other writers
+                    </div>
+                    <div class="quiz-option" data-stat="6" onclick="selectOption(this, 'q4-options')">
+                        Create content for my own businesses or projects
+                    </div>
+                </div>
+                <div class="stat-feedback" id="q4-feedback">
+                    <strong><span id="q4-stat"></span>%</strong> of people share the same goal as you. Our system has a specific pathway designed for this objective.
+                </div>
+                <div class="quiz-actions">
+                    <button class="next-button" id="q4-next" disabled onclick="showStep('quiz-thanks')">Complete Quiz</button>
+                </div>
+            </div>
+           
+            <!-- Thank You -->
+            <div class="quiz-step" id="quiz-thanks">
+                <div class="thank-you-icon">✓</div>
+                <h3 class="quiz-title">Thank You For Completing The Quiz!</h3>
+                <p class="quiz-subtitle">We're analyzing your responses to create your personalized AI content roadmap. We'll reach out to you shortly when the opportunity opens with customized recommendations based on your situation.</p>
+                <div class="limited-spots">
+                    YOUR SPOT IS RESERVED! Check your email soon.
+                </div>
+                <div class="quiz-actions">
+                    <button class="next-button" onclick="closeQuiz()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>stat-box">
                 <div class="stat-number">3</div>
                 <div class="stat-text">months to replace previous income</div>
             </div>
@@ -781,7 +968,7 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             © 2025 AI Content Mastery. All rights reserved.
         </div>
     </footer>
-   
+
     <!-- Fixed CTA Button -->
     <a href="#" class="fixed-cta-button" onclick="fbq('trackCustom', 'CTAClick', {button: 'fixed_button'}); document.querySelector('.quiz-overlay').style.display = 'flex'; return false;">Start Now</a>
    
@@ -887,6 +1074,9 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             <div class="quiz-step" id="quiz-q3">
                 <h3 class="quiz-title">Question 3 of 4</h3>
                 <p class="quiz-subtitle">What type of content are you most interested in creating?</p>
+                <div class="limited-spots">
+                    ALMOST DONE: Just 2 more quick questions!
+                </div>
                 <div class="quiz-options" id="q3-options">
                     <div class="quiz-option" data-stat="31" onclick="selectOption(this, 'q3-options')">
                         Blog articles and website content
@@ -913,6 +1103,9 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             <div class="quiz-step" id="quiz-q4">
                 <h3 class="quiz-title">Question 4 of 4</h3>
                 <p class="quiz-subtitle">What is your primary goal with AI content creation?</p>
+                <div class="limited-spots">
+                    FINAL STEP: Last question before your personalized plan!
+                </div>
                 <div class="quiz-options" id="q4-options">
                     <div class="quiz-option" data-stat="47" onclick="selectOption(this, 'q4-options')">
                         Create a side income while keeping my current job
@@ -940,6 +1133,9 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
                 <div class="thank-you-icon">✓</div>
                 <h3 class="quiz-title">Thank You For Completing The Quiz!</h3>
                 <p class="quiz-subtitle">We're analyzing your responses to create your personalized AI content roadmap. We'll reach out to you shortly when the opportunity opens with customized recommendations based on your situation.</p>
+                <div class="limited-spots">
+                    YOUR SPOT IS RESERVED! Check your email soon.
+                </div>
                 <div class="quiz-actions">
                     <button class="next-button" onclick="closeQuiz()">Close</button>
                 </div>
@@ -1055,6 +1251,9 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             // Show the specified step
             document.getElementById(stepId).classList.add('active');
             
+            // Scroll to top of quiz container for better mobile experience
+            document.querySelector('.quiz-container').scrollTop = 0;
+            
             // Make the limited spots text pulse animation restart
             const limitedSpots = document.querySelector(`#${stepId} .limited-spots`);
             if (limitedSpots) {
@@ -1078,6 +1277,14 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
                 
                 // Continue with the quiz
                 showStep('quiz-q3');
+                
+                // Track this conversion with Facebook Pixel if available
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead', {
+                        content_name: 'AI Content Quiz',
+                        content_category: 'Email Capture'
+                    });
+                }
             } else {
                 // Show appropriate error messages
                 if (!name) {
