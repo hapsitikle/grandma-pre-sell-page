@@ -567,7 +567,7 @@
             line-height: 1.7;
         }
 
-        /* Limited spots styling */
+        /* Limited spots styling - UPDATED */
         .limited-spots {
             background-color: #ff5e5e;
             color: white;
@@ -576,9 +576,11 @@
             font-weight: bold;
             font-size: 0.9rem;
             margin: 15px auto;
-            display: inline-block;
+            display: block;
             animation: pulse 2s infinite;
             text-align: center;
+            width: fit-content;
+            max-width: 100%;
         }
         
         @keyframes pulse {
@@ -887,6 +889,9 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             <div class="quiz-step" id="quiz-q3">
                 <h3 class="quiz-title">Question 3 of 4</h3>
                 <p class="quiz-subtitle">What type of content are you most interested in creating?</p>
+                <div class="limited-spots">
+                    URGENT: Only 2 spots remaining!
+                </div>
                 <div class="quiz-options" id="q3-options">
                     <div class="quiz-option" data-stat="31" onclick="selectOption(this, 'q3-options')">
                         Blog articles and website content
@@ -913,6 +918,9 @@ src="https://www.facebook.com/tr?id=2343973465986277&ev=PageView&noscript=1"/></
             <div class="quiz-step" id="quiz-q4">
                 <h3 class="quiz-title">Question 4 of 4</h3>
                 <p class="quiz-subtitle">What is your primary goal with AI content creation?</p>
+                <div class="limited-spots">
+                    FINAL CHANCE: Only 1 spot left!
+                </div>
                 <div class="quiz-options" id="q4-options">
                     <div class="quiz-option" data-stat="47" onclick="selectOption(this, 'q4-options')">
                         Create a side income while keeping my current job
