@@ -249,17 +249,28 @@
         }
         
         .redirect-message {
-            color: #333;
+            color: #3b5998;
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 15px;
         }
         
-        .countdown {
-            color: #f8b500;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 12px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin: 15px 0 25px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(135deg, #3b5998 0%, #6c5ce7 100%);
+            border-radius: 10px;
+            transition: width 0.1s linear;
         }
         
         /* Testimonials */
@@ -270,7 +281,7 @@
             padding: 0 10px;
             /* Scrollbar styling */
             scrollbar-width: thin;
-            scrollbar-color: #f8b500 #f1f1f1;
+            scrollbar-color: #3b5998 #f1f1f1;
         }
         
         .testimonials-container::-webkit-scrollbar {
@@ -283,7 +294,7 @@
         }
         
         .testimonials-container::-webkit-scrollbar-thumb {
-            background: #f8b500;
+            background: #3b5998;
             border-radius: 10px;
         }
         
@@ -293,7 +304,7 @@
             background-color: #f9f9f9;
             border-radius: 10px;
             margin-bottom: 15px;
-            border-left: 4px solid #f8b500;
+            border-left: 4px solid #3b5998;
         }
         
         .testimonial-header {
@@ -313,6 +324,7 @@
         .testimonial-name {
             font-weight: 600;
             margin-bottom: 2px;
+            color: #3b5998;
         }
         
         .testimonial-role {
@@ -328,7 +340,7 @@
         
         .testimonial-rating {
             margin-top: 10px;
-            color: #f8b500;
+            color: #3b5998;
             font-size: 1.2rem;
         }
     </style>
@@ -390,7 +402,9 @@
     <div class="redirect-overlay" id="redirect-overlay">
         <div class="redirect-content">
             <div class="redirect-message">We are redirecting you to your destination</div>
-            <div class="countdown" id="countdown">8</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
             <p>Please wait while we prepare your AI writing opportunity...</p>
             
             <div class="testimonials-container">
@@ -440,7 +454,7 @@
     </div>
 
     <script>
-        // Show overlay and start countdown when CTA button is clicked
+        // Show overlay and start progress bar when CTA button is clicked
         document.getElementById('cta-button').addEventListener('click', function(e) {
             e.preventDefault();
             
@@ -457,20 +471,23 @@
             // Show the redirect overlay
             document.getElementById('redirect-overlay').style.display = 'block';
             
-            // Start countdown
-            let secondsLeft = 8;
-            const countdownElement = document.getElementById('countdown');
+            // Start progress bar animation
+            const progressBar = document.getElementById('progress-bar');
+            let width = 0;
+            const totalTime = 8000; // 8 seconds
+            const interval = 50; // Update every 50ms for smooth animation
+            const increment = (interval / totalTime) * 100;
             
-            const countdownInterval = setInterval(function() {
-                secondsLeft--;
-                countdownElement.textContent = secondsLeft;
+            const progressInterval = setInterval(function() {
+                width += increment;
+                progressBar.style.width = width + '%';
                 
-                if (secondsLeft <= 0) {
-                    clearInterval(countdownInterval);
+                if (width >= 100) {
+                    clearInterval(progressInterval);
                     // Redirect to destination
                     window.location.href = "https://fa33d2n8p3vumq8zel4h552a12.hop.clickbank.net";
                 }
-            }, 1000);
+            }, interval);
         });
     </script>
 </body>
