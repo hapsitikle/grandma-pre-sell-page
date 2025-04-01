@@ -360,17 +360,37 @@
     }
     
     if (isValid) {
-        // Track conversion with Facebook Pixel
-        fbq('track', 'Lead', {
-            content_name: 'signup',
-            status: 'complete'
-        });
-        
-        // Submit to Moosend
-        addSubscriberToMoosend(name, email);
-        
-        // Redirect to the specified URL
+        // Initiate immediate redirect
         window.location.href = "https://fa33d2n8p3vumq8zel4h552a12.hop.clickbank.net";
+        
+        // Track conversion with Facebook Pixel (fire and forget)
+        try {
+            fbq('track', 'Lead', {
+                content_name: 'signup',
+                status: 'complete'
+            });
+        } catch (e) {
+            console.error("Facebook Pixel error:", e);
+        }
+        
+        // Save to localStorage as backup
+        try {
+            localStorage.setItem('user_name', name);
+            localStorage.setItem('user_email', email);
+        } catch (e) {
+            console.error("LocalStorage error:", e);
+        }
+        
+        // Submit to Moosend in background
+        setTimeout(() => {
+            try {
+                addSubscriberToMoosend(name, email);
+            } catch (e) {
+                console.error("Moosend error:", e);
+            }
+        }, 0);
+        
+        return false;
     }
 }
         
@@ -380,39 +400,57 @@
         }
         
         function addSubscriberToMoosend(name, email) {
-            // Your Moosend API key and List ID
-            const apiKey = "c2e35807-d953-4a67-8f22-ac9d2ec4b44e";
-            const listId = "80c63a89-41da-4b38-893c-eea56a033e8c";
-           
-            // Create request data
-            const subscriptionData = {
-                Name: name,
-                Email: email,
-                HasExternalDoubleOptIn: false
-            };
-           
-            // Make API request to Moosend
-            fetch(`https://api.moosend.com/v3/subscribers/${listId}/subscribe.json?apikey=${apiKey}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(subscriptionData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Subscriber added successfully:", data);
-               
-                // Also identify the user for tracking (this uses mootrack code if available)
-                if (typeof mootrack === 'function') {
-                    mootrack('identify', email);
-                }
-            })
-            .catch(error => {
-                console.error("Error adding subscriber:", error);
-            });
+    // Your Moosend API key and List ID
+    const apiKey = "c2e35807-d953-4a67-8f22-ac9d2ec4b44e";
+    const listId = "80c63a89-41da-4b38-893c-eea56a033e8c";
+   
+    // Create request data
+    const subscriptionData = {
+        Name: name,
+        Email: email,
+        HasExternalDoubleOptIn: false
+    };
+   
+    // Use navigator.sendBeacon if available for more reliable background requests
+    if (navigator.sendBeacon) {
+        const blob = new Blob([JSON.stringify(subscriptionData)], {type: 'application/json'});
+        navigator.sendBeacon(`https://api.moosend.com/v3/subscribers/${listId}/subscribe.json?apikey=${apiKey}`, blob);
+        
+        // Also identify the user for tracking (this uses mootrack code if available)
+        if (typeof mootrack === 'function') {
+            try {
+                mootrack('identify', email);
+            } catch (e) {
+                console.error("Mootrack error:", e);
+            }
         }
+        return;
+    }
+    
+    // Fallback to fetch if sendBeacon is not available
+    fetch(`https://api.moosend.com/v3/subscribers/${listId}/subscribe.json?apikey=${apiKey}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(subscriptionData),
+        // Add this to make the request not block
+        keepalive: true
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Subscriber added successfully:", data);
+       
+        // Also identify the user for tracking (this uses mootrack code if available)
+        if (typeof mootrack === 'function') {
+            mootrack('identify', email);
+        }
+    })
+    .catch(error => {
+        console.error("Error adding subscriber:", error);
+    });
+}
     </script>
 </body>
 </html>
