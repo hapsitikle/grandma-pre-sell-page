@@ -177,47 +177,6 @@
             box-shadow: 0 8px 25px rgba(248, 181, 0, 0.5);
         }
         
-        /* Form */
-        .email-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .form-field {
-            padding: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            font-size: 1rem;
-            background-color: rgba(255, 255, 255, 0.9);
-            transition: all 0.3s;
-        }
-        
-        .form-field:focus {
-            border-color: #f8b500;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(248, 181, 0, 0.1);
-        }
-        
-        .error-message {
-            color: #ff3a3a;
-            font-size: 0.85rem;
-            margin-top: -10px;
-            display: none;
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-        
-        /* Guarantees */
-        .guarantees {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            margin-top: 15px;
-            text-align: center;
-        }
-        
         /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
@@ -305,19 +264,7 @@
                 "I've helped over 120 people start AI content businesses earning $3,000-$8,000 monthly with my proven system."
             </div>
             
-            <form id="signup-form" class="email-form">
-                <input type="text" id="name" placeholder="Your Name" class="form-field" required>
-                <div class="error-message" id="name-error"></div>
-                
-                <input type="email" id="email" placeholder="Your Email" class="form-field" required>
-                <div class="error-message" id="email-error"></div>
-                
-                <button type="submit" class="cta-button" onclick="submitForm(event)">GET STARTED NOW</button>
-            </form>
-            
-            <div class="guarantees">
-                Your information is secure and will never be shared. Unsubscribe anytime.
-            </div>
+            <a href="https://fa33d2n8p3vumq8zel4h552a12.hop.clickbank.net" class="cta-button">GET STARTED NOW</a>
             
             <!-- Thank You Message (Hidden initially) -->
             <div class="thank-you" id="thank-you-message">
@@ -329,128 +276,17 @@
     </div>
 
     <script>
-        function submitForm(event) {
-    event.preventDefault();
-    
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    
-    // Clear previous error messages
-    document.getElementById('name-error').style.display = 'none';
-    document.getElementById('email-error').style.display = 'none';
-    
-    let isValid = true;
-    
-    // Validate name
-    if (!name) {
-        document.getElementById('name-error').textContent = 'Please enter your name';
-        document.getElementById('name-error').style.display = 'block';
-        isValid = false;
-    }
-    
-    // Validate email
-    if (!email) {
-        document.getElementById('email-error').textContent = 'Please enter your email';
-        document.getElementById('email-error').style.display = 'block';
-        isValid = false;
-    } else if (!isValidEmail(email)) {
-        document.getElementById('email-error').textContent = 'Please enter a valid email';
-        document.getElementById('email-error').style.display = 'block';
-        isValid = false;
-    }
-    
-    if (isValid) {
-        // Initiate immediate redirect
-        window.location.href = "https://fa33d2n8p3vumq8zel4h552a12.hop.clickbank.net";
-        
-        // Track conversion with Facebook Pixel (fire and forget)
-        try {
-            fbq('track', 'Lead', {
-                content_name: 'signup',
-                status: 'complete'
-            });
-        } catch (e) {
-            console.error("Facebook Pixel error:", e);
-        }
-        
-        // Save to localStorage as backup
-        try {
-            localStorage.setItem('user_name', name);
-            localStorage.setItem('user_email', email);
-        } catch (e) {
-            console.error("LocalStorage error:", e);
-        }
-        
-        // Submit to Moosend in background
-        setTimeout(() => {
+        // Track conversion with Facebook Pixel when CTA button is clicked
+        document.querySelector('.cta-button').addEventListener('click', function() {
             try {
-                addSubscriberToMoosend(name, email);
+                fbq('track', 'Lead', {
+                    content_name: 'signup',
+                    status: 'complete'
+                });
             } catch (e) {
-                console.error("Moosend error:", e);
+                console.error("Facebook Pixel error:", e);
             }
-        }, 0);
-        
-        return false;
-    }
-}
-        
-        function isValidEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-        
-        function addSubscriberToMoosend(name, email) {
-    // Your Moosend API key and List ID
-    const apiKey = "c2e35807-d953-4a67-8f22-ac9d2ec4b44e";
-    const listId = "80c63a89-41da-4b38-893c-eea56a033e8c";
-   
-    // Create request data
-    const subscriptionData = {
-        Name: name,
-        Email: email,
-        HasExternalDoubleOptIn: false
-    };
-   
-    // Use navigator.sendBeacon if available for more reliable background requests
-    if (navigator.sendBeacon) {
-        const blob = new Blob([JSON.stringify(subscriptionData)], {type: 'application/json'});
-        navigator.sendBeacon(`https://api.moosend.com/v3/subscribers/${listId}/subscribe.json?apikey=${apiKey}`, blob);
-        
-        // Also identify the user for tracking (this uses mootrack code if available)
-        if (typeof mootrack === 'function') {
-            try {
-                mootrack('identify', email);
-            } catch (e) {
-                console.error("Mootrack error:", e);
-            }
-        }
-        return;
-    }
-    
-    // Fallback to fetch if sendBeacon is not available
-    fetch(`https://api.moosend.com/v3/subscribers/${listId}/subscribe.json?apikey=${apiKey}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(subscriptionData),
-        // Add this to make the request not block
-        keepalive: true
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Subscriber added successfully:", data);
-       
-        // Also identify the user for tracking (this uses mootrack code if available)
-        if (typeof mootrack === 'function') {
-            mootrack('identify', email);
-        }
-    })
-    .catch(error => {
-        console.error("Error adding subscriber:", error);
-    });
-}
+        });
     </script>
 </body>
 </html>
