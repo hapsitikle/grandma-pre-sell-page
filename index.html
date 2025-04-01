@@ -42,8 +42,8 @@
              box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
          }
         
-         /* Quiz Popup Styles */
-         .quiz-overlay {
+         /* Signup Overlay Styles */
+         .signup-overlay {
              position: fixed;
              top: 0;
              left: 0;
@@ -56,11 +56,11 @@
              z-index: 1000;
          }
         
-         .quiz-container {
+         .signup-container {
              background-color: white;
              border-radius: 10px;
              width: 90%;
-             max-width: 600px;
+             max-width: 500px;
              padding: 30px;
              box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
              position: relative;
@@ -68,7 +68,7 @@
              overflow-y: auto;
          }
         
-         .close-quiz {
+         .close-signup {
              position: absolute;
              top: 15px;
              right: 15px;
@@ -79,97 +79,28 @@
              line-height: 1;
          }
         
-         .close-quiz:hover {
+         .close-signup:hover {
              color: #333;
          }
         
-         .quiz-step {
-             display: none;
-         }
-        
-         .quiz-step.active {
-             display: block;
-         }
-        
-         .quiz-title {
+         .signup-title {
              color: #3b5998;
              margin-bottom: 15px;
              font-size: 1.7rem;
              text-align: center;
          }
         
-         .quiz-subtitle {
+         .signup-subtitle {
              color: #444;
-             margin-bottom: 15px;
+             margin-bottom: 20px;
              text-align: center;
              font-size: 1.05rem;
-         }
-        
-         .quiz-options {
-             display: flex;
-             flex-direction: column;
-             gap: 10px;
-             margin: 20px 0;
-         }
-        
-         .quiz-option {
-             background-color: #f0f6ff;
-             border: 2px solid #e2e8f0;
-             border-radius: 8px;
-             padding: 10px 12px;
-             cursor: pointer;
-             transition: all 0.3s;
-         }
-        
-         .quiz-option:hover {
-             border-color: #5e5cf6;
-             background-color: #f5f7ff;
-         }
-        
-         .quiz-option.selected {
-             border-color: #5e5cf6;
-             background-color: #f0f4ff;
-         }
-        
-         .stat-feedback {
-             background-color: #f0f9ff;
-             border-left: 4px solid #4299e1;
-             padding: 10px;
-             margin: 15px 0;
-             color: #2c5282;
-             display: none;
-             font-size: 0.95rem;
-         }
-        
-         .next-button {
-             background-color: #5e5cf6;
-             color: white;
-             padding: 10px 25px;
-             border-radius: 50px;
-             font-weight: bold;
-             font-size: 1rem;
-             display: inline-block;
-             cursor: pointer;
-             border: none;
-             margin-top: 10px;
-             transition: all 0.3s;
-         }
-        
-         .next-button:hover {
-             background-color: #4a49c5;
-             transform: translateY(-2px);
-         }
-        
-         .next-button:disabled {
-             background-color: #a0aec0;
-             cursor: not-allowed;
-             transform: none;
          }
         
          .form-fields {
              display: flex;
              flex-direction: column;
-             gap: 12px;
+             gap: 15px;
              margin: 20px 0;
          }
         
@@ -185,7 +116,7 @@
          }
         
          .form-field input {
-             padding: 10px 12px;
+             padding: 12px 15px;
              border: 2px solid #e2e8f0;
              border-radius: 8px;
              font-size: 0.95rem;
@@ -204,11 +135,58 @@
              margin: 20px 0;
          }
         
-         .quiz-actions {
+         .signup-actions {
              display: flex;
              justify-content: center;
+             margin-top: 20px;
          }
- 
+
+         .signup-button {
+             background-color: #5e5cf6;
+             color: white;
+             padding: 14px 30px;
+             border-radius: 50px;
+             font-weight: bold;
+             font-size: 1.1rem;
+             display: inline-block;
+             cursor: pointer;
+             border: none;
+             transition: all 0.3s;
+             width: 100%;
+         }
+
+         .signup-button:hover {
+             background-color: #4a49c5;
+             transform: translateY(-2px);
+         }
+
+         .limited-spots {
+             background-color: #ff5e5e;
+             color: white;
+             padding: 6px 12px;
+             border-radius: 30px;
+             font-weight: bold;
+             font-size: 0.85rem;
+             margin: 10px auto 20px;
+             display: block;
+             animation: pulse 2s infinite;
+             text-align: center;
+             width: fit-content;
+             max-width: 100%;
+         }
+         
+         @keyframes pulse {
+             0% {
+                 transform: scale(1);
+             }
+             50% {
+                 transform: scale(1.05);
+             }
+             100% {
+                 transform: scale(1);
+             }
+         }
+
          body {
              background-color: #f8f9fa;
              color: #444;
@@ -770,7 +748,7 @@
          <div class="cta-box">
              <h3 class="cta-title">Ready to start your AI content journey?</h3>
              <p class="cta-text">I will reach out to you shortly with my exclusive AI content opportunities that have helped over 5,000 people create profitable writing businesses working from home.</p>
-             <button class="cta-button" style="background-color: #6c5ce7;" onclick="fbq('trackCustom', 'CTAClick', {button: 'main_quiz'}); document.querySelector('.quiz-overlay').style.display = 'flex';">Take The Free Quiz Now</button>
+             <button class="cta-button" style="background-color: #6c5ce7;" onclick="fbq('trackCustom', 'CTAClick', {button: 'main_signup'}); document.querySelector('.signup-overlay').style.display = 'flex';">Sign Up Now</button>
          </div>
      </div>
     
@@ -787,172 +765,43 @@
      </footer>
     
      <!-- Fixed CTA Button -->
-     <a href="#" class="fixed-cta-button" onclick="fbq('trackCustom', 'CTAClick', {button: 'fixed_button'}); document.querySelector('.quiz-overlay').style.display = 'flex'; return false;">Start Now</a>
+     <a href="#" class="fixed-cta-button" onclick="fbq('trackCustom', 'CTAClick', {button: 'fixed_button'}); document.querySelector('.signup-overlay').style.display = 'flex'; return false;">Sign Up Now</a>
     
-     <!-- Quiz Popup -->
-     <div class="quiz-overlay">
-         <div class="quiz-container">
-             <span class="close-quiz">&times;</span>
-            
-             <!-- Intro Step -->
-             <div class="quiz-step active" id="quiz-intro">
-                 <h3 class="quiz-title">Quick 60-Second Quiz</h3>
-                 <p class="quiz-subtitle">This quiz will help us understand you better and customize recommendations for your AI content journey.</p>
-                 <div class="limited-spots">
-                     LIMITED: Only 5 spots available for today's intake!
+     <!-- Signup Popup -->
+     <div class="signup-overlay">
+         <div class="signup-container">
+             <span class="close-signup">&times;</span>
+             
+             <h3 class="signup-title">Join Our Community Today</h3>
+             <p class="signup-subtitle">Sign up to receive exclusive AI content opportunities and start your journey to financial freedom.</p>
+             
+             <div class="limited-spots">
+                 LIMITED: Only 5 spots available for today's intake!
+             </div>
+             
+             <div class="form-fields">
+                 <div class="form-field">
+                     <label for="name">Your Name</label>
+                     <input type="text" id="name" placeholder="Enter your name">
+                     <div class="error-message" id="name-error"></div>
                  </div>
-                 <div class="quiz-actions">
-                     <button class="next-button" onclick="showStep('quiz-q1')">Let's Begin</button>
+                 
+                 <div class="form-field">
+                     <label for="email">Your Email</label>
+                     <input type="email" id="email" placeholder="Enter your email">
+                     <div class="error-message" id="email-error"></div>
                  </div>
              </div>
-            
-             <!-- Question 1 -->
-             <div class="quiz-step" id="quiz-q1">
-                 <h3 class="quiz-title">Question 1 of 4</h3>
-                 <p class="quiz-subtitle">What is your current experience level with writing?</p>
-                 <div class="limited-spots">
-                     HURRY: Only 5 people can apply today!
-                 </div>
-                 <div class="quiz-options" id="q1-options">
-                     <div class="quiz-option" data-stat="68" onclick="selectOption(this, 'q1-options')">
-                         I'm a complete beginner with little to no experience
-                     </div>
-                     <div class="quiz-option" data-stat="22" onclick="selectOption(this, 'q1-options')">
-                         I write occasionally but not professionally
-                     </div>
-                     <div class="quiz-option" data-stat="7" onclick="selectOption(this, 'q1-options')">
-                         I have some professional writing experience
-                     </div>
-                     <div class="quiz-option" data-stat="3" onclick="selectOption(this, 'q1-options')">
-                         I'm a professional writer looking to use AI
-                     </div>
-                 </div>
-                 <div class="stat-feedback" id="q1-feedback">
-                     <strong><span id="q1-stat"></span>%</strong> of people who now earn $3,000+ monthly started with the same experience level as you.
-                 </div>
-                 <div class="quiz-actions">
-                     <button class="next-button" id="q1-next" disabled onclick="showStep('quiz-q2')">Continue</button>
-                 </div>
+             
+             <div class="signup-actions">
+                 <button class="signup-button" onclick="validateSignup()">Get Started Now</button>
              </div>
-            
-             <!-- Question 2 -->
-             <div class="quiz-step" id="quiz-q2">
-                 <h3 class="quiz-title">Question 2 of 4</h3>
-                 <p class="quiz-subtitle">How many hours per week can you dedicate to building your AI content business?</p>
-                 <div class="limited-spots">
-                     URGENT: Only 4 spots remaining!
-                 </div>
-                 <div class="quiz-options" id="q2-options">
-                     <div class="quiz-option" data-stat="25" onclick="selectOption(this, 'q2-options')">
-                         Less than 5 hours per week
-                     </div>
-                     <div class="quiz-option" data-stat="42" onclick="selectOption(this, 'q2-options')">
-                         5-10 hours per week
-                     </div>
-                     <div class="quiz-option" data-stat="23" onclick="selectOption(this, 'q2-options')">
-                         11-20 hours per week
-                     </div>
-                     <div class="quiz-option" data-stat="10" onclick="selectOption(this, 'q2-options')">
-                         More than 20 hours per week
-                     </div>
-                 </div>
-                 <div class="stat-feedback" id="q2-feedback">
-                     <strong><span id="q2-stat"></span>%</strong> of successful AI content creators started with this time commitment and reached their first $1,000 month within 90 days.
-                 </div>
-                 <div class="quiz-actions">
-                     <button class="next-button" id="q2-next" disabled onclick="showStep('quiz-contact')">Continue</button>
-                 </div>
-             </div>
-            
-             <!-- Contact Information -->
-             <div class="quiz-step" id="quiz-contact">
-                 <h3 class="quiz-title">You're Almost There!</h3>
-                 <p class="quiz-subtitle">Let's personalize your AI content journey. We'll send you custom tips based on your answers.</p>
-                 <div class="limited-spots">
-                     LAST CHANCE: Only 3 spots left - secure yours now!
-                 </div>
-                 <div class="form-fields">
-                     <div class="form-field">
-                         <label for="name">Your Name</label>
-                         <input type="text" id="name" placeholder="Enter your name">
-                     </div>
-                     <div class="form-field">
-                         <label for="email">Your Email</label>
-                         <input type="email" id="email" placeholder="Enter your email">
-                     </div>
-                 </div>
-                
-                 <div class="quiz-actions">
-                     <button class="next-button" id="contact-next" onclick="validateContact()">Continue</button>
-                 </div>
-             </div>
-            
-             <!-- Question 3 -->
-             <div class="quiz-step" id="quiz-q3">
-                 <h3 class="quiz-title">Question 3 of 4</h3>
-                 <p class="quiz-subtitle">What type of content are you most interested in creating?</p>
-                 <div class="limited-spots">
-                     URGENT: Only 2 spots remaining!
-                 </div>
-                 <div class="quiz-options" id="q3-options">
-                     <div class="quiz-option" data-stat="31" onclick="selectOption(this, 'q3-options')">
-                         Blog articles and website content
-                     </div>
-                     <div class="quiz-option" data-stat="26" onclick="selectOption(this, 'q3-options')">
-                         Social media content
-                     </div>
-                     <div class="quiz-option" data-stat="29" onclick="selectOption(this, 'q3-options')">
-                         Product descriptions and e-commerce content
-                     </div>
-                     <div class="quiz-option" data-stat="14" onclick="selectOption(this, 'q3-options')">
-                         Email newsletters and marketing materials
-                     </div>
-                 </div>
-                 <div class="stat-feedback" id="q3-feedback">
-                     <strong><span id="q3-stat"></span>%</strong> of our most successful members focus on this content type, which currently has strong market demand.
-                 </div>
-                 <div class="quiz-actions">
-                     <button class="next-button" id="q3-next" disabled onclick="showStep('quiz-q4')">Continue</button>
-                 </div>
-             </div>
-            
-             <!-- Question 4 -->
-             <div class="quiz-step" id="quiz-q4">
-                 <h3 class="quiz-title">Question 4 of 4</h3>
-                 <p class="quiz-subtitle">What is your primary goal with AI content creation?</p>
-                 <div class="limited-spots">
-                     FINAL CHANCE: Only 1 spot left!
-                 </div>
-                 <div class="quiz-options" id="q4-options">
-                     <div class="quiz-option" data-stat="47" onclick="selectOption(this, 'q4-options')">
-                         Create a side income while keeping my current job
-                     </div>
-                     <div class="quiz-option" data-stat="38" onclick="selectOption(this, 'q4-options')">
-                         Replace my full-time income and work from home
-                     </div>
-                     <div class="quiz-option" data-stat="9" onclick="selectOption(this, 'q4-options')">
-                         Scale into an agency and hire other writers
-                     </div>
-                     <div class="quiz-option" data-stat="6" onclick="selectOption(this, 'q4-options')">
-                         Create content for my own businesses or projects
-                     </div>
-                 </div>
-                 <div class="stat-feedback" id="q4-feedback">
-                     <strong><span id="q4-stat"></span>%</strong> of people share the same goal as you. Our system has a specific pathway designed for this objective.
-                 </div>
-                 <div class="quiz-actions">
-                     <button class="next-button" id="q4-next" disabled onclick="showStep('quiz-thanks')">Complete Quiz</button>
-                 </div>
-             </div>
-            
-             <!-- Thank You -->
-             <div class="quiz-step" id="quiz-thanks">
+             
+             <!-- Thank You Message (Hidden by Default) -->
+             <div id="thank-you-message" style="display: none; text-align: center;">
                  <div class="thank-you-icon">✓</div>
-                 <h3 class="quiz-title">Thank You For Completing The Quiz!</h3>
-                 <p class="quiz-subtitle">We're analyzing your responses to create your personalized AI content roadmap. We'll reach out to you shortly when the opportunity opens with customized recommendations based on your situation.</p>
-                 <div class="quiz-actions">
-                     <button class="next-button" onclick="closeQuiz()">Close</button>
-                 </div>
+                 <h3 class="signup-title">Thank You!</h3>
+                 <p class="signup-subtitle">We've received your information. We'll be in touch shortly with your personalized AI content opportunity.</p>
              </div>
          </div>
      </div>
@@ -1014,68 +863,36 @@
      </script>
     
      <script>
-         // Open quiz when CTA button is clicked
+         // Open signup when CTA button is clicked
          document.querySelector('.fixed-cta-button').addEventListener('click', function(e) {
              e.preventDefault();
-             document.querySelector('.quiz-overlay').style.display = 'flex';
+             document.querySelector('.signup-overlay').style.display = 'flex';
          });
         
-         // Close quiz when X is clicked
-         document.querySelector('.close-quiz').addEventListener('click', closeQuiz);
+         // Close signup when X is clicked
+         document.querySelector('.close-signup').addEventListener('click', closeSignup);
         
-         function closeQuiz() {
-             document.querySelector('.quiz-overlay').style.display = 'none';
+         function closeSignup() {
+             document.querySelector('.signup-overlay').style.display = 'none';
+             // Reset the form when closing
+             resetForm();
          }
-        
-         // Handle option selection
-         function selectOption(element, groupId) {
-             // Remove selection from all options in the group
-             const options = document.querySelectorAll(`#${groupId} .quiz-option`);
-             options.forEach(option => {
-                 option.classList.remove('selected');
-             });
-            
-             // Add selection to clicked option
-             element.classList.add('selected');
-            
-             // Get question number
-             const questionNum = groupId.charAt(1);
-            
-             // Show stat feedback
-             const feedback = document.getElementById(`q${questionNum}-feedback`);
-             feedback.style.display = 'block';
-            
-             // Update stat percentage
-             const statElement = document.getElementById(`q${questionNum}-stat`);
-             statElement.textContent = element.getAttribute('data-stat');
-            
-             // Enable next button
-             const nextButton = document.getElementById(`q${questionNum}-next`);
-             nextButton.disabled = false;
-         }
-        
-         // Show a specific step
-         function showStep(stepId) {
-             // Hide all steps
-             const steps = document.querySelectorAll('.quiz-step');
-             steps.forEach(step => {
-                 step.classList.remove('active');
-             });
-            
-             // Show the specified step
-             document.getElementById(stepId).classList.add('active');
+         
+         function resetForm() {
+             // Clear input fields
+             document.getElementById('name').value = '';
+             document.getElementById('email').value = '';
              
-             // Make the limited spots text pulse animation restart
-             const limitedSpots = document.querySelector(`#${stepId} .limited-spots`);
-             if (limitedSpots) {
-                 limitedSpots.style.animation = 'none';
-                 setTimeout(() => {
-                     limitedSpots.style.animation = 'pulse 2s infinite';
-                 }, 10);
-             }
+             // Hide error messages
+             clearErrorMessages();
+             
+             // Hide thank you message and show form
+             document.getElementById('thank-you-message').style.display = 'none';
+             document.querySelector('.form-fields').style.display = 'flex';
+             document.querySelector('.signup-actions').style.display = 'flex';
          }
-        
-         function validateContact() {
+         
+         function validateSignup() {
              const name = document.getElementById('name').value.trim();
              const email = document.getElementById('email').value.trim();
              
@@ -1083,11 +900,19 @@
              clearErrorMessages();
              
              if (name && email && isValidEmail(email)) {
+                 // Track the conversion with Facebook Pixel
+                 fbq('track', 'Lead', {
+                     content_name: 'signup',
+                     status: 'complete'
+                 });
+                 
                  // Add subscriber to Moosend list
                  addSubscriberToMoosend(name, email);
                  
-                 // Continue with the quiz
-                 showStep('quiz-q3');
+                 // Show thank you message
+                 document.querySelector('.form-fields').style.display = 'none';
+                 document.querySelector('.signup-actions').style.display = 'none';
+                 document.getElementById('thank-you-message').style.display = 'block';
              } else {
                  // Show appropriate error messages
                  if (!name) {
@@ -1096,35 +921,19 @@
                  
                  if (!email) {
                      showErrorMessage('email', 'Please enter your email address.');
-                 } else if (!isValidEmail(email) && email.includes('@') && email.includes('.')) {
-                     showErrorMessage('email', 'Please use an email address from Google (@gmail.com), Yahoo (@yahoo.com), or Outlook (@outlook.com or @hotmail.com).');
-                 } else if (email && (!email.includes('@') || !email.includes('.'))) {
+                 } else if (!isValidEmail(email)) {
                      showErrorMessage('email', 'Please enter a valid email address.');
                  }
              }
          }
  
          function showErrorMessage(fieldId, message) {
-             // Check if an error message element already exists
-             let errorElement = document.getElementById(`${fieldId}-error`);
-             
-             // If not, create a new one
-             if (!errorElement) {
-                 errorElement = document.createElement('div');
-                 errorElement.id = `${fieldId}-error`;
-                 errorElement.className = 'error-message';
-                 
-                 // Insert the error message after the input field
-                 const inputField = document.getElementById(fieldId);
-                 inputField.parentNode.insertBefore(errorElement, inputField.nextSibling);
-             }
+             // Get the error message element
+             const errorElement = document.getElementById(`${fieldId}-error`);
              
              // Set the error message and display it
              errorElement.textContent = message;
              errorElement.style.display = 'block';
-             errorElement.style.color = '#e74c3c';
-             errorElement.style.fontSize = '0.85rem';
-             errorElement.style.marginTop = '5px';
          }
  
          function clearErrorMessages() {
@@ -1156,31 +965,14 @@
          });
          
          function isValidEmail(email) {
-             // Convert email to lowercase for case-insensitive comparison
-             email = email.toLowerCase();
-             
-             // Check if email contains @ and a period
-             if (!email.includes('@') || !email.includes('.')) {
-                 return false;
-             }
-             
-             // Check if email is from allowed domains
-             const allowedDomains = ['@gmail.com', '@yahoo.com', '@outlook.com', '@hotmail.com'];
-             
-             // Check each domain
-             for (const domain of allowedDomains) {
-                 if (email.endsWith(domain)) {
-                     return true;
-                 }
-             }
-             
-             // If we get here, the email is not from any allowed domain
-             return false;
+             // Simple email validation
+             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+             return emailPattern.test(email);
          }
  
          // Function to add subscriber to Moosend
          function addSubscriberToMoosend(name, email) {
-             // Your Moosend API key and List ID (replace these with your actual values)
+             // Your Moosend API key and List ID (same as in original code)
              const apiKey = "c2e35807-d953-4a67-8f22-ac9d2ec4b44e";
              const listId = "80c63a89-41da-4b38-893c-eea56a033e8c";
             
@@ -1188,7 +980,7 @@
              const subscriptionData = {
                  Name: name,
                  Email: email,
-                 HasExternalDoubleOptIn: false // Set to true if you want double opt-in
+                 HasExternalDoubleOptIn: false
              };
             
              // Make API request to Moosend
@@ -1211,7 +1003,6 @@
              })
              .catch(error => {
                  console.error("Error adding subscriber:", error);
-                 // Still continue with the quiz even if there's an error
              });
          }
      </script>
