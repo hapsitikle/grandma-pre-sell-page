@@ -220,6 +220,117 @@
             font-size: 1.1rem;
             margin-bottom: 20px;
         }
+        
+        /* Redirect Overlay */
+        .redirect-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 999;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .redirect-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .redirect-message {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .countdown {
+            color: #f8b500;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials-container {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 20px;
+            padding: 0 10px;
+            /* Scrollbar styling */
+            scrollbar-width: thin;
+            scrollbar-color: #f8b500 #f1f1f1;
+        }
+        
+        .testimonials-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .testimonials-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .testimonials-container::-webkit-scrollbar-thumb {
+            background: #f8b500;
+            border-radius: 10px;
+        }
+        
+        .testimonial {
+            text-align: left;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #f8b500;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .testimonial-name {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: #777;
+        }
+        
+        .testimonial-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
+        }
+        
+        .testimonial-rating {
+            margin-top: 10px;
+            color: #f8b500;
+            font-size: 1.2rem;
+        }
     </style>
     <!-- Meta Pixel Code -->
     <script>
@@ -264,7 +375,7 @@
                 "I've helped over 120 people start AI content businesses earning $3,000-$8,000 monthly with my proven system."
             </div>
             
-            <a href="https://hop.clickbank.net/?affiliate=dealify7&vendor=easywriter&pid=instantapply" class="cta-button">GET STARTED NOW</a>
+            <a href="#" class="cta-button" id="cta-button">GET STARTED NOW</a>
             
             <!-- Thank You Message (Hidden initially) -->
             <div class="thank-you" id="thank-you-message">
@@ -274,10 +385,66 @@
             </div>
         </div>
     </div>
+    
+    <!-- Redirect Overlay -->
+    <div class="redirect-overlay" id="redirect-overlay">
+        <div class="redirect-content">
+            <div class="redirect-message">We are redirecting you to your destination</div>
+            <div class="countdown" id="countdown">6</div>
+            <p>Please wait while we prepare your AI writing opportunity...</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-name">Sarah Johnson</div>
+                            <div class="testimonial-role">Former Teacher, Now Full-time AI Writer</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        "As a single mom with two kids, I was struggling to make ends meet on my teacher's salary. After learning this AI writing system, I was able to quit my job within 2 months! I now make $5,800/month working just 4 hours a day, and I can be there for my kids when they need me. It's changed our lives completely."
+                    </div>
+                    <div class="testimonial-rating">★★★★★</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Chen" class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-name">David Chen</div>
+                            <div class="testimonial-role">Former IT Worker, Current AI Content Creator</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        "I was skeptical at first, but after trying this system, I was amazed at how quickly I started earning. Within my first month, I made $3,200 working part-time. By month three, I hit $6,500 and was able to leave my stressful IT job. The best part is that I have no previous writing experience - the AI does all the heavy lifting. Now I work from anywhere with just my laptop."
+                    </div>
+                    <div class="testimonial-rating">★★★★★</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Jennifer Martinez" class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-name">Jennifer Martinez</div>
+                            <div class="testimonial-role">Mom of 3, Part-time AI Content Specialist</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        "With three young kids at home, I needed something flexible that could fit around their schedules. This AI writing opportunity has been perfect! I work during nap times and after they go to bed, and still manage to make $4,200/month consistently. The system is so easy to follow, and the support community has been amazing. I'm finally able to contribute financially while being the present mom I always wanted to be."
+                    </div>
+                    <div class="testimonial-rating">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Track conversion with Facebook Pixel when CTA button is clicked
-        document.querySelector('.cta-button').addEventListener('click', function() {
+        // Show overlay and start countdown when CTA button is clicked
+        document.getElementById('cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Track conversion with Facebook Pixel
             try {
                 fbq('track', 'Lead', {
                     content_name: 'signup',
@@ -286,6 +453,24 @@
             } catch (e) {
                 console.error("Facebook Pixel error:", e);
             }
+            
+            // Show the redirect overlay
+            document.getElementById('redirect-overlay').style.display = 'block';
+            
+            // Start countdown
+            let secondsLeft = 6;
+            const countdownElement = document.getElementById('countdown');
+            
+            const countdownInterval = setInterval(function() {
+                secondsLeft--;
+                countdownElement.textContent = secondsLeft;
+                
+                if (secondsLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    // Redirect to destination
+                    window.location.href = "https://fa33d2n8p3vumq8zel4h552a12.hop.clickbank.net";
+                }
+            }, 1000);
         });
     </script>
 </body>
