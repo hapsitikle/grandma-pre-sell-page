@@ -330,50 +330,49 @@
 
     <script>
         function submitForm(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            
-            // Clear previous error messages
-            document.getElementById('name-error').style.display = 'none';
-            document.getElementById('email-error').style.display = 'none';
-            
-            let isValid = true;
-            
-            // Validate name
-            if (!name) {
-                document.getElementById('name-error').textContent = 'Please enter your name';
-                document.getElementById('name-error').style.display = 'block';
-                isValid = false;
-            }
-            
-            // Validate email
-            if (!email) {
-                document.getElementById('email-error').textContent = 'Please enter your email';
-                document.getElementById('email-error').style.display = 'block';
-                isValid = false;
-            } else if (!isValidEmail(email)) {
-                document.getElementById('email-error').textContent = 'Please enter a valid email';
-                document.getElementById('email-error').style.display = 'block';
-                isValid = false;
-            }
-            
-            if (isValid) {
-                // Track conversion with Facebook Pixel
-                fbq('track', 'Lead', {
-                    content_name: 'signup',
-                    status: 'complete'
-                });
-                
-                // Submit to Moosend
-                addSubscriberToMoosend(name, email);
-                
-                // Show thank you message
-                document.getElementById('signup-form').style.display = 'none';
-                document.getElementById('thank-you-message').style.display = 'block';
-            }
-        }
+    event.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    
+    // Clear previous error messages
+    document.getElementById('name-error').style.display = 'none';
+    document.getElementById('email-error').style.display = 'none';
+    
+    let isValid = true;
+    
+    // Validate name
+    if (!name) {
+        document.getElementById('name-error').textContent = 'Please enter your name';
+        document.getElementById('name-error').style.display = 'block';
+        isValid = false;
+    }
+    
+    // Validate email
+    if (!email) {
+        document.getElementById('email-error').textContent = 'Please enter your email';
+        document.getElementById('email-error').style.display = 'block';
+        isValid = false;
+    } else if (!isValidEmail(email)) {
+        document.getElementById('email-error').textContent = 'Please enter a valid email';
+        document.getElementById('email-error').style.display = 'block';
+        isValid = false;
+    }
+    
+    if (isValid) {
+        // Track conversion with Facebook Pixel
+        fbq('track', 'Lead', {
+            content_name: 'signup',
+            status: 'complete'
+        });
+        
+        // Submit to Moosend
+        addSubscriberToMoosend(name, email);
+        
+        // Redirect to the specified URL
+        window.location.href = "https://fa33d2n8p3vumq8zel4h552a12.hop.clickbank.net";
+    }
+}
         
         function isValidEmail(email) {
             const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
