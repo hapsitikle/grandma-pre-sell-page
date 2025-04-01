@@ -468,6 +468,15 @@
                 console.error("Facebook Pixel error:", e);
             }
             
+            // Start redirect process immediately
+            const redirectUrl = "https://hop.clickbank.net/?affiliate=dealify7&vendor=easywriter&pid=instantapply";
+            
+            // Create a hidden iframe to start loading the destination in the background
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = redirectUrl;
+            document.body.appendChild(iframe);
+            
             // Show the redirect overlay
             document.getElementById('redirect-overlay').style.display = 'block';
             
@@ -484,10 +493,15 @@
                 
                 if (width >= 100) {
                     clearInterval(progressInterval);
-                    // Redirect to destination
-                    window.location.href = "https://hop.clickbank.net/?affiliate=dealify7&vendor=easywriter&pid=instantapply";
+                    // Complete the redirect
+                    window.location.href = redirectUrl;
                 }
             }, interval);
+            
+            // Also set a direct timeout to ensure redirect happens
+            setTimeout(function() {
+                window.location.href = redirectUrl;
+            }, totalTime);
         });
     </script>
 </body>
