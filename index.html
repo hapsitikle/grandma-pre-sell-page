@@ -442,17 +442,7 @@
         // Show overlay and start progress bar when CTA button is clicked
         document.getElementById('cta-button').addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Track conversion with Facebook Pixel
-            try {
-                fbq('track', 'Lead', {
-                    content_name: 'signup',
-                    status: 'complete'
-                });
-            } catch (e) {
-                console.error("Facebook Pixel error:", e);
-            }
-            
+                        
             // Start redirect process immediately
             const redirectUrl = "https://hop.clickbank.net/?affiliate=dealify7&vendor=easywriter&pid=instantapply";
             
