@@ -366,6 +366,8 @@
 <!-- /Mgid Sensor -->
     <script>
 window._mgq = window._mgq || [];
+// Enable clickId tracking
+window._mgq.push(["EnableClickIDTracking"]);
 </script>
 
 </head>
@@ -465,54 +467,62 @@ window._mgq = window._mgq || [];
         // Show overlay and start progress bar when CTA button is clicked
         document.getElementById('cta-button').addEventListener('click', function(e) {
             e.preventDefault();
-            if (window._mgq) {
-        window._mgq.push(["MgSensorInvoke", "Redirect"]);
-    }
             
-            // Track conversion with Facebook Pixel
-            try {
-                fbq('track', 'Lead', {
-                    content_name: 'signup',
-                    status: 'complete'
-                });
-            } catch (e) {
-                console.error("Facebook Pixel error:", e);
+            // First track the event with explicit clid parameter
+            if (window._mgq) {
+                // Get the clid from URL if present
+                const urlParams = new URLSearchParams(window.location.search);
+                const clid = urlParams.get('clid') || '';
+                window._mgq.push(["MgSensorInvoke", "Redirect", { clid: clid }]);
             }
             
-            // Start redirect process immediately
-            const redirectUrl = "https://hop.clickbank.net/?affiliate=dealify7&vendor=easywriter&pid=instantapply";
-            
-            // Create a hidden iframe to start loading the destination in the background
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = redirectUrl;
-            document.body.appendChild(iframe);
-            
-            // Show the redirect overlay
-            document.getElementById('redirect-overlay').style.display = 'block';
-            
-            // Start progress bar animation
-            const progressBar = document.getElementById('progress-bar');
-            let width = 0;
-            const totalTime = 8000; // 8 seconds
-            const interval = 50; // Update every 50ms for smooth animation
-            const increment = (interval / totalTime) * 100;
-            
-            const progressInterval = setInterval(function() {
-                width += increment;
-                progressBar.style.width = width + '%';
-                
-                if (width >= 100) {
-                    clearInterval(progressInterval);
-                    // Complete the redirect
-                    window.location.href = redirectUrl;
-                }
-            }, interval);
-            
-            // Also set a direct timeout to ensure redirect happens
+            // Short delay before starting redirect process
             setTimeout(function() {
-                window.location.href = redirectUrl;
-            }, totalTime);
+                // Track conversion with Facebook Pixel
+                try {
+                    fbq('track', 'Lead', {
+                        content_name: 'signup',
+                        status: 'complete'
+                    });
+                } catch (e) {
+                    console.error("Facebook Pixel error:", e);
+                }
+                
+                // Start redirect process
+                const redirectUrl = "https://hop.clickbank.net/?affiliate=dealify7&vendor=easywriter&pid=instantapply";
+                
+                // Create a hidden iframe to start loading the destination in the background
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = redirectUrl;
+                document.body.appendChild(iframe);
+                
+                // Show the redirect overlay
+                document.getElementById('redirect-overlay').style.display = 'block';
+                
+                // Start progress bar animation
+                const progressBar = document.getElementById('progress-bar');
+                let width = 0;
+                const totalTime = 8000; // 8 seconds
+                const interval = 50; // Update every 50ms for smooth animation
+                const increment = (interval / totalTime) * 100;
+                
+                const progressInterval = setInterval(function() {
+                    width += increment;
+                    progressBar.style.width = width + '%';
+                    
+                    if (width >= 100) {
+                        clearInterval(progressInterval);
+                        // Complete the redirect
+                        window.location.href = redirectUrl;
+                    }
+                }, interval);
+                
+                // Also set a direct timeout to ensure redirect happens
+                setTimeout(function() {
+                    window.location.href = redirectUrl;
+                }, totalTime);
+            }, 200); // 200ms delay to ensure tracking fires
         });
     </script>
 </body>
