@@ -7,27 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Mgid Sensor -->
-    <script type="text/javascript">
-        (function() {
-            var d = document, w = window;
-            w.MgSensorData = w.MgSensorData || [];
-            w.MgSensorData.push({
-                cid:906329,
-                project: "a.mgid.com"
-            });
-            var l = "a.mgid.com";
-            var n = d.getElementsByTagName("script")[0];
-            var s = d.createElement("script");
-            s.type = "text/javascript";
-            s.async = true;
-            var dt = !Date.now?new Date().valueOf():Date.now();
-            s.src = "https://" + l + "/mgsensor.js?d=" + dt;
-            n.parentNode.insertBefore(s, n);
-        })();
-    </script>
-    <!-- /Mgid Sensor -->
-
     <style>
         * {
             margin: 0;
@@ -365,8 +344,10 @@
             font-size: 1.2rem;
         }
     </style>
+
 </head>
 <body>
+
     <div class="hero">
         <div class="content-wrapper">
             <h1>How I Built a Full-Time Income with AI Writing (Without Experience)</h1>
@@ -391,7 +372,7 @@
                 "I've helped over 120 people start AI content businesses earning $3,000-$8,000 monthly with my proven system."
             </div>
             
-            <a href="#" class="cta-button" id="cta-button" onclick="_mgq.push(['MgSensorInvoke', 'Redirect'])">GET STARTED NOW</a>
+            <a href="#" class="cta-button" id="cta-button">GET STARTED NOW</a>
             
             <!-- Thank You Message (Hidden initially) -->
             <div class="thank-you" id="thank-you-message">
@@ -458,58 +439,55 @@
     </div>
 
     <script>
-    // Add the MGID event tracking script
-    (window._mgq = window._mgq || []).push(["MgSensorInvoke", "Redirect"]);
-    
-    // Show overlay and start progress bar when CTA button is clicked
-    document.getElementById('cta-button').addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Track conversion with Facebook Pixel
-        try {
-            fbq('track', 'Lead', {
-                content_name: 'signup',
-                status: 'complete'
-            });
-        } catch (e) {
-            console.error("Facebook Pixel error:", e);
-        }
-        
-        // Start redirect process immediately
-        const redirectUrl = "https://hop.clickbank.net/?affiliate=dealify7&vendor=easywriter&pid=instantapply";
-        
-        // Create a hidden iframe to start loading the destination in the background
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = redirectUrl;
-        document.body.appendChild(iframe);
-        
-        // Show the redirect overlay
-        document.getElementById('redirect-overlay').style.display = 'block';
-        
-        // Start progress bar animation
-        const progressBar = document.getElementById('progress-bar');
-        let width = 0;
-        const totalTime = 8000; // 8 seconds
-        const interval = 50; // Update every 50ms for smooth animation
-        const increment = (interval / totalTime) * 100;
-        
-        const progressInterval = setInterval(function() {
-            width += increment;
-            progressBar.style.width = width + '%';
+        // Show overlay and start progress bar when CTA button is clicked
+        document.getElementById('cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
             
-            if (width >= 100) {
-                clearInterval(progressInterval);
-                // Complete the redirect
-                window.location.href = redirectUrl;
+            // Track conversion with Facebook Pixel
+            try {
+                fbq('track', 'Lead', {
+                    content_name: 'signup',
+                    status: 'complete'
+                });
+            } catch (e) {
+                console.error("Facebook Pixel error:", e);
             }
-        }, interval);
-        
-        // Also set a direct timeout to ensure redirect happens
-        setTimeout(function() {
-            window.location.href = redirectUrl;
-        }, totalTime);
-    });
+            
+            // Start redirect process immediately
+            const redirectUrl = "https://hop.clickbank.net/?affiliate=dealify7&vendor=easywriter&pid=instantapply";
+            
+            // Create a hidden iframe to start loading the destination in the background
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = redirectUrl;
+            document.body.appendChild(iframe);
+            
+            // Show the redirect overlay
+            document.getElementById('redirect-overlay').style.display = 'block';
+            
+            // Start progress bar animation
+            const progressBar = document.getElementById('progress-bar');
+            let width = 0;
+            const totalTime = 8000; // 8 seconds
+            const interval = 50; // Update every 50ms for smooth animation
+            const increment = (interval / totalTime) * 100;
+            
+            const progressInterval = setInterval(function() {
+                width += increment;
+                progressBar.style.width = width + '%';
+                
+                if (width >= 100) {
+                    clearInterval(progressInterval);
+                    // Complete the redirect
+                    window.location.href = redirectUrl;
+                }
+            }, interval);
+            
+            // Also set a direct timeout to ensure redirect happens
+            setTimeout(function() {
+                window.location.href = redirectUrl;
+            }, totalTime);
+        });
     </script>
 </body>
 </html>
