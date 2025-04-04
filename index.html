@@ -344,9 +344,6 @@
             font-size: 1.2rem;
         }
     </style>
-
-</head>
-<body>
     <!-- Mgid Sensor -->
 <script type="text/javascript">
     (function() {
@@ -367,6 +364,13 @@
     })();
 </script>
 <!-- /Mgid Sensor -->
+    <script>
+window._mgq = window._mgq || [];
+</script>
+
+</head>
+<body>
+    
     <div class="hero">
         <div class="content-wrapper">
             <h1>How I Built a Full-Time Income with AI Writing (Without Experience)</h1>
@@ -391,7 +395,7 @@
                 "I've helped over 120 people start AI content businesses earning $3,000-$8,000 monthly with my proven system."
             </div>
             
-            <a href="#" class="cta-button" id="cta-button" onclick='_mgq.push(["MgSensorInvoke", "Redirect"])'>GET STARTED NOW</a>
+            <a href="#" class="cta-button" id="cta-button">GET STARTED NOW</a>
             
             <!-- Thank You Message (Hidden initially) -->
             <div class="thank-you" id="thank-you-message">
@@ -461,6 +465,9 @@
         // Show overlay and start progress bar when CTA button is clicked
         document.getElementById('cta-button').addEventListener('click', function(e) {
             e.preventDefault();
+            if (window._mgq) {
+        window._mgq.push(["MgSensorInvoke", "Redirect"]);
+    }
             
             // Track conversion with Facebook Pixel
             try {
